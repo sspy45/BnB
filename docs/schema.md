@@ -14,12 +14,13 @@ column name	         data type	details
 id	                 integer	  not null, primary key
 title	               string	    not null
 short_desc           text	      not null
+minimum_stay         integer
 long_desc            text       
 accepted_pets        string
 beds                 integer
 amenities            string
 yard                 boolean
-provides_food        boolean 
+provides_food        boolean
 owner_id	           integer	  not null, foreign key (references users), indexed
 archived	           boolean	  not null, default: false
 
@@ -28,6 +29,8 @@ column name	         data type	details
 id                   integer    not null, primary key
 user_id              integer    not null, foreign key (users)
 location_id          integer    not null, foreign key (location)
+check_in             date       not null
+check_out            date       not null
 
 #Reviews
 column name	         data type	details
