@@ -11,16 +11,23 @@
   POST /api/session
   DELETE /api/session
 
-#Posts
-  GET /api/posts
-  POST /api/posts
-  GET api/posts/:id
-  PATCH api/posts/:id
-  DELETE api/notes/:id
+#Locations
+  GET /api/location
+  POST /api/locations
+  GET api/locations/:id
+  PATCH api/locations/:id
+  DELETE api/locations/:id
 
-#Comments
-  GET /api/comments
-  POST /api/comments
+#Bookings
+  GET /api/bookings
+  POST /api/locations/:id/bookings
+  GET api/bookings/:id
+  PATCH api/bookings/:id
+  DELETE api/bookings/:id
+
+#Reviews
+  GET /api/reviews
+  POST /api/reviews
   DELETE api/comment/:id
-  PATCH api/comments/:id
-  DELETE api/comments/:id
+  PATCH api/reviews/:id
+  DELETE api/reviews/:id

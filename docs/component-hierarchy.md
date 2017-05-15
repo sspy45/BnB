@@ -8,7 +8,7 @@
   SearchContainer
     - SearchBar
   CategoriesContainer
-    - Posts
+    - Locations
   Footer
 
 #SearchContainer
@@ -16,9 +16,9 @@
 
 #SearchPageContainer
   SearchHeader
-  PostsContainer
-    - Posts
-    - PostReviews
+  LocationsContainer
+    - Locations
+    - LocationsReviews
   SearchMap
 
 #UserProfileContainer
@@ -29,17 +29,17 @@
   UserListings
   UserReservations
 
-#PostDetailContainer
+#LocationDetailContainer
   MinimalSearch
-  PostDetail
-  PostReviews
-  PostDetailMap
+  LocationDetail
+  LocationReviews
+  LocationDetailMap
 
 
   *ROUTES*
+  "/"              |  "HomeContainer"
   "/sign-up"       |  "AuthFormContainer"
   "/sign-in"       |  "AuthFormContainer"
-  "/home"          |  "HomeContainer"
   "/search"        |  "SearchPageContainer"
   "/user/:id"      |  "UserProfileContainer"
-  "/post/:id"      |  "PostDetailContainer"
+  "/location/:id"  |  "LocationDetailContainer"

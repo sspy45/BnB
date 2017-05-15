@@ -4,11 +4,11 @@
     username: "app-academy"
   },
   forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    createPost: {errors: ["body can't be blank"]}
+    sign_up: {errors: []},
+    log_in: {errors: []},
+    create_location: {errors: ["body can't be blank"]}
   },
-  Posts: {
+  locations: {
     1: {
       title: "Sample State",
       short_desc: "My lovely place",
@@ -20,26 +20,26 @@
       bedrooms: 4,
       cost: 500,
       duration: "week",
-      approve: "false",
+      approved: "false",
       house_rules: ["be nice", "be really nice", "don't be too nice"]
       }
     }
   },
-  Renter: {
+  booking: {
     1: {
-      check_in: "5/13/2020",
-      check_out: "5/14/2040",
-      guests: 5,
+      location_id: 1,
+      <!-- check_in: "5/13/2020",  
+      check_out: "5/14/2040", -->
+      current_bookings: ["4/13/2005-5/14/2006", '6/13/2015-6/15/2016']
     }
   }
-  comments: {
+  reviews: {
     1: {
       title: "great experience",
       author_id: 1,
-      post_id: 2,
+      location_id: 2,
       description: "is cool",
 
     }
   }
-  tagFilters: [1, 7, 14] // Used to track selected Tags for filtering of notes
 }
