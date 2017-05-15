@@ -4,8 +4,12 @@ Directory
   [sample-state.md]
   [schema.md]
 
-Heroku Link
-//TODO
+#Heroku Link
+//Not Functioning
+https://secure-beach-84827.herokuapp.com/
+
+#Trello Link
+https://trello.com/b/kyrH10iN/airbnb-clone
 
 
 MVPs
