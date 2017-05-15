@@ -12,7 +12,7 @@ https://secure-beach-84827.herokuapp.com/
 https://trello.com/b/kyrH10iN/airbnb-clone
 
 
-MVPs
+#MVPs
   Spots
   Bookings
   Spots search (by location & availability) & Google Maps on search
