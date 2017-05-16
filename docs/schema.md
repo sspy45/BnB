@@ -13,9 +13,15 @@ session_token	       string	    not null, indexed, unique
 column name	         data type	details
 id	                 integer	  not null, primary key
 title	               string	    not null
-short_desc           text	      not null
+street_address1      string     not null
+street_address2      string     not null
+city                 string     not null
+zip                  string     not null
+state                string     not null
+lng                  float      
+lat                  float      
 minimum_stay         integer
-long_desc            text       
+description          text       not null
 accepted_pets        string
 beds                 integer
 amenities            string
