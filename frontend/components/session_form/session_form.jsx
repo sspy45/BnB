@@ -41,12 +41,10 @@ class SessionForm extends React.Component {
 
 		const link = formType === "login" ?
 			<div>
-				<p>Don't have an account?  <Link to="/signup">Sign Up</Link></p>
-
+				<h3>Don't have an account?  <Link to="/signup">Sign Up</Link></h3>
 			</div> :
 			<div>
-				<p>Already have an account?  <Link to="/login">Log in</Link></p>
-
+				<h3>Already have an account?  <Link to="/login">Log in</Link></h3>
 			</div>;
 
 
@@ -65,7 +63,10 @@ class SessionForm extends React.Component {
 					value={this.state.password}
 					placeholder="password"></input>
 
-				<input type="submit" value="Submit"/>
+				<input
+					className='session-form-submit'
+					type="submit"
+					value="Submit"/>
 				<br/>
 				{link}
 				{errors}

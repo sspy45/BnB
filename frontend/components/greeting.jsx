@@ -62,9 +62,8 @@ class Greeting extends React.Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
-              contentLabel="Example Modal">
+              contentLabel={this.state.whichModal}>
 
-              <h1>MODAL IS HERE</h1>
               <SessionFormContainer formType={this.state.whichModal}/>
             </Modal>
 
