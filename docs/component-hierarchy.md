@@ -19,7 +19,11 @@
   LocationsContainer
     - Locations
     - LocationsReviews
-  SearchMap
+  SearchMapContainer
+    - not sure how this works yet
+
+#SearchMapContainer
+  Map
 
 #UserProfileContainer
   UserForm
