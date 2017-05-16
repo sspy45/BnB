@@ -57,6 +57,8 @@ class Greeting extends React.Component {
             <button onClick={this.openModal('signup')}>Sign up</button>
 
             <Modal
+              className='modal'
+              overlayClassName='overlay'
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
