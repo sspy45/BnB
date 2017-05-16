@@ -51,7 +51,8 @@ class SessionForm extends React.Component {
 
 
 		return(
-			<form	onSubmit={this.handleSubmit}>
+			<form	className='session-container' onSubmit={this.handleSubmit}>
+				<section className='session-form'>
 				{header}
 				<input
 					type="text"
@@ -65,8 +66,10 @@ class SessionForm extends React.Component {
 					placeholder="password"></input>
 
 				<input type="submit" value="Submit"/>
+				<br/>
 				{link}
 				{errors}
+				</section>
 			</form>
 		);
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { AuthRoute } from '../util/route_util.jsx';
+
 import {
   Route,
   Redirect,
