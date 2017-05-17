@@ -33,14 +33,13 @@ class SessionForm extends React.Component {
 		this.setState({
 			username: this.state.username,
 			password: "",
-			formType: this.props.formType
 		});
   }
 	handleSwitch(e) {
 		e.preventDefault();
 		const formType = (this.state.formType === "login") ? "signup" : "login";
-		console.log(this);
 		this.setState({formType});
+		this.props.clearErrors();
 	}
 
 	update(property) {
@@ -51,7 +50,7 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
     return(
-      <ul>
+      <ul className='errors'>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -70,19 +69,19 @@ class SessionForm extends React.Component {
 
 		const link = formType === "login" ?
 			<div className='session-form-switch'>
-				<h3>Don't have an account?</h3>
+				<h4>Don't have an account?</h4>
 				<Link
 					to="/"
-					className='session-link'
+					className='session-button'
 					onClick={this.handleSwitch}
 					>Sign Up
 				</Link>
 			</div> :
 			<div className='session-form-switch'>
-				<h3>Already have an account?</h3>
+				<h4>Already have an account?</h4>
 				<Link
 					to="/"
-					className='session-link'
+					className='session-button'
 					onClick={this.handleSwitch}
 					>Log in
 				</Link>
@@ -95,19 +94,22 @@ class SessionForm extends React.Component {
 				<section className='session-form'>
 				{header}
 				{this.renderErrors()}
-				<input
-					type="text"
-					className='session-form-input'
-					onChange={this.update('username')}
-					value={this.state.username}
-					placeholder="username"></input>
-				<input
-					type="password"
-					className='session-form-input'
-					onChange={this.update('password')}
-					value={this.state.password}
-					placeholder="password"></input>
-
+				<div>
+					<h3>Username</h3>
+					<input
+						type="text"
+						className='session-form-input'
+						onChange={this.update('username')}
+						value={this.state.username}
+						placeholder="username"></input>
+					<h3>Password</h3>
+					<input
+						type="password"
+						className='session-form-input'
+						onChange={this.update('password')}
+						value={this.state.password}
+						placeholder="password"></input>
+				</div>
 				<input
 					className='session-form-submit'
 					type="submit"

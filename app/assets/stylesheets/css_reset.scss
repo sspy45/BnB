@@ -63,11 +63,39 @@ header {
 
 	h1 {
 		font-size: 30px;
+	}
 
+	.header-session{
+		display: flex;
+		align-items: center;
+		flex-direction: row;
 	}
 }
 
 #map-container{
 	width: 500px;
 	height: 500px;
+}
+
+.errors{
+	color: red
+}
+
+.nav-button {
+	text-align: center;
+	background: white;
+	padding: 3px;
+	margin: 5px;
+	border: 2px solid #5F9EA0;
+	color: #5F9EA0;
+	width: 80px;
+	font-weight: 700;
+	border-radius: 5px;
+
+	// &:hover{
+	// 	color: gray;
+	// 	background-image: url('https://media.giphy.com/media/4dLGxc3IKOFZ6/giphy.gif');
+	// 	background-size: 100% 100%;
+	// 	// animation: pulse .3s infinite;
+	// }
 }

@@ -47,7 +47,9 @@ class Greeting extends React.Component {
           <h1>Happy Hour?</h1>
           <div className='header-session'>
             <h2>Welcome {this.props.currentUser.username}</h2>
-            <button onClick={this.handleLogOut}>Logout</button>
+            <button
+              className='nav-button'
+              onClick={this.handleLogOut}>Logout</button>
           </div>
         </header>);
       } else {
@@ -55,8 +57,12 @@ class Greeting extends React.Component {
           <header>
             <h1>Happy Hour?</h1>
             <div className='header-session'>
-              <button onClick={this.openModal('login')}>Log in</button>
-              <button onClick={this.openModal('signup')}>Sign up</button>
+              <button
+                className='nav-button'
+                onClick={this.openModal('login')}>Log in</button>
+              <button
+                className='nav-button'
+                onClick={this.openModal('signup')}>Sign up</button>
             </div>
             <Modal
               className='modal'
@@ -65,7 +71,9 @@ class Greeting extends React.Component {
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
               contentLabel={this.state.whichModal}>
-
+              <button
+                className="modal-close-button"
+                onClick={this.closeModal}>x</button>
               <SessionFormContainer formType={this.state.whichModal}/>
             </Modal>
           </header>

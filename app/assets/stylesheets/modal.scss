@@ -7,6 +7,15 @@
   background-color: white;
   opacity: 1;
 }
+.modal-close-button {
+  float: right;
+  font-size: 20px;
+  padding: 0px 10px 10px 0px;
+  background: none;
+  color: gray;
+  border: none;
+  outline: none;
+}
 
 .overlay {
   position: fixed;
