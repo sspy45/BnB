@@ -1,3 +1,5 @@
+/*global google*/
+
 export default class MarkerManager {
   constructor(map) {
     this.map = map;

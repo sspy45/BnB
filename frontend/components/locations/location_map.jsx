@@ -1,3 +1,5 @@
+/* global google */
+
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
 

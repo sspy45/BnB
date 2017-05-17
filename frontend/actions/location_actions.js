@@ -8,8 +8,8 @@ export const receiveLocations = ({locations}) => ({
 });
 
 
-export const fetchLocations = () => dispatch => {
-  return APIUtil.fetchLocations().then( locations => {
+export const fetchLocations = (filters) => dispatch => {
+  return APIUtil.fetchLocations(filters).then( locations => {
     return dispatch(receiveLocations(locations));
   });
 };
