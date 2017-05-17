@@ -44,18 +44,20 @@ class Greeting extends React.Component {
     if (this.props.currentUser){
       return (
         <header>
-          <title>Bnb</title>
-          <h2>Welcome {this.props.currentUser.username}</h2>
-          <button onClick={this.handleLogOut}>Logout</button>
+          <h1>Happy Hour?</h1>
+          <div className='header-session'>
+            <h2>Welcome {this.props.currentUser.username}</h2>
+            <button onClick={this.handleLogOut}>Logout</button>
+          </div>
         </header>);
       } else {
         return(
-          <section>
           <header>
-            <title>Bnb</title>
-            <button onClick={this.openModal('login')}>Log in</button>
-            <button onClick={this.openModal('signup')}>Sign up</button>
-
+            <h1>Happy Hour?</h1>
+            <div className='header-session'>
+              <button onClick={this.openModal('login')}>Log in</button>
+              <button onClick={this.openModal('signup')}>Sign up</button>
+            </div>
             <Modal
               className='modal'
               overlayClassName='overlay'
@@ -66,9 +68,7 @@ class Greeting extends React.Component {
 
               <SessionFormContainer formType={this.state.whichModal}/>
             </Modal>
-
           </header>
-          </section>
 
         );
       }

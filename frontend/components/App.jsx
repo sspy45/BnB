@@ -16,10 +16,9 @@ import LocationIndexContainer from './locations/location_index_container';
 
 const App = () => (
   <div>
-    <header>
-      <h1>Bench Bnb</h1>
+    <section>
       <GreetingContainer />
-    </header>
+    </section>
     <AuthRoute path="/login" component={ SessionFormContainer } />
     <AuthRoute path="/signup" component={ SessionFormContainer } />
     <Route path="/locations" component={ LocationIndexContainer } />

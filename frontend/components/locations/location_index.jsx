@@ -1,13 +1,36 @@
 import React from 'react';
+import LocationIndexItem from './location_index_item';
 
-const LocationIndex = ({ locations }) => (
-  <div>
-    <h2>Locations: </h2>
-    {locations.map(location => (
-      <div></div>
-    ))}
+class LocationIndex extends React.Component{
+  constructor(props){
+    super(props);
+  }
 
-  </div>
-);
+  componentWillMount(){
+    this.props.fetchLocations();
+  }
+  render(){
+    const {locations} = this.props;
+
+    if (locations.length > 0){
+
+      return(
+        <ul>
+        {
+          locations.map(location => {
+            return (
+              <LocationIndexItem location={location} />
+            );
+          }
+        )}
+      </ul>
+      );
+    } else {
+      return (
+        <div>Empty</div>
+      );
+    }
+  }
+}
 
 export default LocationIndex;

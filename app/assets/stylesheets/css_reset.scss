@@ -56,11 +56,12 @@ table {
 
 header {
   display: flex;
-  flex-direction: row;
+	padding: 20px;
+	border-bottom: solid 2px gray;
   justify-content: space-between;
 
 	h1 {
 		font-size: 30px;
-		
+
 	}
 }

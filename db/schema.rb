@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516160035) do
+ActiveRecord::Schema.define(version: 20170517003249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "title",           null: false
+    t.string   "description",     null: false
+    t.string   "street_address1", null: false
+    t.string   "street_address2", null: false
+    t.string   "city",            null: false
+    t.string   "state",           null: false
+    t.integer  "zip",             null: false
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "owner_id",        null: false
+    t.boolean  "archived",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["owner_id"], name: "index_locations_on_owner_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

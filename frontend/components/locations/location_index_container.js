@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchLocations: () => fetchLocations()
+  fetchLocations: () => dispatch(fetchLocations())
 });
 
 export default connect(
