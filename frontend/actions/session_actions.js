@@ -5,9 +5,9 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const login = (user) => (dispatch) => {
   return APIUtil.login(user)
-  .then( _user => (dispatch(receiveCurrentUser(_user))
-  .then( errors => (dispatch(receiveErrors(errors.responseJSON))))
-  ));
+  .then( _user => (dispatch(receiveCurrentUser(_user))),
+    errors => (dispatch(receiveErrors(errors.responseJSON)))
+  );
 };
 
 export const logout = () => (dispatch) => {
@@ -18,8 +18,8 @@ export const logout = () => (dispatch) => {
 
 export const signup = (user) => (dispatch) => {
   APIUtil.signup(user)
-    .then(_user => (dispatch(receiveCurrentUser(_user))
-    .then( errors =>(dispatch(receiveErrors(errors.responseJSON))))
+    .then(_user => (dispatch(receiveCurrentUser(_user))),
+      errors =>(dispatch(receiveErrors(errors))
   ));
 };
 
