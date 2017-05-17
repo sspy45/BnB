@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
       render "api/shared/user"
     else
       @errors = @user.errors.full_messages
-      render @errors, status: 422
+      render json: [@errors], status: 401
     end
   end
 

@@ -30,7 +30,11 @@ class SessionForm extends React.Component {
 		} else if (this.state.formType === "signup"){
 			this.props.signup({user});
 		}
-		this.state = {username: "", password: "", formType: this.props.formType};
+		this.setState = {
+			username: this.state.username,
+			password: "",
+			formType: this.props.formType
+		};
   }
 	handleSwitch(e) {
 		e.preventDefault();

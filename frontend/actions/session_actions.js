@@ -17,10 +17,14 @@ export const logout = () => (dispatch) => {
 };
 
 export const signup = (user) => (dispatch) => {
-  APIUtil.signup(user)
-    .then(_user => (dispatch(receiveCurrentUser(_user))),
-      errors =>(dispatch(receiveErrors(errors))
-  ));
+  debugger
+  return APIUtil.signup(user)
+  .then( _user => (dispatch(receiveCurrentUser(_user))),
+    (errors => {
+      debugger;
+      dispatch(receiveErrors(errors.responseJSON));
+    })
+  );
 };
 
 export const receiveCurrentUser = currentUser => ({
