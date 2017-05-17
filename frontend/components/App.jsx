@@ -12,7 +12,7 @@ import {
 
 import GreetingContainer from './greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
-import LocationIndexContainer from './locations/location_index_container';
+import SearchContainer from './locations/search_container';
 
 const App = () => (
   <div>
@@ -21,7 +21,7 @@ const App = () => (
     </section>
     <AuthRoute path="/login" component={ SessionFormContainer } />
     <AuthRoute path="/signup" component={ SessionFormContainer } />
-    <Route path="/locations" component={ LocationIndexContainer } />
+    <Route exact path="/search" component={ SearchContainer } />
   </div>
 );
 

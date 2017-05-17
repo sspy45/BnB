@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { asArray } from '../../reducers/selectors';
 import { fetchLocations } from '../../actions/location_actions';
-import LocationIndex from './location_index';
+import Search from './search';
 
 const mapStateToProps = state => {
   return {
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LocationIndex);
+)(Search);
