@@ -64,6 +64,9 @@ header {
 	h1 {
 		font-size: 30px;
 	}
+	marquee {
+		font-size: 30px;
+	}
 
 	.header-session{
 		display: flex;
@@ -98,4 +101,10 @@ header {
 	// 	background-size: 100% 100%;
 	// 	// animation: pulse .3s infinite;
 	// }
+}
+
+.home-container{
+	height: 600px;
+	background-size: 100%;
+	background-image: image-url('home-splash.jpg')
 }

@@ -44,7 +44,7 @@ class Greeting extends React.Component {
     if (this.props.currentUser){
       return (
         <header>
-          <h1>Happy Hour?</h1>
+          <marquee>Happy Hour?              Happy Hour?                  Happy Hour?</marquee>
           <div className='header-session'>
             <h2>Welcome {this.props.currentUser.username}</h2>
             <button

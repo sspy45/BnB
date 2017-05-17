@@ -13,6 +13,7 @@ import {
 import GreetingContainer from './greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import SearchContainer from './locations/search_container';
+import HomeContainer from './home/home_container';
 
 const App = () => (
   <div>
@@ -22,6 +23,8 @@ const App = () => (
     <AuthRoute path="/login" component={ SessionFormContainer } />
     <AuthRoute path="/signup" component={ SessionFormContainer } />
     <Route exact path="/search" component={ SearchContainer } />
+    <Route path="/" component={ HomeContainer } />
+
   </div>
 );
 
