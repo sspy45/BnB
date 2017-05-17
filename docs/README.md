@@ -1,18 +1,18 @@
-#Directory
+# Directory
   [api-endpoints.md]
   [component-hierarchy.md]
   [sample-state.md]
   [schema.md]
 
-#Heroku Link
+# Heroku Link
 //Not Functioning
 https://secure-beach-84827.herokuapp.com/
 
-#Trello Link
+# Trello Link
 https://trello.com/b/kyrH10iN/airbnb-clone
 
 
-#MVPs
+# MVPs
   Spots
   Bookings
   Spots search (by location & availability) & Google Maps on search
@@ -20,17 +20,17 @@ https://trello.com/b/kyrH10iN/airbnb-clone
   Bonus: Messaging
   Bonus: User/host profiles
 
-#Wireframes
+# Wireframes
 [wireframes](wireframes)
 
-#Features
+# Features
 My idea for the AirBnB clone will be to create a pet-sitting website for people who need to travel.  Functionality will be similar to AirBnB.  
 
 Users will be able to search by location through google map api, amongst other filtering options. Users will be able to book stays for their pet as well as offer their own services.
 
 Bonus features will include allowing users to message one another, have public profiles.
 
-#Timeline
+# Timeline
 
   *Phase 1: Backend setup and Front End User Authentication (2 days)*
 
@@ -57,14 +57,3 @@ Bonus features will include allowing users to message one another, have public p
 
   Objective: Time to clean up the site and work on extra features
   if time permits.
-
-
-
-Component Hierarchy
-
-
-Sample State
-
-Database Schema
-
-Timeline

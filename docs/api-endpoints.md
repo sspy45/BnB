@@ -19,7 +19,7 @@
   DELETE api/locations/:id
 
 #Bookings
-  GET /api/bookings
+  GET /api/bookings/:id/bookings
   POST /api/locations/:id/bookings
   GET api/bookings/:id
   PATCH api/bookings/:id

@@ -1,5 +1,5 @@
 {
-  currentUser: {
+  current_user: {
     id: 1,
     username: "app-academy"
   },
@@ -25,7 +25,7 @@
       }
     }
   },
-  booking: {
+  bookings: {
     1: {
       location_id: 1,
       current_bookings: ["4/13/2005-5/14/2006", '6/13/2015-6/15/2016']

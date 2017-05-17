@@ -11,16 +11,15 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render "api/users/show"
     else
-      render text: "Invalid user", status: 404
+      render(
+        json: ["Invalid username/password combination"],
+        status: 401
+      )
     end
   end
 
   def destroy
-    if current_user.nil?
-      render text: "Invalid user", status: 404
-    else
-      logout!(current_user)
-      render json: {}
-    end
+    @user = current_user
+    logout!(@user)
   end
 end

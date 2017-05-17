@@ -44,10 +44,21 @@ class SessionForm extends React.Component {
 		});
 	}
 
+	renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render(){
 		const {loggedIn, errors} = this.props;
 		const formType = this.state.formType;
-
 		const header = formType === "login" ?
 			<h2>Log In</h2> :
 			<h2>Sign Up</h2>;
@@ -78,6 +89,7 @@ class SessionForm extends React.Component {
 			<form	className='session-container' onSubmit={this.handleSubmit}>
 				<section className='session-form'>
 				{header}
+				{this.renderErrors()}
 				<input
 					type="text"
 					className='session-form-input'
@@ -97,7 +109,6 @@ class SessionForm extends React.Component {
 					value="Submit"/>
 				<br/>
 				{link}
-				{errors}
 				</section>
 			</form>
 		);
