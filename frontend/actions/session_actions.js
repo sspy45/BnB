@@ -17,13 +17,9 @@ export const logout = () => (dispatch) => {
 };
 
 export const signup = (user) => (dispatch) => {
-  debugger
   return APIUtil.signup(user)
   .then( _user => (dispatch(receiveCurrentUser(_user))),
-    (errors => {
-      debugger;
-      dispatch(receiveErrors(errors.responseJSON));
-    })
+    (errors => dispatch(receiveErrors(errors.responseJSON)))
   );
 };
 
