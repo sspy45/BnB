@@ -7,12 +7,14 @@ class SessionForm extends React.Component {
 		this.state = {
 
 				username: "",
-				password: ""
+				password: "",
+				formType: props.formType
 
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.update = this.update.bind(this);
+		this.handleSwitch = this.handleSwitch.bind(this);
   }
 	componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
@@ -23,9 +25,18 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-		this.state = {username: "", password: ""};
-    this.props.processForm({user});
+		if(this.state.formType === "login"){
+			this.props.login({user});
+		} else if (this.state.formType === "signup"){
+			this.props.signup({user});
+		}
+		this.state = {username: "", password: "", formType: this.props.formType};
   }
+	handleSwitch(e) {
+		e.preventDefault();
+		const formType = this.state.formType === "login" ? "signup" : "login";
+		this.setState({formType});
+	}
 
 	update(property) {
 		return e => this.setState({
@@ -34,17 +45,32 @@ class SessionForm extends React.Component {
 	}
 
   render(){
-		const {loggedIn, errors, formType} = this.props;
+		const {loggedIn, errors} = this.props;
+		const formType = this.state.formType;
+
 		const header = formType === "login" ?
 			<h2>Log In</h2> :
 			<h2>Sign Up</h2>;
 
 		const link = formType === "login" ?
-			<div>
-				<h3>Don't have an account?  <Link to="/signup">Sign Up</Link></h3>
+			<div className='session-form-switch'>
+				<h3>Don't have an account?</h3>
+				<Link
+					to="/"
+					className='session-link'
+					onClick={this.handleSwitch}
+					>Sign Up
+				</Link>
 			</div> :
-			<div>
-				<h3>Already have an account?  <Link to="/login">Log in</Link></h3>
+			<div className='session-form-switch'>
+				<h3>Already have an account?</h3>
+				<Link
+					to="/"
+					className='session-link'
+					onClick={this.handleSwitch}
+					>Log in
+				</Link>
+
 			</div>;
 
 
@@ -54,11 +80,13 @@ class SessionForm extends React.Component {
 				{header}
 				<input
 					type="text"
+					className='session-form-input'
 					onChange={this.update('username')}
 					value={this.state.username}
 					placeholder="username"></input>
 				<input
 					type="password"
+					className='session-form-input'
 					onChange={this.update('password')}
 					value={this.state.password}
 					placeholder="password"></input>

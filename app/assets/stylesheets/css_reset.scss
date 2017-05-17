@@ -50,6 +50,17 @@ table {
 //BASIC DEFAULT STYLING
 
 * {
-	font-family: "Times New Roman", Georgia, Serif;
+	font-family: sans-serif, Georgia, Serif;
 	font-size: 15px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+	h1 {
+		font-size: 30px;
+		
+	}
 }

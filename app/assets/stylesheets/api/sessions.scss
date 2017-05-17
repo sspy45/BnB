@@ -11,34 +11,83 @@
 
 .session-form {
   display: flex;
+  align-items: center;
   flex-direction: column;
   padding: 10px;
   margin: 10px;
-  border: 2px red solid;
+  // border: 2px red solid;
   border-radius: 5px;
 
   h2 {
+    -webkit-align-self: flex-start;
     font-size: 30px;
     font-weight: bolder;
-    margin: 5px;
+    margin: 20px 5px
   }
-  input {
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .session-form-input{
     width: 300px;
     height: 25px;
     margin: 5px;
     padding-left: 10px;
     border: 1px solid grey;
     border-radius: 5px;
+
   }
 
   .session-form-submit {
-    display: flex;
     margin: 20px;
-
+    padding: 5px;
     background-color: red;
+    border: 0px;
     color: white;
     width: 200px;
     font-weight: 700;
+    border-radius: 5px;
+  }
+
+  .session-form-switch {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+
+  }
+
+  .session-link {
+    text-decoration: none;
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    border: 2px solid #5F9EA0;
+    color: #5F9EA0;
+    width: 80px;
+    font-weight: 700;
+    border-radius: 5px;
+
+    &:hover{
+      color: white;
+      animation: pulse .3s infinite;
+    }
+
+    @keyframes pulse {
+    0% {
+      background-color: #001F3F;
+    }
+    33% {
+      background-color: #FF4136;
+    }
+    66% {
+      background-color: #7FFF00;
+    }
+    100% {
+      background-color: #001F3F;
+    }
+  }
   }
 
 }
