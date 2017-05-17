@@ -11,7 +11,6 @@ class LocationIndex extends React.Component{
   }
   render(){
     const {locations} = this.props;
-
     if (locations.length > 0){
 
       return(
