@@ -28,6 +28,18 @@ class User < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :Location
 
+  has_many :pets,
+    primary_key: :id,
+    foreign_key: :owner_id,
+    class_name: :Pet
+
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Review
+
+  has_many :bookings,
+    through: :pets
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

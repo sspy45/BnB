@@ -26,6 +26,21 @@ class Location < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
+  has_many :bookings,
+    primary_key: :id,
+    foreign_key: :location_id,
+    class_name: :Booking
+
+  has_many :hostings,
+    primary_key: :id,
+    foreign_key: :location_id,
+    class_name: :Hosting
+
+  has_many :pet_types,
+    through: :hostings
+
+  has_many :pets,
+    through: :bookings
 
   def self.in_bounds(bounds)
     self.where("lat < ?", bounds[:northEast][:lat])

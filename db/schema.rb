@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517210700) do
+ActiveRecord::Schema.define(version: 20170518004826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "user_id",     null: false
     t.integer  "location_id", null: false
     t.datetime "check_in",    null: false
     t.datetime "check_out",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "pet_id",      null: false
+  end
+
+  create_table "hostings", force: :cascade do |t|
+    t.integer  "location_id", null: false
+    t.integer  "pet_type_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -39,6 +46,32 @@ ActiveRecord::Schema.define(version: 20170517210700) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["owner_id"], name: "index_locations_on_owner_id", using: :btree
+  end
+
+  create_table "pet_types", force: :cascade do |t|
+    t.string   "species",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.integer  "owner_id",   null: false
+    t.integer  "type_id",    null: false
+    t.string   "name",       null: false
+    t.string   "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "body",        null: false
+    t.integer  "rating",      null: false
+    t.integer  "user_id",     null: false
+    t.integer  "pet_id"
+    t.integer  "location_id"
+    t.string   "review_type", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
