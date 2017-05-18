@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleGuestSubmit = this.handleGuestSubmit.bind(this);
 		this.update = this.update.bind(this);
 		this.handleSwitch = this.handleSwitch.bind(this);
   }
@@ -21,6 +22,14 @@ class SessionForm extends React.Component {
       this.props.history.push('/');
     }
   }
+	handleGuestSubmit(e) {
+		e.preventDefault();
+		const user = {
+			username: 'demo',
+			password: 'password'
+		};
+		this.props.login({user});
+	}
 
   handleSubmit(e) {
     e.preventDefault();
@@ -90,7 +99,7 @@ class SessionForm extends React.Component {
 
 
 		return(
-			<form	className='session-container' onSubmit={this.handleSubmit}>
+			<section	className='session-container'>
 				<section className='session-form'>
 				{header}
 				{this.renderErrors()}
@@ -110,14 +119,22 @@ class SessionForm extends React.Component {
 						value={this.state.password}
 						placeholder="password"></input>
 				</div>
-				<input
-					className='session-form-submit'
-					type="submit"
-					value="Submit"/>
+				<div>
+					<input
+						className='session-form-submit'
+						onClick={this.handleGuestSubmit}
+						type="submit"
+						value="Guest"/>
+					<input
+						className='session-form-submit'
+						onClick={this.handleSubmit}
+						type="submit"
+						value="Submit"/>
+				</div>
 				<br/>
 				{link}
 				</section>
-			</form>
+			</section>
 		);
   }
 }

@@ -3,17 +3,18 @@ import { connect } from 'react-redux';
 import { fetchUser, fetchPets, fetchBookings } from '../../actions/user_actions';
 import UserDetail from './user_detail';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({session, user_details}) => {
   return {
-    session: state.session
+    session,
+    user_details
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: () =>dispatch(fetchUser()),
-    fetchPets: () => dispatch(fetchPets()),
-    fetchBookings: () =>dispatch(fetchBookings())
+    fetchPets: (id) => dispatch(fetchPets(id)),
+    fetchBookings: (id) =>dispatch(fetchBookings(id))
   };
 };
 

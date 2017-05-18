@@ -1,7 +1,7 @@
 class Api::LocationsController < ApplicationController
 
   def index
-    @locations = Location..in_bounds(params[:bounds])
+    @locations = Location.in_bounds(params[:bounds])
   end
 
   def create

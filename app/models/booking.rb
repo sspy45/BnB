@@ -27,4 +27,5 @@ class Booking < ApplicationRecord
   has_one :owner,
     through: :pet
 
+  alias_attribute :customer, :owner
 end
