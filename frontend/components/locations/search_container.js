@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { asArray } from '../../reducers/selectors';
 import { fetchLocations } from '../../actions/location_actions';
 import Search from './search';
 

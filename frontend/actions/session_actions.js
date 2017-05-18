@@ -11,9 +11,10 @@ export const login = (user) => (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
-  APIUtil.logout()
-    .then( _user => (dispatch(receiveCurrentUser(null))
-  ));
+  return APIUtil.logout()
+    .then( _user => {
+      dispatch(receiveCurrentUser(null));
+  });
 };
 
 export const signup = (user) => (dispatch) => {
