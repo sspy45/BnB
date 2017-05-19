@@ -5,7 +5,6 @@ import PetTypeIndexItem from './pet_type_index_item';
 export default class PetsIndex extends React.Component {
   constructor(props){
     super(props);
-    debugger
     this.state = {
       name: '',
       desc: '',
@@ -43,7 +42,6 @@ export default class PetsIndex extends React.Component {
 
   render(){
     const { pets, pet_types, removePet } = this.props;
-    debugger
     return (
       <section>
         <h3>---------PET LIST---------</h3>

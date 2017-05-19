@@ -1,3 +1,4 @@
-export const asArray = ({ pets }) => (
-  Object.keys(pets).map(key => pets[key])
-);
+export const asArray = ({pets}) => {
+  console.log(Object.keys(pets).map(key => pets[key]));
+  return Object.keys(pets).map(key => pets[key]);
+};

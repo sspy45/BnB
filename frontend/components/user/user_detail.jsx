@@ -30,7 +30,6 @@ export default class UserDetail extends React.Component {
 
   render(){
     const { pets, bookings, pet_types } = this.props.user_details;
-
     return(
       <section>
         <nav>
@@ -40,7 +39,7 @@ export default class UserDetail extends React.Component {
         </nav>
         <section>
           <h1>Pets List</h1>
-          <PetsIndexContainer pets={pets} pet_types={pet_types}/>
+          <PetsIndexContainer pet_types={pet_types}/>
           <br />
         </section>
 

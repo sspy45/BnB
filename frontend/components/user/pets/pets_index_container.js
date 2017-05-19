@@ -10,7 +10,7 @@ import {createPet,
 
 const mapStateToProps = (state) => ({
   session: state.session,
-  pets: asArray(state)
+  pets: asArray(state.user_details)
 });
 
 const mapDispatchToProps = (dispatch, {pets, pet_types}) => {
@@ -19,7 +19,6 @@ const mapDispatchToProps = (dispatch, {pets, pet_types}) => {
     editPet: (id) => dispatch(editPet(id)),
     removePet: (pet) => () => dispatch(removePet(pet)),
     fetchPetTypes: () => dispatch(fetchPetTypes()),
-    pets,
     pet_types
   };
 };
