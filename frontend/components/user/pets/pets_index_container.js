@@ -10,7 +10,6 @@ import {
   fetchPetTypes} from '../../../actions/user_actions';
 
 const mapStateToProps = (state) => {
-  console.log(state.user_details);
   return {
     session: state.session,
     pets: asArray(state.user_details),

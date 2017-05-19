@@ -30,8 +30,7 @@ export const fetchLocations = (id) => (
 export const fetchPetTypes = () => (
   $.ajax({
     method: "GET",
-    url: 'api/pet_types/',
-    success: e => console.log("GET petTypes: " + e)
+    url: 'api/pet_types/'
   })
 );
 
@@ -39,9 +38,7 @@ export const createPet = (pet) => {
   return $.ajax({
     method: "POST",
     url: `api/users/${pet.owner_id}/pets`,
-    data: {pet},
-    success: e => console.log(e),
-    fail: e => console.log("FAILED: " + e)
+    data: {pet}
   });
 };
 

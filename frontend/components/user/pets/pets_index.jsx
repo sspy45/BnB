@@ -1,6 +1,9 @@
 import React from 'react';
 import PetIndexItem from './pets_index_item';
 import PetTypeIndexItem from './pet_type_index_item';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+
+import PetEdit from './pet_edit';
 
 export default class PetsIndex extends React.Component {
   constructor(props){
@@ -87,7 +90,7 @@ export default class PetsIndex extends React.Component {
           type="submit"
           value="Submit" />
 
-
+        <Route path='/user/pet/edit' component={PetEdit} />
       </section>
     );
   }
