@@ -25,7 +25,6 @@ const UserDetailReducer = (state = _defaultState, action) => {
     case RECEIVE_PETS:
       const pets = action.pets;
       newState = merge({}, {pets});
-      debugger;
       return newState;
     case RECEIVE_BOOKINGS:
       const bookings = action.bookings;
@@ -41,6 +40,7 @@ const UserDetailReducer = (state = _defaultState, action) => {
       return newState;
     case DELETE_PET:
       newState = merge({}, state);
+      delete newState.pets[action.pet.id];
       return newState;
     default:
       return state;

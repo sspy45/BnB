@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, {pets, pet_types}) => {
     editPet: (id) => dispatch(editPet(id)),
     removePet: (pet) => () => dispatch(removePet(pet)),
     fetchPetTypes: () => dispatch(fetchPetTypes()),
-    pet_types
+    pet_types: pet_types || []
   };
 };
 
