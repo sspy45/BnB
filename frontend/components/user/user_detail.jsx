@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+import PetsIndexContainer from './pets/pets_index_container';
+
 export default class UserDetail extends React.Component {
   constructor(props){
     super(props);
@@ -27,37 +29,21 @@ export default class UserDetail extends React.Component {
   }
 
   render(){
-    const { pets, bookings } = this.props.user_details;
-
-    debugger;
-    const petsList = pets ? (
-      <ul>
-        {pets.map( pet => {
-          return (
-            <li key={pet.id}>
-              Name: {pet.name}
-            </li>);
-        })}
-      </ul>
-    ) : "";
-
-    const bookingsList = bookings ? (
-      <ul>
-        {bookings.map( booking => {
-          return (
-            <li key={booking.id}>
-              Location: {booking.location_id}
-            </li>);
-        })}
-      </ul>
-    ) : "";
+    const { pets, bookings, pet_types } = this.props.user_details;
 
     return(
       <section>
-      <h1>USER DETAIL AREA WHOOO</h1>
-      {petsList}
-      <br />
-      {bookingsList}
+        <nav>
+          <Link to="/user/">Profile</Link>
+          <Link to="/user/pets">My pets </Link>
+          <Link to="/user/rentals">Rentals</Link>
+        </nav>
+        <section>
+          <h1>Pets List</h1>
+          <PetsIndexContainer pets={pets} pet_types={pet_types}/>
+          <br />
+        </section>
+
       </section>
     );
   }

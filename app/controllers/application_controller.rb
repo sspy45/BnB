@@ -22,4 +22,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def require_signed_in!
+    render "/" unless signed_in?
+  end
 end

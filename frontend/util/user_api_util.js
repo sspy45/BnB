@@ -2,22 +2,45 @@ export const fetchPets = (id) => (
   $.ajax({
     method: "GET",
     url: `api/users/${id}/pets`,
-    success: e => console.log("GET pets: " + e)
   })
 );
+
+export const editPet = (pet) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/users/${id}/pets`,
+    success: e => console.log("GET pets: " + e)
+  });
+};
 
 export const fetchBookings = (id) => (
   $.ajax({
     method: "GET",
     url: `api/users/${id}/bookings`,
-    success: e => console.log("GET bookings: " + e)
   })
 );
 
-export const fetchRentalLocations = (id) => (
+export const fetchLocations = (id) => (
   $.ajax({
     method: "GET",
     url: `api/users/${id}/locations`,
-    success: e => console.log("GET locations: " + e)
   })
 );
+
+export const fetchPetTypes = () => (
+  $.ajax({
+    method: "GET",
+    url: 'api/pet_types/',
+    success: e => console.log("GET petTypes: " + e)
+  })
+);
+
+export const createPet = (pet) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/users/${pet.owner_id}/pets`,
+    data: {pet},
+    success: e => console.log(e),
+    fail: e => console.log("FAILED: " + e)
+  });
+};

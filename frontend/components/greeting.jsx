@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import SessionFormContainer from './session_form/session_form_container';
 
-
 class Greeting extends React.Component {
   constructor(props){
     super(props);
@@ -71,9 +70,12 @@ class Greeting extends React.Component {
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
               contentLabel={this.state.whichModal}>
+
               <button
                 className="modal-close-button"
-                onClick={this.closeModal}>x</button>
+                onClick={this.closeModal}>x
+              </button>
+
               <SessionFormContainer formType={this.state.whichModal}/>
             </Modal>
           </header>

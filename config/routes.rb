@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
     resources :locations
     resource :session
+    resources :pet_types, only: [:index]
   end
   root "static_pages#root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

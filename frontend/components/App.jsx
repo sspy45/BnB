@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { AuthRoute } from '../util/route_util.jsx';
+import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 
 import {
   Route,
@@ -23,8 +23,8 @@ const App = () => (
     </section>
     <AuthRoute path="/login" component={ SessionFormContainer } />
     <AuthRoute path="/signup" component={ SessionFormContainer } />
+    <ProtectedRoute exact path="/user" component={ UserDetailContainer } />
     <Route exact path="/search" component={ SearchContainer } />
-    <Route exact path="/user" component={ UserDetailContainer } />
     <Route path="/" component={ HomeContainer } />
 
 

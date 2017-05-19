@@ -8,6 +8,13 @@ class Api::PetsController < ApplicationController
   end
 
   def create
+    @pet = Pet.new(pets_params)
+    if @pet.save
+      render "api/pets/show"
+    else
+      @errors = @pet.errors.full_messages
+      render json: [@errors], status: 401
+    end
   end
 
   def show
