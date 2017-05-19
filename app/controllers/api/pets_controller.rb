@@ -20,6 +20,18 @@ class Api::PetsController < ApplicationController
   def show
   end
 
+
+  def update
+    @pet = Pet.find(params[:id])
+    if @pet.update_attributes(pets_params)
+      render :show
+    else
+      @errors = @pet.errors.full_messages
+      render @errors, statas: 422
+    end
+  end
+
+
   def destroy
     @pet = Pet.find(params[:id])
 

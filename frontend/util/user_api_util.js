@@ -7,9 +7,9 @@ export const fetchPets = (id) => (
 
 export const editPet = (pet) => {
   return $.ajax({
-    method: "POST",
-    url: `api/users/${id}/pets`,
-    success: e => console.log("GET pets: " + e)
+    method: "PATCH",
+    url: `api/users/${pet.owner_id}/pets/${pet.id}`,
+    data: {pet}
   });
 };
 

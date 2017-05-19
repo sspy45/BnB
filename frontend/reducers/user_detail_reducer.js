@@ -1,4 +1,5 @@
 import {
+  RECEIVE_PET,
   RECEIVE_PETS,
   RECEIVE_ERRORS,
   RECEIVE_BOOKINGS,
@@ -23,6 +24,10 @@ const UserDetailReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type){
+    case RECEIVE_PET:
+      const pet = {[action.pet.id]: action.pet};
+      debugger;
+      return merge({}, state, {pets: pet});
     case RECEIVE_PETS:
       const pets = action.pets;
       newState = merge({}, state, {pets});

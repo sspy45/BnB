@@ -3,7 +3,7 @@ import PetIndexItem from './pets_index_item';
 import PetTypeIndexItem from './pet_type_index_item';
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
 
-import PetEdit from './pet_edit';
+import PetsEditFormContainer from './pet_edit_form_container';
 
 export default class PetsIndex extends React.Component {
   constructor(props){
@@ -49,7 +49,7 @@ export default class PetsIndex extends React.Component {
   }
 
   render(){
-    const { pets, pet_types, removePet } = this.props;
+    const { pets, pet_types, removePet, editPet } = this.props;
     return (
       <section>
         <h3>---------PET LIST---------</h3>
@@ -58,6 +58,8 @@ export default class PetsIndex extends React.Component {
             key={pet.name+pet.id}
             pet={pet}
             removePet={removePet}
+            editPet={editPet}
+            petTypes={pet_types}
           />
         ;})}
 
@@ -90,7 +92,6 @@ export default class PetsIndex extends React.Component {
           type="submit"
           value="Submit" />
 
-        <Route path='/user/pet/edit' component={PetEdit} />
       </section>
     );
   }

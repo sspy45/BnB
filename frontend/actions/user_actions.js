@@ -57,13 +57,14 @@ export const receiveBookings = bookings => ({
 
 export const fetchPets = id => dispatch => {
   return APIUtil.fetchPets(id)
-    .then(pets => dispatch(receivePets(pets),
-          errors => dispatch(receiveErrors(errors))));
+    .then(pets => dispatch(receivePets(pets)),
+          errors => dispatch(receiveErrors(errors)));
 };
 
 export const editPet = pet => dispatch => (
   APIUtil.editPet(pet)
-    .then(_pet => dispatch(receiveSinglePet(_pet)))
+    .then(_pet => dispatch(receiveSinglePet(_pet)),
+          errors => dispatch(receiveErrors(errors)))
 );
 
 export const fetchBookings = id => dispatch => {
