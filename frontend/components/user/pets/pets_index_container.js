@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { asArray } from '../../../reducers/selectors';
 import PetsIndex from './pets_index';
-import {createPet,
-        editPet,
-        removePet,
-        fetchPets,
-        fetchPetTypes} from '../../../actions/user_actions';
+import {
+  createPet,
+  editPet,
+  removePet,
+  fetchPets,
+  fetchPetTypes} from '../../../actions/user_actions';
 
 const mapStateToProps = (state) => ({
   session: state.session,

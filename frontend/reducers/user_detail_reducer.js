@@ -35,8 +35,9 @@ const UserDetailReducer = (state = _defaultState, action) => {
       newState = merge({}, state, {pet_types});
       return newState;
     case RECEIVE_NEW_PET:
-      newState = merge({}, state);
-      newState.pets.push(action.pet);
+      const newPet = {[action.pet.id]: action.pet};
+      newState = merge({}, state, newPet);
+      debugger
       return newState;
     case DELETE_PET:
       newState = merge({}, state);

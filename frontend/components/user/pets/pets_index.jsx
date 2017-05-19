@@ -20,7 +20,12 @@ export default class PetsIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-
+    if(this.props.pet_types.length < 1 && nextProps.pet_types.length > 0){
+      this.setState({
+        type_id: nextProps.pet_types[0].id,
+        default_type: nextProps.pet_types[0].id
+      });
+    }
   }
 
   update(property) {
