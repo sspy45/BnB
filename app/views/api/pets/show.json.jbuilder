@@ -1,1 +1,1 @@
-json.extract! @pet, :owner_id, :type_id, :name, :desc, :id
+json.partial! '/api/pets/pet', pet: @pet

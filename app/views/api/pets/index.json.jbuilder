@@ -1,7 +1,5 @@
-json.array!(@pets) do |pet|
-  json.name pet.name
-  json.desc pet.desc
-  json.owner_id pet.owner_id
-  json.type_id pet.type_id
-  json.id pet.id
+@pets.each do |pet|
+  json.set! pet.id do
+    json.partial! 'pet', pet: pet
+  end
 end

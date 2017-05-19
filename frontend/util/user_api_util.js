@@ -46,7 +46,6 @@ export const createPet = (pet) => {
 };
 
 export const removePet = (pet) => {
-  debugger
   return $.ajax({
     method: "DELETE",
     url: `api/users/${pet.owner_id}/pets/${pet.id}`

@@ -5,13 +5,13 @@ import PetTypeIndexItem from './pet_type_index_item';
 export default class PetsIndex extends React.Component {
   constructor(props){
     super(props);
-
+    debugger
     this.state = {
       name: '',
       desc: '',
       type_id: '',
       default_type: '',
-      owner_id: props.currentUser.id
+      owner_id: props.session.currentUser.id
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,13 +21,7 @@ export default class PetsIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(this.props.pet_types.length < 1 &&
-      nextProps.pet_types.length > 0){
-      this.setState({
-        type_id: nextProps.pet_types[0].id,
-        default_type: nextProps.pet_types[0].id,
-      });
-    }
+
   }
 
   update(property) {
@@ -49,16 +43,17 @@ export default class PetsIndex extends React.Component {
 
   render(){
     const { pets, pet_types, removePet } = this.props;
+    debugger
     return (
       <section>
         <h3>---------PET LIST---------</h3>
-        {pets.map(pet => (
-          <PetIndexItem
+        {pets.map(pet => {
+          return <PetIndexItem
             key={pet.name+pet.id}
             pet={pet}
             removePet={removePet}
           />
-        ))}
+        ;})}
 
         <h3>---------ADD PET---------</h3>
         <input

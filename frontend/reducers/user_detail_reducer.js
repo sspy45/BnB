@@ -24,7 +24,7 @@ const UserDetailReducer = (state = _defaultState, action) => {
   switch(action.type){
     case RECEIVE_PETS:
       const pets = action.pets;
-      newState = merge({}, state, {pets});
+      newState = merge({}, {pets});
       return newState;
     case RECEIVE_BOOKINGS:
       const bookings = action.bookings;
@@ -40,7 +40,6 @@ const UserDetailReducer = (state = _defaultState, action) => {
       return newState;
     case DELETE_PET:
       newState = merge({}, state);
-      debugger
       return newState;
     default:
       return state;
