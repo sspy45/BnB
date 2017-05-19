@@ -9,18 +9,21 @@ import {
   fetchPets,
   fetchPetTypes} from '../../../actions/user_actions';
 
-const mapStateToProps = (state) => ({
-  session: state.session,
-  pets: asArray(state.user_details)
-});
+const mapStateToProps = (state) => {
+  console.log(state.user_details);
+  return {
+    session: state.session,
+    pets: asArray(state.user_details),
+    pet_types: state.user_details.pet_types || []
+  };
+};
 
-const mapDispatchToProps = (dispatch, {pets, pet_types}) => {
+const mapDispatchToProps = (dispatch, {pets}) => {
   return {
     createPet: (pet) => dispatch(createPet(pet)),
     editPet: (id) => dispatch(editPet(id)),
     removePet: (pet) => () => dispatch(removePet(pet)),
     fetchPetTypes: () => dispatch(fetchPetTypes()),
-    pet_types: pet_types || []
   };
 };
 

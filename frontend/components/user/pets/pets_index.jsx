@@ -9,7 +9,6 @@ export default class PetsIndex extends React.Component {
       name: '',
       desc: '',
       type_id: '',
-      default_type: '',
       owner_id: props.session.currentUser.id
     };
     this.update = this.update.bind(this);
@@ -20,10 +19,11 @@ export default class PetsIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(this.props.pet_types.length < 1 && nextProps.pet_types.length > 0){
+    if(this.props.pet_types.length < 1
+      && nextProps.pet_types.length > 0){
+
       this.setState({
-        type_id: nextProps.pet_types[0].id,
-        default_type: nextProps.pet_types[0].id
+        type_id: nextProps.pet_types[0].id
       });
     }
   }
@@ -65,14 +65,16 @@ export default class PetsIndex extends React.Component {
           placeholder="Name" />
 
         <select
-          value={this.state.default_type}
+          value={this.state.type_id}
           onChange={this.update('type_id')} >
 
-          {pet_types.map(type =>(
-            <PetTypeIndexItem
-              key={type.id}
-              type={type} />
-          ))}
+          {pet_types.map(
+            type =>(
+              <PetTypeIndexItem
+                key={type.id}
+                type={type} />
+            )
+          )}
 
         </select>
 
