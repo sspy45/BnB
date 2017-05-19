@@ -21,6 +21,13 @@ class Api::PetsController < ApplicationController
   end
 
   def destroy
+    @pet = Pet.find(params[:id])
+
+    if @pet.destroy
+      render :show
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
   end
 
   def pets_params

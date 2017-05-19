@@ -1,8 +1,11 @@
-import { RECEIVE_PETS,
-        RECEIVE_ERRORS,
-        RECEIVE_BOOKINGS,
-        RECEIVE_PET_TYPES,
-        RECEIVE_NEW_PET} from '../actions/user_actions';
+import {
+  RECEIVE_PETS,
+  RECEIVE_ERRORS,
+  RECEIVE_BOOKINGS,
+  RECEIVE_PET_TYPES,
+  RECEIVE_NEW_PET,
+  DELETE_PET
+} from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const _defaultState = {
@@ -34,6 +37,10 @@ const UserDetailReducer = (state = _defaultState, action) => {
     case RECEIVE_NEW_PET:
       newState = merge({}, state);
       newState.pets.push(action.pet);
+      return newState;
+    case DELETE_PET:
+      newState = merge({}, state);
+      debugger
       return newState;
     default:
       return state;

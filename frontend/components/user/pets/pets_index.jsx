@@ -48,7 +48,7 @@ export default class PetsIndex extends React.Component {
   }
 
   render(){
-    const { pets, pet_types } = this.props;
+    const { pets, pet_types, removePet } = this.props;
     return (
       <section>
         <h3>---------PET LIST---------</h3>
@@ -56,6 +56,7 @@ export default class PetsIndex extends React.Component {
           <PetIndexItem
             key={pet.name+pet.id}
             pet={pet}
+            removePet={removePet}
           />
         ))}
 

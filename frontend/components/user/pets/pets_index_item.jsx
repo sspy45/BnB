@@ -4,11 +4,12 @@ export default class PetsIndexItem extends React.Component {
 
 
   render(){
-    const {name, desc} = this.props.pet;
+    const { pet, removePet } = this.props;
     return(
       <section>
-        <h3>Name: {name}</h3>
-        <h3>Desc: {desc}</h3>
+        <h3>Name: {pet.name}</h3>
+        <h3>Desc: {pet.desc}</h3>
+        <button onClick={removePet(pet)}>delete</button>
       </section>
     );
   }

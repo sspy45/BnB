@@ -1,1 +1,1 @@
-json.extract! @pet, :owner_id, :type_id, :name, :desc
+json.extract! @pet, :owner_id, :type_id, :name, :desc, :id

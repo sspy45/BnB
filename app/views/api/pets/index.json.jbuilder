@@ -3,4 +3,5 @@ json.array!(@pets) do |pet|
   json.desc pet.desc
   json.owner_id pet.owner_id
   json.type_id pet.type_id
+  json.id pet.id
 end

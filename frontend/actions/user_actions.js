@@ -83,3 +83,10 @@ export const createPet = (pet) => dispatch => {
     .then(_pet => dispatch(receiveNewPet(_pet)),
         errors => dispatch(receiveErrors(errors)));
 };
+
+export const removePet = (pet) => dispatch => {
+  debugger
+  return APIUtil.removePet(pet)
+    .then(_pet => dispatch(deletePet(_pet)),
+      errors => dispatch(receiveErrors(errors)));
+};
