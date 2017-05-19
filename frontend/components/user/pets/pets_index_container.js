@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { asArray } from '../../../reducers/selectors';
+import { convertPets } from '../../../reducers/selectors';
 import PetsIndex from './pets_index';
 import {
   createPet,
@@ -12,7 +12,7 @@ import {
 const mapStateToProps = (state) => {
   return {
     session: state.session,
-    pets: asArray(state.user_details),
+    pets: convertPets(state.user_details),
     pet_types: state.user_details.pet_types || []
   };
 };

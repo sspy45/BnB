@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     resources :users do
       resources :pets
       resources :bookings
+      resources :locations
     end
-    resources :locations
     resource :session
     resources :pet_types, only: [:index]
   end

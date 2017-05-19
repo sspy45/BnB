@@ -20,10 +20,11 @@ export const fetchBookings = (id) => (
   })
 );
 
-export const fetchLocations = (id) => (
+export const fetchLocations = (id, data) => (
   $.ajax({
     method: "GET",
-    url: `api/users/${id}/locations`,
+    url: `api/users/${id}/locations/`,
+    data: {type: data}
   })
 );
 

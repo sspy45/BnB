@@ -35,6 +35,7 @@ class Greeting extends React.Component {
   }
 
   closeModal() {
+    this.props.clearErrors();
     this.setState({modalIsOpen: false, whichModal: ""});
   }
 

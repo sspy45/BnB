@@ -1,14 +1,26 @@
 import React from 'react';
+import BookingDetailItem from './bookings_detail_item';
 
 export default class BookingsDetail extends React.Component {
   constructor(props){
     super(props);
   }
 
-  render(){
-    return (
-      <h1>BOOOKING</h1>
-    );
+  componentWillMount(){
+    const { currentUser } = this.props.session;
+    this.props.fetchLocations(currentUser.id, 'rentals');
   }
 
+  render(){
+    return (
+      <ul>
+        {this.props.bookings.map(booking =>(
+          <BookingDetailItem
+            key={'booking-'+booking.id}
+            key={'booking-'+booking.id}
+            booking={booking} />
+        ))}
+      </ul>
+    );
+  }
 }

@@ -68,8 +68,14 @@ export const editPet = pet => dispatch => (
 
 export const fetchBookings = id => dispatch => {
   return APIUtil.fetchBookings(id)
-    .then(bookings => dispatch(receiveBookings(bookings),
-        errors => dispatch(receiveErrors(errors))));
+    .then(bookings => dispatch(receiveBookings(bookings)),
+        errors => dispatch(receiveErrors(errors)));
+};
+
+export const fetchLocations = (id, type) => dispatch => {
+  return APIUtil.fetchLocations(id, type)
+    .then(bookings => dispatch(receiveBookings(bookings)),
+        errors => dispatch(receiveErrors(errors)));
 };
 
 export const fetchPetTypes = () => dispatch => {

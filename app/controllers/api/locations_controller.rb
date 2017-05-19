@@ -1,7 +1,14 @@
 class Api::LocationsController < ApplicationController
 
   def index
-    @locations = Location.in_bounds(params[:bounds])
+    if params[:type] == "rentals"
+      pets = Pet.where('owner_id = (?)', params[:user_id].to_i)
+      id = pets.map(&:id)
+      @locations = Location.where('id IN (?)', id)
+      render "api/locations/index"
+    else
+      @locations = Location.in_bounds(params[:bounds])
+    end
   end
 
   def create

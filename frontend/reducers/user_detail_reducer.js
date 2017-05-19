@@ -4,7 +4,8 @@ import {
   RECEIVE_BOOKINGS,
   RECEIVE_PET_TYPES,
   RECEIVE_NEW_PET,
-  DELETE_PET
+  DELETE_PET,
+  RECEIVE_RENTAL_LOCATIONS
 } from '../actions/user_actions';
 import merge from 'lodash/merge';
 

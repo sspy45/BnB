@@ -23,9 +23,11 @@ const App = () => (
     </section>
     <AuthRoute path="/login" component={ SessionFormContainer } />
     <AuthRoute path="/signup" component={ SessionFormContainer } />
-    <ProtectedRoute path="/user" component={ UserDetailContainer } />
-    <Route exact path="/search" component={ SearchContainer } />
-    <Route path="/" component={ HomeContainer } />
+    <Switch>
+      <ProtectedRoute path="/user" component={ UserDetailContainer } />
+      <Route exact path="/search" component={ SearchContainer } />
+      <Route path="/" component={ HomeContainer } />
+    </Switch>
 
 
   </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import { asArray } from '../../reducers/selectors';
 import PetsIndexContainer from './pets/pets_index_container';
-import BookingsDetail from './bookings/bookings_detail';
+import BookingsDetailContainer from './bookings/bookings_detail_container';
 
 export default class UserDetail extends React.Component {
   constructor(props){
@@ -14,7 +14,6 @@ export default class UserDetail extends React.Component {
         name: '',
         desc: ''
       },
-      bookings: []
     };
   }
 
@@ -41,10 +40,7 @@ export default class UserDetail extends React.Component {
         <section>
           <h1>Bookings</h1>
           <br/>
-          {bookings.map(booking => {
-            console.log(bookings);
-            return <BookingsDetail key={booking.id} booking={booking} />;
-          })}
+          <BookingsDetailContainer />
         </section>
 
       </section>
