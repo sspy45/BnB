@@ -12,10 +12,10 @@ class SessionForm extends React.Component {
 
 		};
 
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleGuestSubmit = this.handleGuestSubmit.bind(this);
 		this.update = this.update.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleSwitch = this.handleSwitch.bind(this);
+		this.handleGuestSubmit = this.handleGuestSubmit.bind(this);
   }
 	componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {

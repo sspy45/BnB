@@ -2,19 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import SessionFormContainer from './session_form/session_form_container';
+import NavMenuContainer from './nav_menu/nav_menu_container';
 
 class Greeting extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       modalIsOpen: false,
-      whichModal: ""
+      whichModal: "",
+      userMenu: false
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
   componentWillMount(){
     Modal.setAppElement('body');
@@ -39,17 +42,22 @@ class Greeting extends React.Component {
     this.setState({modalIsOpen: false, whichModal: ""});
   }
 
-
+  toggleMenu(type){
+    event.preventDefault();
+    return () => this.setState({
+      [type]: !this.state[type]
+    });
+  }
   render(){
+
     if (this.props.currentUser){
       return (
         <header>
-          <marquee>Happy Hour?              Happy Hour?                  Happy Hour?</marquee>
+          <marquee>Happy Hour? Happy Hour? Happy Hour?</marquee>
           <div className='header-session'>
             <h2>Welcome {this.props.currentUser.username}</h2>
-            <button
-              className='nav-button'
-              onClick={this.handleLogOut}>Logout</button>
+
+            <NavMenuContainer formType={'user'}/>
           </div>
         </header>);
       } else {
