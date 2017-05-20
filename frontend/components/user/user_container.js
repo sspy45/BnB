@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUser, fetchPets, fetchBookings, fetchLocations } from '../../actions/user_actions';
-import UserDetail from './user_detail';
+import User from './user';
 
 const mapStateToProps = ({session, user_details}) => {
   return {
@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserDetail);
+)(User);

@@ -17,9 +17,9 @@ export const receivePets = pets => ({
   pets
 });
 
-export const receivePetTypes = pet_types => ({
+export const receivePetTypes = petTypes => ({
   type: RECEIVE_PET_TYPES,
-  pet_types
+  petTypes
 });
 
 export const receiveSinglePet = pet => ({

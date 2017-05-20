@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, NavLink, withRouter, Route, Switch } from 'react-router-dom';
 import { asArray } from '../../reducers/selectors';
 import PetsIndexContainer from './pets/pets_index_container';
 import BookingsDetailContainer from './bookings/bookings_detail_container';
 
-export default class UserDetail extends React.Component {
+export default class User extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -24,23 +24,17 @@ export default class UserDetail extends React.Component {
   }
 
   render(){
-    const { pets, bookings, pet_types } = this.props.user_details;
+    const { pets, bookings, petTypes } = this.props.user_details;
     return(
       <section>
         <nav>
-          <Link to="/user/">Profile</Link>
-          <Link to="/user/pets">My pets </Link>
-          <Link to="/user/pets/edit">My pets edit </Link>
-          <Link to="/user/rentals">Rentals</Link>
+          <NavLink exact to="/user/">Profile</NavLink>
+          <NavLink to="/user/pets">My pets </NavLink>
+          <NavLink to="/user/bookings">Bookings</NavLink>
         </nav>
         <section>
-          <h1>Pets List</h1>
-          <PetsIndexContainer pet_types={pet_types}/>
-        </section>
-        <section>
-          <h1>Bookings</h1>
-          <br/>
-          <BookingsDetailContainer />
+          <Route path="/user/pets" component={PetsIndexContainer} petTypes={petTypes} />
+          <Route path="/user/bookings" component={BookingsDetailContainer} />
         </section>
 
       </section>

@@ -1,7 +1,8 @@
 import React from 'react';
 import BookingDetailItem from './bookings_detail_item';
+import { withRouter } from 'react-router';
 
-export default class BookingsDetail extends React.Component {
+class BookingsDetail extends React.Component {
   constructor(props){
     super(props);
   }
@@ -24,3 +25,5 @@ export default class BookingsDetail extends React.Component {
     );
   }
 }
+
+export default BookingsDetail;

@@ -17,7 +17,7 @@ const _defaultState = {
   desc: '',
   pets: {},
   bookings: {},
-  pet_types: []
+  petTypes: []
 };
 
 const UserDetailReducer = (state = _defaultState, action) => {
@@ -37,8 +37,8 @@ const UserDetailReducer = (state = _defaultState, action) => {
       newState = merge({}, state, {bookings});
       return newState;
     case RECEIVE_PET_TYPES:
-      const pet_types = action.pet_types;
-      newState = merge({}, state, {pet_types});
+      const petTypes = action.petTypes;
+      newState = merge({}, state, {petTypes});
       return newState;
     case RECEIVE_NEW_PET:
       const newPet = {[action.pet.id]: action.pet};

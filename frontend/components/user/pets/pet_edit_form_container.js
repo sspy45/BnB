@@ -7,7 +7,7 @@ import { editPet } from '../../../actions/user_actions';
 const mapStateToProps = (state) => {
   return {
     session: state.session,
-    pet_types: state.user_details.pet_types || []
+    petTypes: state.user_details.petTypes || []
   };
 };
 
