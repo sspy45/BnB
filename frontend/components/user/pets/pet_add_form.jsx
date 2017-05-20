@@ -1,18 +1,26 @@
 import React from 'react';
 import PetTypeIndexItem from './pet_type_index_item';
-
-export default class PetEditForm extends React.Component {
+export default class PetAddForm extends React.Component {
   constructor(props){
     super(props);
-    const { pet } = props;
-    this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       name: '',
       desc: '',
-      type_id: ''
+      type_id: '',
+      owner_id: props.ownerId
     };
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  componentWillReceiveProps(nextProps){
+    if(this.props.petTypes.length < 1
+      && nextProps.petTypes.length > 0){
+
+      this.setState({
+        type_id: nextProps.petTypes[0].id
+      });
+    }
   }
 
   update(property) {
@@ -24,9 +32,7 @@ export default class PetEditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const pet = Object.assign({}, this.state);
-    pet.id = this.props.pet.id;
-    pet.owner_id = this.props.pet.owner_id;
-		this.props.editPet(pet);
+		this.props.createPet(pet);
 
 		this.setState({
 			pet_name: "",
@@ -35,46 +41,37 @@ export default class PetEditForm extends React.Component {
   }
 
   render(){
-    const { pet } = this.props;
-    if(this.state.name === ''){
-      this.state = ({
-        name: pet.name,
-        desc: pet.desc,
-        type_id: pet.type_id
-      });
-    }
+    const { petTypes } = this.props;
+
     return (
       <section>
-        <label>Name</label>
         <input
           type="text"
           onChange={this.update('name')}
-          value={this.state.name}
           placeholder="Name" />
-
-        <label>Desc</label>
-        <input
-          type="text"
-          onChange={this.update('desc')}
-          value={this.state.desc}
-          placeholder="Desc" />
 
         <select
           value={this.state.type_id}
           onChange={this.update('type_id')} >
 
-          {this.props.petTypes.map(
+          {petTypes.map(
             type =>(
               <PetTypeIndexItem
                 key={type.id}
                 type={type} />
             )
           )}
+
         </select>
+
         <input
-          type="submit"
+          type="text"
+          onChange={this.update('desc')}
+          placeholder="Tell us something about your pet" />
+        <input
           onClick={this.handleSubmit}
-          value="Edit Pet" />
+          type="submit"
+          value="Submit" />
       </section>
     );
   }

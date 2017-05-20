@@ -108,3 +108,15 @@ header {
 	background-size: 100%;
 	background-image: image-url('home-splash.jpg')
 }
+
+.inactive-edit {
+	background-color: green;
+}
+
+.active-edit {
+	background-color: red;
+}
+
+.hidden {
+	display: none;
+}

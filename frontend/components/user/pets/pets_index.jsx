@@ -1,55 +1,63 @@
 import React from 'react';
 import PetIndexItem from './pets_index_item';
-import PetTypeIndexItem from './pet_type_index_item';
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
 
 import PetsEditFormContainer from './pet_edit_form_container';
+import PetsAddForm from './pet_add_form';
 
 export default class PetsIndex extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name: '',
-      desc: '',
-      type_id: '',
-      owner_id: props.session.currentUser.id
+      addForm: false
     };
-    this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.toggleAdd = this.toggleAdd.bind(this);
   }
+
   componentWillMount(){
     this.props.fetchPetTypes();
   }
 
-  componentWillReceiveProps(nextProps){
-    if(this.props.pet_types.length < 1
-      && nextProps.pet_types.length > 0){
-
-      this.setState({
-        type_id: nextProps.pet_types[0].id
-      });
-    }
-  }
-
-  update(property) {
-    return e => this.setState({
-      [property]: e.currentTarget.value
+  toggleAdd(e){
+    e.preventDefault();
+    this.setState({
+      addForm: !this.state.addForm
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const pet = Object.assign({}, this.state);
-		this.props.createPet(pet);
-
-		this.setState({
-			pet_name: "",
-			pet_desc: ""
-		});
-  }
-
   render(){
-    const { pets, pet_types, removePet, editPet } = this.props;
+    const {
+      pets,
+      petTypes,
+      removePet,
+      editPet,
+      createPet,
+      fetchPetTypes
+    } = this.props;
+    let petAddForm;
+
+    if(this.state.addForm){
+      petAddForm = (
+        <PetsAddForm
+          petTypes={petTypes}
+          createPet={createPet}
+          fetchPetTypes={fetchPetTypes}
+          ownerId={this.props.session.currentUser.id}
+          />
+      );
+    }
+
+    const addButton = (
+      <button
+        onClick={this.toggleAdd}
+        className={this.state.addForm === false ?
+          'inactive-edit' : 'active-edit'}>
+        {this.state.addForm === false ?
+          'Add' : 'Close'}
+      </button>
+    );
+
     return (
       <section>
         <h3>---------PET LIST---------</h3>
@@ -59,38 +67,14 @@ export default class PetsIndex extends React.Component {
             pet={pet}
             removePet={removePet}
             editPet={editPet}
-            petTypes={pet_types}
+            petTypes={petTypes}
           />
         ;})}
 
         <h3>---------ADD PET---------</h3>
-        <input
-          type="text"
-          onChange={this.update('name')}
-          placeholder="Name" />
+        {addButton}
 
-        <select
-          value={this.state.type_id}
-          onChange={this.update('type_id')} >
-
-          {pet_types.map(
-            type =>(
-              <PetTypeIndexItem
-                key={type.id}
-                type={type} />
-            )
-          )}
-
-        </select>
-
-        <input
-          type="text"
-          onChange={this.update('desc')}
-          placeholder="Tell us something about your pet" />
-        <input
-          onClick={this.handleSubmit}
-          type="submit"
-          value="Submit" />
+        {petAddForm}
 
       </section>
     );
