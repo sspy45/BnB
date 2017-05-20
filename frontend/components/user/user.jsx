@@ -3,6 +3,7 @@ import { Link, NavLink, withRouter, Route, Switch } from 'react-router-dom';
 import { asArray } from '../../reducers/selectors';
 import PetsIndexContainer from './pets/pets_index_container';
 import BookingsDetailContainer from './bookings/bookings_detail_container';
+import UserDetailContainer from './user_details/user_details_container';
 
 export default class User extends React.Component {
   constructor(props){
@@ -35,6 +36,7 @@ export default class User extends React.Component {
         <section>
           <Route path="/user/pets" component={PetsIndexContainer} petTypes={petTypes} />
           <Route path="/user/bookings" component={BookingsDetailContainer} />
+          <Route exact path="/user/" component={UserDetailContainer} />
         </section>
 
       </section>

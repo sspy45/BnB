@@ -5,7 +5,8 @@ import Search from './search';
 
 const mapStateToProps = state => {
   return {
-    locations: state.locations
+    locations: state.locations,
+    currentUser: state.session.currentUser
   };
 };
 

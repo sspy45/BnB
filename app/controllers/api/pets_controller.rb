@@ -27,7 +27,7 @@ class Api::PetsController < ApplicationController
       render :show
     else
       @errors = @pet.errors.full_messages
-      render @errors, statas: 422
+      render @errors, status: 422
     end
   end
 

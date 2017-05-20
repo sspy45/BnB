@@ -6,7 +6,8 @@ import {
   RECEIVE_PET_TYPES,
   RECEIVE_NEW_PET,
   DELETE_PET,
-  RECEIVE_RENTAL_LOCATIONS
+  RECEIVE_RENTAL_LOCATIONS,
+  RECEIVE_USER
 } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
@@ -26,7 +27,6 @@ const UserDetailReducer = (state = _defaultState, action) => {
   switch(action.type){
     case RECEIVE_PET:
       const pet = {[action.pet.id]: action.pet};
-      debugger;
       return merge({}, state, {pets: pet});
     case RECEIVE_PETS:
       const pets = action.pets;

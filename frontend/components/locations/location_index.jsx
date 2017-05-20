@@ -6,13 +6,9 @@ class LocationIndex extends React.Component{
     super(props);
   }
 
-  componentWillMount(){
-    this.props.fetchLocations();
-  }
   render(){
     const {locations} = this.props;
     if (locations.length > 0){
-
       return(
         <ul>
         {

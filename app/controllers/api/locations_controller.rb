@@ -7,7 +7,8 @@ class Api::LocationsController < ApplicationController
       @locations = Location.where('id IN (?)', id)
       render "api/locations/index"
     else
-      @locations = Location.in_bounds(params[:bounds])
+      @locations = Location.all
+      # in_bounds(params[:bounds])
     end
   end
 

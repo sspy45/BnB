@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :bookings
       resources :locations
     end
+    resources :locations, only:[:index]
     resource :session
     resources :pet_types, only: [:index]
   end

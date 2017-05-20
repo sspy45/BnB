@@ -5,3 +5,7 @@ export const convertPets = ({pets}) => (
 export const convertBookings = ({bookings}) => (
   Object.keys(bookings).map(key => bookings[key])
 );
+
+export const asArray  = (prop) => (
+  Object.keys(prop).map(key =>prop[key])
+);

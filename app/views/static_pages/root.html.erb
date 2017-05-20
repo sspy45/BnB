@@ -2,7 +2,7 @@
   <% if signed_in? %>
     window.currentUser =
     <%= render(
-      "api/partials/user.json.jbuilder",
+      "api/shared/user.json.jbuilder",
       user: current_user
     ).html_safe %>
   <% end %>
