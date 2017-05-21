@@ -24,7 +24,7 @@ export default class NavMenu extends React.Component {
 
   handleLogOut() {
     this.props.logout();
-    this.closeModal();
+    this.props.closeModal();
   }
 
   openModal(whichModal) {
@@ -44,9 +44,9 @@ export default class NavMenu extends React.Component {
 
     return (
       <section>
-        <button onClick={this.openModal('userMenu')}>
-          IMAGE HERE
-        </button>
+        <img
+          onClick={this.openModal('userMenu')}
+          className='user-icon' />
 
         <Modal
           className='menu'

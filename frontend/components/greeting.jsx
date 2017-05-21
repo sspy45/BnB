@@ -57,7 +57,10 @@ class Greeting extends React.Component {
           <div className='header-session'>
             <h2>Welcome {this.props.currentUser.username}</h2>
 
-            <NavMenuContainer formType={'user'}/>
+            <NavMenuContainer
+              formType={'user'}
+              closeModal={this.closeModal}
+            />
           </div>
         </header>);
       } else {

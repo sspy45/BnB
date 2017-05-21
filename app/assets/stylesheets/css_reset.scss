@@ -109,6 +109,13 @@ header {
 	background-image: image-url('home-splash.jpg')
 }
 
+.user-icon{
+	height: 60px;
+	width: 60px;
+	background-size: cover;
+	background-image: image-url('corgi.gif')
+}
+
 .inactive-edit {
 	background-color: green;
 }

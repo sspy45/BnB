@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_filter :require_signed_in!
+
   def new
     render :new
   end
