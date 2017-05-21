@@ -4,6 +4,7 @@ import { asArray } from '../../reducers/selectors';
 import PetsIndexContainer from './pets/pets_index_container';
 import BookingsDetailContainer from './bookings/bookings_detail_container';
 import UserDetailContainer from './user_details/user_details_container';
+import LocationsContainer from '../locations/locations_container';
 
 export default class User extends React.Component {
   constructor(props){
@@ -32,10 +33,12 @@ export default class User extends React.Component {
           <Link to="/user/">Profile</Link><br />
           <Link to="/user/pets">My pets </Link><br />
           <Link to="/user/bookings">Bookings</Link>
+          <Link to="/user/locations">Locations</Link>
         </nav>
         <section className='profile-container-main'>
           <Route path="/user/pets" component={PetsIndexContainer} petTypes={petTypes} />
           <Route path="/user/bookings" component={BookingsDetailContainer} />
+          <Route path="/user/locations" component={LocationsContainer} />
           <Route exact path="/user/" component={UserDetailContainer} />
         </section>
 

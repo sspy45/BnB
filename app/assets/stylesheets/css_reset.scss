@@ -253,3 +253,12 @@ h4 {
 	align-items: center;
 	border-radius: 4px;
 }
+
+.home-splash {
+	display: flex;
+	flex-direction: column;
+	height: 400px;
+	width: 100%;
+	background: palevioletred;
+	opacity: 0.7;
+}
