@@ -41,6 +41,8 @@ booking2 = Booking.create!(pet_id: pet4.id, location_id: location1.id, check_in:
 
 review1 = Review.create!(user_id: user1.id, review_type: "pet", body: "Loki was a pleasure to take care of and we had a great time watching breaking bad", rating: 5, pet_id: pet1.id)
 review2 = Review.create!(user_id: user1.id, review_type: "location", body: "I think my place is not bad. I'd live there!", rating: 5, location_id: location1.id)
+review3 = Review.create!(user_id: user1.id, review_type: "location", body: "I like that this place feeds my pup chicken", rating: 5, location_id: location4.id)
+review4 = Review.create!(user_id: user1.id, review_type: "location", body: "this is a safe place, don't judge me", rating: 5, location_id: location5.id)
 
 hostings1 = Hosting.create!(location_id: location1.id, pet_type_id: pet_type1.id)
 hostings2 = Hosting.create!(location_id: location1.id, pet_type_id: pet_type2.id)

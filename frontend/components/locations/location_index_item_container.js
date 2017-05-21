@@ -1,14 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LocationIndexItem from './location_index_item';
-import { fetchReviews } from '../../actions/location_actions';
+import { fetchLocationReviews } from '../../actions/location_actions';
 
-const mapDispatchToProps = (dispatch, location) => ({
-  fetchReviews: () => dispatch(fetchReviews(location)),
-  location: location.location
+const mapStateToProps = (state) => ({
+  reviews: state.locations.reviews || {}
+});
+
+const mapDispatchToProps = (dispatch, {location}) => ({
+  fetchLocationReviews: () => dispatch(fetchLocationReviews(location)),
+  location
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(LocationIndexItem);

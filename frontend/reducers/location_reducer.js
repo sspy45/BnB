@@ -1,4 +1,7 @@
-import { RECEIVE_LOCATIONS }from '../actions/location_actions';
+import {
+  RECEIVE_LOCATIONS,
+  RECEIVE_LOCATION_REVIEWS
+ }from '../actions/location_actions';
 import merge from 'lodash/merge';
 
 const _defaultState = {
@@ -11,6 +14,14 @@ const LocationReducer = (state = _defaultState, action) => {
     case RECEIVE_LOCATIONS:
       const locations = action.locations;
       return merge({}, state, {locations});
+    case RECEIVE_LOCATION_REVIEWS:
+      const reviews = action.reviews;
+      // if(reviews){
+      //   console.log("FOUND IN REDUCER");
+      //   console.log({reviews});
+      //   console.log(merge({}, state, {reviews}));
+      // }
+      return merge({}, state, {reviews});
     default:
       return state;
   }

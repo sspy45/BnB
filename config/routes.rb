@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       resources :locations
       resources :reviews, only: [:index]
     end
-    resources :locations, only: [:index]
+    resources :locations, only: [:index] do
+      resources :reviews, only: [:index]
+    end
     resource :session
     resources :pet_types, only: [:index]
   end

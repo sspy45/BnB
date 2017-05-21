@@ -9,7 +9,7 @@ export const fetchLocations = (data) => {
 export const fetchLocationReviews = (location) => {
   return $.ajax({
     method: "GET",
-    url: "api/locations",
-    data: location.id
+    url: `api/locations/${location.id}/reviews`,
+    data: {type:'location', location_id: location.id},
   });
 };
