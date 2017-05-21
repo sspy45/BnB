@@ -42,6 +42,11 @@ class Location < ApplicationRecord
   has_many :pets,
     through: :bookings
 
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :location_id,
+    class_name: :Review
+
   def self.in_bounds(bounds)
     self.where("lat < ?", bounds[:northEast][:lat])
         .where("lat > ?", bounds[:southWest][:lat])

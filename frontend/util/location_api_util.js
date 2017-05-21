@@ -1,7 +1,15 @@
-export const fetchLocations = (filters) => {
+export const fetchLocations = (data) => {
   return $.ajax({
     method: "GET",
     url: "api/locations",
-    data: filters
+    data
+  });
+};
+
+export const fetchLocationReviews = (location) => {
+  return $.ajax({
+    method: "GET",
+    url: "api/locations",
+    data: location.id
   });
 };

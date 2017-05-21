@@ -262,3 +262,20 @@ h4 {
 	background: palevioletred;
 	opacity: 0.7;
 }
+
+.location-category {
+	display: flex;
+	flex-direction: row;
+}
+
+.location-tile {
+	height: 100%;
+	width: 250px;
+	border: 1px solid;
+	padding: 10px 20px 30px 20px;
+	background: white;
+	margin: 10px;
+	img {
+		width: inherit;
+	}
+}

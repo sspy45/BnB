@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Carousel from './carousel';
-import LocationsContainer from './locations/locations_container';
+import LocationsContainer from '../locations/locations_container';
 
 export default class Home extends React.Component {
   constructor(props){

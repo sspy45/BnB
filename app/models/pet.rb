@@ -32,4 +32,5 @@ class Pet < ApplicationRecord
   has_many :locations,
     through: :bookings
 
+  has_many :reviews
 end

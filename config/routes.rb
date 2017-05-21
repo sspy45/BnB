@@ -5,8 +5,9 @@ Rails.application.routes.draw do
       resources :pets
       resources :bookings
       resources :locations
+      resources :reviews, only: [:index]
     end
-    resources :locations, only:[:index]
+    resources :locations, only: [:index]
     resource :session
     resources :pet_types, only: [:index]
   end
