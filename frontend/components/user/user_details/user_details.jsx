@@ -4,16 +4,20 @@ import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 're
 export default class UserDetails extends React.Component {
   constructor(props){
     super(props);
-    const {currentUser} = props.session;
+    const {currentUser} = props;
+
     this.state = ({
       username: currentUser.username,
       first_name: currentUser.first_name || "",
       last_name: currentUser.last_name || "",
       email: currentUser.email || "",
-      phone: currentUser.phone || ""
+      phone: currentUser.phone || "",
+      successToggle: false
     });
 
     this.update = this.update.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+    this.renderSuccess = this.renderSuccess.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,15 +30,42 @@ export default class UserDetails extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    user.id = this.props.session.currentUser.id;
+    user.id = this.props.currentUser.id;
+    this.props.clearErrors();
 		this.props.editUser(user);
+    this.setState({successToggle: true});
+  }
+
+  renderErrors() {
+    return(
+      <ul className='errors'>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  renderSuccess() {
+    if(this.props.errors.length < 1
+      && this.state.successToggle === true)
+    return(
+      <p className='success'>Update Successful</p>
+    );
   }
 
   render(){
-    const { currentUser } = this.props.session;
+    const { currentUser, errors } = this.props;
+
+
     return(
-      <section>
-        <label>Username: {currentUser.username}</label>
+      <section className='user-profile-container'>
+        <h2>My Profile</h2>
+        <br />
+
+        <label>Profile page for user: {currentUser.username}</label>
         <br/>
 
         <label>First Name</label>
@@ -76,11 +107,13 @@ export default class UserDetails extends React.Component {
           placeholder="Phone number"
         />
         <br />
-
+        {this.renderErrors()}
+        {this.renderSuccess()}
+        <br />
         <input
           type="submit"
           onClick={this.handleSubmit}
-          value="Edit User"
+          value="Update Profile"
         />
       </section>
     );

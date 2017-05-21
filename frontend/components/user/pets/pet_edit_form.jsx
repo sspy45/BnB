@@ -27,7 +27,7 @@ export default class PetEditForm extends React.Component {
     pet.id = this.props.pet.id;
     pet.owner_id = this.props.pet.owner_id;
 		this.props.editPet(pet);
-
+    this.props.toggle();
 		this.setState({
 			pet_name: "",
 			pet_desc: ""
@@ -44,37 +44,41 @@ export default class PetEditForm extends React.Component {
       });
     }
     return (
-      <section>
-        <label>Name</label>
-        <input
-          type="text"
-          onChange={this.update('name')}
-          value={this.state.name}
-          placeholder="Name" />
+      <section className="pets-container" >
+        <section>
+          <label>Name</label>
+          <input
+            type="text"
+            onChange={this.update('name')}
+            value={this.state.name}
+            placeholder="Name"
+         />
+          <select
+            value={this.state.type_id}
+            onChange={this.update('type_id')}
+          >
 
-        <label>Desc</label>
-        <input
-          type="text"
-          onChange={this.update('desc')}
-          value={this.state.desc}
-          placeholder="Desc" />
-
-        <select
-          value={this.state.type_id}
-          onChange={this.update('type_id')} >
-
-          {this.props.petTypes.map(
-            type =>(
+            {this.props.petTypes.map( type => (
               <PetTypeIndexItem
                 key={type.id}
-                type={type} />
-            )
-          )}
-        </select>
-        <input
-          type="submit"
-          onClick={this.handleSubmit}
-          value="Edit Pet" />
+                type={type}
+              />
+            ))}
+
+          </select>
+        </section>
+        <section>
+          <label>Description</label>
+          <input
+            type="text"
+            onChange={this.update('desc')}
+            value={this.state.desc}
+            placeholder="Desc" />
+          <input
+            type="submit"
+            onClick={this.handleSubmit}
+            value="Edit Pet" />
+        </section>
       </section>
     );
   }

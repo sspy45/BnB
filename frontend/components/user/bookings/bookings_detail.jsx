@@ -18,7 +18,6 @@ class BookingsDetail extends React.Component {
         {this.props.bookings.map(booking =>(
           <BookingDetailItem
             key={'booking-'+booking.id}
-            key={'booking-'+booking.id}
             booking={booking} />
         ))}
       </ul>

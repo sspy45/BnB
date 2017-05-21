@@ -27,13 +27,13 @@ export default class User extends React.Component {
   render(){
     const { pets, bookings, petTypes } = this.props.user_details;
     return(
-      <section>
-        <nav>
-          <NavLink exact to="/user/">Profile</NavLink>
-          <NavLink to="/user/pets">My pets </NavLink>
-          <NavLink to="/user/bookings">Bookings</NavLink>
+      <section className='profile-container'>
+        <nav className='profile-container-nav'>
+          <Link to="/user/">Profile</Link><br />
+          <Link to="/user/pets">My pets </Link><br />
+          <Link to="/user/bookings">Bookings</Link>
         </nav>
-        <section>
+        <section className='profile-container-main'>
           <Route path="/user/pets" component={PetsIndexContainer} petTypes={petTypes} />
           <Route path="/user/bookings" component={BookingsDetailContainer} />
           <Route exact path="/user/" component={UserDetailContainer} />

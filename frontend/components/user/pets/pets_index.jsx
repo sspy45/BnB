@@ -9,7 +9,8 @@ export default class PetsIndex extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      addForm: false
+      toggleAdd: false,
+      toggleEdit: false
     };
 
     this.toggleAdd = this.toggleAdd.bind(this);
@@ -19,10 +20,10 @@ export default class PetsIndex extends React.Component {
     this.props.fetchPetTypes();
   }
 
-  toggleAdd(e){
-    e.preventDefault();
+  toggleAdd(){
+    event.preventDefault();
     this.setState({
-      addForm: !this.state.addForm
+      toggleAdd: !this.state.toggleAdd
     });
   }
 
@@ -35,33 +36,11 @@ export default class PetsIndex extends React.Component {
       createPet,
       fetchPetTypes
     } = this.props;
-    let petAddForm;
 
-    if(this.state.addForm){
-      petAddForm = (
-        <PetsAddForm
-          petTypes={petTypes}
-          createPet={createPet}
-          fetchPetTypes={fetchPetTypes}
-          ownerId={this.props.session.currentUser.id}
-          />
-      );
-    }
+    let petList;
 
-    const addButton = (
-      <button
-        onClick={this.toggleAdd}
-        className={this.state.addForm === false ?
-          'inactive-edit' : 'active-edit'}>
-        {this.state.addForm === false ?
-          'Add' : 'Close'}
-      </button>
-    );
-
-    return (
-      <section>
-        <h3>---------PET LIST---------</h3>
-        {pets.map(pet => {
+    if(pets.length > 0) {
+      petList = pets.map(pet => {
           return <PetIndexItem
             key={pet.name+pet.id}
             pet={pet}
@@ -69,12 +48,46 @@ export default class PetsIndex extends React.Component {
             editPet={editPet}
             petTypes={petTypes}
           />
-        ;})}
+        ;});
+      } else {
+      petList = (
+        <p className='subtle-message'>Your Pet List is Empty</p>
+      );
+    }
+    let petAddForm;
 
-        <h3>---------ADD PET---------</h3>
-        {addButton}
+    if(this.state.toggleAdd){
+      petAddForm = (
+        <PetsAddForm
+          petTypes={petTypes}
+          createPet={createPet}
+          fetchPetTypes={fetchPetTypes}
+          toggleAdd={this.toggleAdd}
+          ownerId={this.props.session.currentUser.id}
 
-        {petAddForm}
+          />
+      );
+    }
+
+    const addButton = (
+      <button
+        onClick={this.toggleAdd}
+        className={this.state.toggleAdd === false ?
+          'inactive-edit' : 'active-edit'}>
+        {this.state.toggleAdd === false ?
+          'Add a new pet' : 'Close'}
+      </button>
+    );
+
+    return (
+      <section className="pets-container">
+        <h2>Your Pets</h2>
+        {petList}
+        <section>
+          {petAddForm}
+          {addButton}
+        </section>
+
 
       </section>
     );

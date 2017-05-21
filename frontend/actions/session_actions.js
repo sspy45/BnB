@@ -27,7 +27,8 @@ export const logout = () => (dispatch) => {
 export const editUser = user => dispatch => (
   APIUtil.editUser(user)
     .then(_user => dispatch(receiveCurrentUser(_user)),
-          errors => dispatch(receiveErrors(errors)))
+          errors => dispatch(receiveErrors(errors.responseJSON))
+        )
 );
 
 

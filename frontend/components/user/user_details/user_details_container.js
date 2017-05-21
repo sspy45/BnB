@@ -2,18 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import UserDetails from './user_details';
 
-import { editUser } from '../../../actions/session_actions';
-const mapStateToProps = (state) => (
+import { editUser, receiveErrors } from '../../../actions/session_actions';
+const mapStateToProps = ({session}) => (
   {
-    session: state.session,
+    currentUser: session.currentUser,
+    errors: session.errors || []
   }
 );
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    editUser: (id) => dispatch(editUser(id))
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  editUser: (id) => dispatch(editUser(id)),
+  clearErrors: () => dispatch(receiveErrors([]))
+});
 
 export default connect(
   mapStateToProps,

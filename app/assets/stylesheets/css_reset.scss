@@ -52,7 +52,7 @@ table {
 
 * {
 	font-family: 'Roboto', sans-serif;
-	font-size: 15px;
+	font-size: 18px;
 }
 
 header {
@@ -60,10 +60,6 @@ header {
 	padding: 20px;
 	border-bottom: solid 2px gray;
   justify-content: space-between;
-
-	h1 {
-		font-size: 30px;
-	}
 	marquee {
 		font-size: 30px;
 	}
@@ -75,13 +71,40 @@ header {
 	}
 }
 
+h1 {
+	font-size: 35px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 22px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
 #map-container{
 	width: 500px;
 	height: 500px;
 }
 
 .errors{
-	color: red
+	color: red;
+}
+
+.success{
+	color: green;
+	transition:all 0.3s ease;
+}
+
+.subtle-message {
+	color: gray;
+	font-style: italic;
+	margin: 10px;
 }
 
 .nav-button {
@@ -103,6 +126,10 @@ header {
 	// }
 }
 
+.long-input {
+	width: 400px;
+	height: 100px;
+}
 .home-container{
 	height: 600px;
 	background-size: 100%;
@@ -113,17 +140,116 @@ header {
 	height: 60px;
 	width: 60px;
 	background-size: cover;
-	background-image: image-url('corgi.gif')
+	background-image: image-url('corgi.gif');
+	cursor: pointer;
 }
 
-.inactive-edit {
-	background-color: green;
-}
 
-.active-edit {
-	background-color: red;
-}
 
 .hidden {
 	display: none;
+}
+
+.profile-container {
+	display: flex;
+	justify-content: space-between;
+  padding: 5px;
+  margin: 15px;
+}
+
+.profile-container-nav{
+	display: flex;
+	flex-direction: column;
+	min-width: 200px;
+	flex: 1;
+	a {
+		text-decoration: none;
+		font-size: 20px;
+		margin: 10px;
+	}
+}
+
+.profile-container-main{
+	display: flex;
+	flex: 4;
+	margin: 10px;
+	font-size: 18px;
+}
+
+.user-profile-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.pets-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.pets-container-item {
+	display: flex;
+	width: 700px;
+  justify-content: space-between;
+	border: solid 1px #d4d4d4;
+	padding: 7px;
+	margin: 10px 10px 10px 0px;
+  border-radius: 4px;
+}
+
+.pets-row-container {
+	display: flex;
+	align-items: flex-start;
+}
+
+.pets-col-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.active-edit {
+	font-size: 15px;
+	text-align: center;
+	background: red;
+	margin: 5px;
+	border: 2px solid #5F9EA0;
+	color: white;
+	font-weight: 700;
+	border-radius: 5px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.inactive-edit {
+	font-size: 15px;
+	text-align: center;
+	background: white;
+	margin: 5px;
+	border: 2px solid #5F9EA0;
+	color: #5F9EA0;
+	font-weight: 700;
+	border-radius: 5px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.delete-button {
+	font-size: 15px;
+	text-align: center;
+	background: #e0502d;
+	margin: 5px;
+	color: white;
+	font-weight: 700;
+	border-radius: 5px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.edit-section {
+	background: silver;
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	margin: 10px 10px 10px 0;
+	align-items: center;
+	border-radius: 4px;
 }

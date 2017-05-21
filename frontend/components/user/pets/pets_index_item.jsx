@@ -7,12 +7,11 @@ export default class PetsIndexItem extends React.Component {
     this.state ={
       editActive: false
     };
-
     this.toggleEdit = this.toggleEdit.bind(this);
   }
 
-  toggleEdit(e){
-    e.preventDefault();
+  toggleEdit(){
+    event.preventDefault();
     this.setState({
       editActive: !this.state.editActive
     });
@@ -27,28 +26,40 @@ export default class PetsIndexItem extends React.Component {
         className={this.state.editActive === false ?
           'inactive-edit' : 'active-edit'}>
         {this.state.editActive === false ?
-          'Edit' : 'Undo'}
+          'Edit' : 'Cancel'}
       </button>
     );
 
-    let petEditForm;
+    let petType;
 
-    if(this.state.editActive) {
-      petEditForm =
-          <PetEditForm
-            pet={pet}
-            editPet={editPet}
-            petTypes={petTypes}/>;
+      if(petTypes.length > 0){
+        petType = petTypes[pet.type_id - 1].species;
+      } else {
+        petType  = "";
       }
 
-    return(
-      <section>
-        <h3>Name: {pet.name}</h3>
-        <h3>Desc: {pet.desc}</h3>
-        {editButton}
-        <button onClick={removePet(pet)}>Delete</button>
+    let petItem = this.state.editActive ?
+      <PetEditForm
+        pet={pet}
+        editPet={editPet}
+        petTypes={petTypes}
+        toggle={this.toggleEdit}
+      /> :
+      <section className="pets-row-container" >
+        <h4>{pet.name} the {petType}</h4>
+      </section>;
 
-        {petEditForm}
+
+    return(
+      <section className="pets-container-item">
+        {petItem}
+        <section className="pets-row-container">
+          {editButton}
+          <button
+            className="delete-button"
+            onClick={removePet(pet)}>Delete
+          </button>
+        </section>
       </section>
     );
   }
