@@ -1,9 +1,7 @@
 class Api::BookingsController < ApplicationController
   def index
-    pets = Pet.where(owner_id: params[:user_id]).map do |pet|
-      pet.id
-    end
-    @bookings = Booking.where('pet_id IN (?)', pets)
+    user = User.find(params[:user_id])
+    @bookings = user.bookings.includes(:location)
   end
 
   def new

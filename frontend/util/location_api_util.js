@@ -6,6 +6,17 @@ export const fetchLocations = (data) => {
   });
 };
 
+export const fetchBookingLocations = (id) => {
+  return $.ajax({
+    method: "GET",
+    url: "api/locations",
+    data: {
+      id,
+      type: 'bookings'
+    }
+  });
+};
+
 export const fetchLocationReviews = (location) => {
   return $.ajax({
     method: "GET",
@@ -17,8 +28,6 @@ export const fetchLocationReviews = (location) => {
 export const fetchSingleLocation = (id)=> (
   $.ajax({
     method: "GET",
-    url: `api/locations/${id}`,
-    success: s => console.log("SUCCEESS"),
-    fail: s => console.log(s)
+    url: `api/locations/${id}`
   })
 );

@@ -1,11 +1,18 @@
 import * as APIUtil from '../util/location_api_util';
 
 export const RECEIVE_LOCATIONS = 'RECEIVE_LOCATIONS';
+export const RECEIVE_BOOKING_LOCATIONS = 'RECEIVE_BOOKING_LOCATIONS';
 export const RECEIVE_LOCATION_REVIEWS = 'RECEIVE_LOCATION_REVIEWS';
 export const RECEIVE_SINGLE_LOCATION = 'RECEIVE_SINGLE_LOCATION';
 
 export const receiveLocations = (locations, filter) => ({
   type: RECEIVE_LOCATIONS,
+  locations,
+  filter
+});
+
+export const receiveBookingLocations = (locations, filter) => ({
+  type: RECEIVE_BOOKING_LOCATIONS,
   locations,
   filter
 });
@@ -23,6 +30,11 @@ export const receiveSingleLocation = location => ({
 export const fetchLocations = (filter) => dispatch => (
   APIUtil.fetchLocations(filter)
     .then(locations => dispatch(receiveLocations(locations, filter)))
+);
+
+export const fetchBookingLocations = (id) => dispatch => (
+  APIUtil.fetchBookingLocations(id)
+    .then(locations => dispatch(receiveBookingLocations(locations, 'bookings')))
 );
 
 export const fetchLocationReviews = (location) => dispatch => (

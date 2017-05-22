@@ -211,11 +211,15 @@ h4 {
 	flex: 4;
 	margin: 10px;
 	font-size: 18px;
+	margin: 0px 10px 10px 10px;
 }
 
 .user-profile-container {
 	display: flex;
 	flex-direction: column;
+	margin: 30px;
+	background: lavender;
+padding: 20px;
 }
 
 .pets-container {
@@ -319,6 +323,7 @@ h4 {
 	background: white;
 	margin: 10px;
 	font-size: 16px;
+	cursor: pointer;
 	img {
 		width: 100%;
 	}

@@ -1,10 +1,11 @@
 class Api::LocationsController < ApplicationController
 
   def index
-    if params[:type] == "rentals"
-      pets = Pet.where('owner_id = (?)', params[:user_id].to_i)
+    if params[:type] == "bookings"
+      pets = Pet.where('owner_id = (?)', params[:id].to_i)
       id = pets.map(&:id)
-      @locations = Location.where('id IN (?)', id)
+      bookings = Booking.where('pet_id in (?)', id).map(&:location_id)
+      @locations = Location.where('id IN (?)', bookings)
       render "api/locations/index"
     elsif ["dog", "cat", "snake", "chincilla", "godzilla"].include?(params[:type])
       @locations = PetType.where('species = (?)', params[:type])[0].locations

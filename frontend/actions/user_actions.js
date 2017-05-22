@@ -7,7 +7,7 @@ export const RECEIVE_NEW_PET = 'RECEIVE_NEW_PET';
 
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const RECEIVE_BOOKINGS = 'RECEIVE_BOOKINGS';
-export const RECEIVE_RENTAL_LOCATIONS = 'RECEIVE_LOCATIONS';
+export const RECEIVE_BOOKING_LOCATIONS = 'RECEIVE_LOCATIONS';
 
 export const RECEIVE_PET_TYPES = 'RECEIVE_PET_TYPES';
 //ACTIONS UP HERE
@@ -42,8 +42,8 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const receiveRentalLocations = locations => ({
-  type: RECEIVE_RENTAL_LOCATIONS,
+export const receiveBookingLocations = locations => ({
+  type: RECEIVE_BOOKING_LOCATIONS,
   locations
 });
 
@@ -96,3 +96,8 @@ export const removePet = (pet) => dispatch => {
     .then(_pet => dispatch(deletePet(_pet)),
       errors => dispatch(receiveErrors(errors)));
 };
+
+export const fetchBookingLocations = (id) => dispatch => (
+  APIUtil.fetchBookingLocations(id)
+    .then(locations => dispatch(receiveBookingLocations(locations, 'bookings')))
+);

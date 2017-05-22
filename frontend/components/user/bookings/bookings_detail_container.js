@@ -1,19 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { convertBookings } from '../../../reducers/selectors';
+import { asArray } from '../../../reducers/selectors';
 import BookingsDetail from './bookings_detail';
-import { fetchLocations } from '../../../actions/user_actions';
-
-const mapStateToProps = (store) => {
+import { fetchBookingLocations } from '../../../actions/location_actions';
+const mapStateToProps = ({session, user_details}) => {
   return {
-    session: store.session,
-    bookings: convertBookings(store.user_details)
+    session,
+    bookings: asArray(user_details.bookings) || []
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchLocations: (id, type) => dispatch(fetchLocations(id, type))
+    // fetchBookingLocations: (id) => dispatch(fetchBookingLocations(id))
   };
 };
 

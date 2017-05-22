@@ -12,19 +12,9 @@ class LocationIndex extends React.Component{
     this.props.fetchLocations(this.props.filter);
   }
 
-  // componentWillReceiveProps(nextProps){
-  //   if(this.props.locations.length < 1
-  //     && nextProps.locations.length > 0){
-  //       console.log("does something");
-  //     this.setState({
-  //       locations: nextProps.locations
-  //     });
-  //   }
-  // }
-
   render(){
     let {filter, locations} = this.props;
-
+    // console.log(locations);
     locations[filter] = locations[filter] || {};
     if(Object.keys(locations[filter]).length !== 0 && locations.constructor === Object){
 
@@ -33,7 +23,6 @@ class LocationIndex extends React.Component{
         <section className="categories">
           <h1>locations for {filter}s</h1>
           <secton className="inner-categories">
-
 
 
           {locations.map(local => (

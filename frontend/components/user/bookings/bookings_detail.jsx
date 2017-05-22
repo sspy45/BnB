@@ -8,20 +8,26 @@ class BookingsDetail extends React.Component {
   }
 
   componentWillMount(){
-    const { currentUser } = this.props.session;
-    this.props.fetchLocations(currentUser.id, 'rentals');
+    // const { currentUser } = this.props.session;
+    // this.props.fetchBookingLocations(currentUser.id);
   }
 
   render(){
-    return (
-      <ul>
-        {this.props.bookings.map(booking =>(
-          <BookingDetailItem
-            key={'booking-'+booking.id}
-            booking={booking} />
-        ))}
-      </ul>
-    );
+    if(this.props.bookings.length > 0){
+      return (
+        <ul>
+          {this.props.bookings.map(booking =>(
+            <BookingDetailItem
+              key={'booking-'+booking.id}
+              booking={booking} />
+          ))}
+        </ul>
+      );
+    } else {
+      return (
+        <div>EMPTY</div>
+      );
+    }
   }
 }
 

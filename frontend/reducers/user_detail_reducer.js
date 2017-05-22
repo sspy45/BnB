@@ -6,12 +6,15 @@ import {
   RECEIVE_PET_TYPES,
   RECEIVE_NEW_PET,
   DELETE_PET,
-  RECEIVE_RENTAL_LOCATIONS,
+  RECEIVE_BOOKING_LOCATIONS,
   RECEIVE_USER
 } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 const _defaultState = {
+  pets: {},
+  bookings: {},
+  petTypes: []
 };
 
 const UserDetailReducer = (state = _defaultState, action) => {
@@ -21,6 +24,9 @@ const UserDetailReducer = (state = _defaultState, action) => {
     case RECEIVE_PET:
       const pet = {[action.pet.id]: action.pet};
       return merge({}, state, {pets: pet});
+    case RECEIVE_BOOKING_LOCATIONS:
+      const {locations, filter} = action;
+      return merge({}, state, {locations: {[filter]:locations}});
     case RECEIVE_PETS:
       const pets = action.pets;
       newState = merge({}, state, {pets});

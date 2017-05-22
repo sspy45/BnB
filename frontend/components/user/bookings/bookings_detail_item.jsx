@@ -1,14 +1,31 @@
 import React from 'react';
 
-const BookingDetailItem = ({booking}) => (
-  <section>
-    <ul>
-      <li>City: {booking.city}</li>
-      <li>Check in: {booking.check_in}</li>
-      <li>Check out: {booking.check_out}</li>
-      <li>Desc: {booking.description}</li>
-    </ul>
+const BookingDetailItem = ({booking}) => {
+  const {
+    title,
+    description,
+    locationStreetAddress1,
+    locationStreetAddress2,
+    locationCity,
+    locationState,
+    locationZip,
+    locationLat,
+    locationLng,
+    checkIn,
+    checkOut
+  } = booking;
+  return(
+  <section className="user-profile-container ">
+    <h2>{title}</h2>
+    <br/>
+    <p>{description}</p>
+    <p>{locationStreetAddress1} {locationStreetAddress2}</p>
+    <p>{locationCity}, {locationState} {locationZip}</p>
+    <br/>
+    <h4>Check in: {checkIn.toString()}</h4>
+    <h4>Check out: {checkOut}</h4>
   </section>
-);
+  );
+};
 
 export default BookingDetailItem;

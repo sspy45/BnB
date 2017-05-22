@@ -41,7 +41,7 @@ class User < ApplicationRecord
   has_many :bookings,
     through: :pets
 
-  has_many :location,
+  has_one :location,
     through: :bookings
 
 
