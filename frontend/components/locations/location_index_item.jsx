@@ -30,7 +30,7 @@ class LocationIndexItem extends React.Component{
         onClick={this.handleClick(local.id)}
       >
         <img src="http://www.iconsfind.com/wp-content/uploads/2015/11/20151125_5655088ba5cdf.png"></img>
-        <p>{local.id}: {local.title}</p>
+        <p>{local.title}</p>
         <p>Rating({rating}) {reviews.length} reviews</p>
       </section>
     );

@@ -7,7 +7,7 @@ import { fetchLocationReviews } from '../../actions/review_actions';
 const mapStateToProps = ({locations}) => {
   return {
     local: locations.local,
-    reviews: locations.reviews || []
+    reviews: locations.reviews || {}
   };};
 
 const mapDispatchToProps = (dispatch) => ({

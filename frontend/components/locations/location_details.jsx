@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationMap from './location_map';
 import { asArray } from '../../reducers/selectors';
-
+import ReviewsList from '../reviews/reviews_list';
 export default class LocationDetails extends React.Component {
   constructor(){
     super();
@@ -14,6 +14,7 @@ export default class LocationDetails extends React.Component {
   }
 
   render(){
+    let locationDetails;
     if(this.props.local){
       const {
         title,
@@ -30,7 +31,8 @@ export default class LocationDetails extends React.Component {
       const id = this.props.match.params.id;
       let locations = asArray({id: this.props.local});
       let focus = {center: { lat, lng }, zoom: 13 };
-      return(
+
+      locationDetails = (
         <section className="location-details">
           <h2>{title}</h2>
           <br/>
@@ -44,11 +46,24 @@ export default class LocationDetails extends React.Component {
         </section>
       );
     } else {
-      return (
+      locationDetails = (
         <section>
           SOMETHING WENT WRONG, FIND AN ADULT!!!
         </section>
       );
     }
+
+    let review;
+    let { reviews } = this.props;
+    if(Object.keys(reviews).length !== 0 && reviews.constructor === Object){
+      reviews = asArray(reviews);
+    }
+
+    return(
+      <section>
+        {locationDetails}
+        {reviews.length > 0 ? <ReviewsList reviews={reviews} /> : "" }
+      </section>
+    );
   }
 }

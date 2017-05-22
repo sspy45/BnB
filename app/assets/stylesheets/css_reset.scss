@@ -318,7 +318,6 @@ padding: 20px;
 .location-tile {
 	height: 100%;
 	width: 200px;
-	border: 1px solid;
 	padding: 10px 20px 30px 20px;
 	background: white;
 	margin: 10px;
@@ -326,6 +325,10 @@ padding: 20px;
 	cursor: pointer;
 	img {
 		width: 100%;
+	}
+
+	&:hover {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
 }
 
@@ -354,4 +357,17 @@ padding: 20px;
 	justify-content: space-around;
 	margin: 40px;
 	width: 1000px;
+}
+
+.review{
+	display: flex;
+	border: 1px red dashed;
+	padding: 8px;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+
+	::before{
+		
+	}
 }
