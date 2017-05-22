@@ -3,10 +3,7 @@
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
 
-const mapOptions = {
-  center: { lat: 37.7758, lng: -122.435 },
-  zoom: 13
-};
+
 
 class LocationMap extends React.Component{
   constructor(props){
@@ -14,6 +11,11 @@ class LocationMap extends React.Component{
   }
 
   componentDidMount() {
+
+    const mapOptions = this.props.focus || {
+      center: { lat: 37.7758, lng: -122.435 },
+      zoom: 13
+    };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);

@@ -33,7 +33,6 @@ export default class User extends React.Component {
           <Link to="/user/">Profile</Link><br />
           <Link to="/user/pets">My pets </Link><br />
           <Link to="/user/bookings">Bookings</Link>
-          <Link to="/user/locations">Locations</Link>
         </nav>
         <section className='profile-container-main'>
           <Route path="/user/pets" component={PetsIndexContainer} petTypes={petTypes} />

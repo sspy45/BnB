@@ -27,6 +27,11 @@ class Api::LocationsController < ApplicationController
     end
   end
 
+  def show
+    @location = Location.find(params[:id])
+    render "api/locations/show"
+  end
+
   def location_params
     params(:location).permit(
       :title,

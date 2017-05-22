@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :locations
       resources :reviews, only: [:index]
     end
-    resources :locations, only: [:index] do
+    resources :locations, only: [:index, :show] do
       resources :reviews, only: [:index]
     end
     resource :session

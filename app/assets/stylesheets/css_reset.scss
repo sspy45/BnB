@@ -64,17 +64,26 @@ header {
 	border-bottom: solid 2px gray;
   justify-content: space-between;
 
+
 	marquee {
 		font-size: 30px;
 	}
 	h1 {
   	padding: 0px 10px;
 	}
+	img {
+		height: 50px;
+		width: 50px;
+		margin-left: 20px;
+	}
 
 	.header-session{
 		display: flex;
-		align-items: center;
 		flex-direction: row;
+	  margin-right: 30px;
+		width: 400px;
+		text-align: right;
+		justify-content: flex-end;
 	}
 }
 
@@ -182,6 +191,7 @@ h4 {
 	justify-content: space-between;
   padding: 5px;
   margin: 15px;
+  width: 800px;
 }
 
 .profile-container-nav{
@@ -221,6 +231,7 @@ h4 {
 	padding: 7px;
 	margin: 10px 10px 10px 0px;
   border-radius: 4px;
+  align-items: center;
 }
 
 .pets-row-container {

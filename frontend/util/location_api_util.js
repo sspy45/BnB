@@ -13,3 +13,12 @@ export const fetchLocationReviews = (location) => {
     data: {type:'location', location_id: location.id},
   });
 };
+
+export const fetchSingleLocation = (id)=> (
+  $.ajax({
+    method: "GET",
+    url: `api/locations/${id}`,
+    success: s => console.log("SUCCEESS"),
+    fail: s => console.log(s)
+  })
+);

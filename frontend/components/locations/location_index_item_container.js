@@ -7,9 +7,9 @@ const mapStateToProps = (state) => ({
   reviews: state.locations.reviews || {}
 });
 
-const mapDispatchToProps = (dispatch, {location}) => ({
-  fetchLocationReviews: () => dispatch(fetchLocationReviews(location)),
-  location
+const mapDispatchToProps = (dispatch, {local}) => ({
+  fetchLocationReviews: () => dispatch(fetchLocationReviews(local)),
+  local
 });
 
 export default connect(

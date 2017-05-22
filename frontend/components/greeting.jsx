@@ -53,9 +53,12 @@ class Greeting extends React.Component {
     if (this.props.currentUser){
       return (
         <header>
+          <Link to="/">
+            <img src= 'http://icons.iconarchive.com/icons/flat-icons.com/flat/512/Beer-icon.png'/>
+          </Link>
           <marquee>Happy Hour? Happy Hour? Happy Hour?</marquee>
           <div className='header-session'>
-            <h2>Welcome {this.props.currentUser.username}</h2>
+            <h3>Welcome {this.props.currentUser.username}</h3>
 
             <NavMenuContainer
               formType={'user'}
