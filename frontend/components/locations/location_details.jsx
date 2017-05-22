@@ -9,7 +9,8 @@ export default class LocationDetails extends React.Component {
 
   componentWillMount(){
     const id = this.props.match.params.id;
-    this.props.fetchSingleLocation(parseInt(id));
+    this.props.fetchSingleLocation(parseInt(id))
+      .then(location => this.props.fetchLocationReviews(location));
   }
 
   render(){
@@ -29,7 +30,6 @@ export default class LocationDetails extends React.Component {
       const id = this.props.match.params.id;
       let locations = asArray({id: this.props.local});
       let focus = {center: { lat, lng }, zoom: 13 };
-
       return(
         <section className="location-details">
           <h2>{title}</h2>
@@ -40,6 +40,7 @@ export default class LocationDetails extends React.Component {
           <br/>
           <p>{city}, {state} {zip}</p>
           <LocationMap locations={locations} focus={focus}/>
+          <br/>
         </section>
       );
     } else {

@@ -12,13 +12,6 @@ import {
 import merge from 'lodash/merge';
 
 const _defaultState = {
-  owner_id: '',
-  type_id: '',
-  name: '',
-  desc: '',
-  pets: {},
-  bookings: {},
-  petTypes: []
 };
 
 const UserDetailReducer = (state = _defaultState, action) => {
