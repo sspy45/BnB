@@ -14,7 +14,7 @@ export default class Home extends React.Component {
     return(
       <section className="home-container">
         <Carousel />
-        <section className="categories">
+        <section>
           <LocationsContainer filter={"dog"}/>
           <LocationsContainer filter={"cat"}/>
           <LocationsContainer filter={"godzilla"}/>

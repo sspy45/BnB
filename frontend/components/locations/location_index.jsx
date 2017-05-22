@@ -6,14 +6,25 @@ import Slider from 'react-slick';
 class LocationIndex extends React.Component{
   constructor(props){
     super(props);
+
   }
 
   componentWillMount(){
     this.props.fetchLocations(this.props.filter);
   }
 
+  componentWillReceiveProps(nextProps){
+    if(this.props.locations.length < 1
+      && nextProps.locations.length > 0){
+        console.log("does something");
+      this.setState({
+        locations: nextProps.locations
+      });
+    }
+  }
+
   render(){
-    let {locations, filter} = this.props;
+    let {filter, locations} = this.props;
     let settings = {
       dots: true,
       infinite: true,
@@ -22,19 +33,21 @@ class LocationIndex extends React.Component{
       slidesToScroll: 1
     };
 
-    if(Object.keys(locations).length !== 0 && locations.constructor === Object){
-      locations = asArray(locations.locations);
+    locations[filter] = locations[filter] || {};
+    if(Object.keys(locations[filter]).length !== 0 && locations.constructor === Object){
+
+      locations = asArray(locations[filter]);
       return(
-        <section>
+        <section className="categories">
           <h1>locations for {filter}s</h1>
-          <section className="location-category">
-            {locations.map(location => (
-              <LocationIndexItemContainer
-                key={location.id}
-                location={location}
-              />
-            ))}
-          </section>
+          <secton className="inner-categories">
+          {locations.map(location => (
+            <LocationIndexItemContainer
+              key={location.id}
+              location={location}
+            />
+          ))}
+          </secton>
         </section>
       );
     } else {

@@ -3,9 +3,10 @@ import * as APIUtil from '../util/location_api_util';
 export const RECEIVE_LOCATIONS = 'RECEIVE_LOCATIONS';
 export const RECEIVE_LOCATION_REVIEWS = 'RECEIVE_LOCATION_REVIEWS';
 
-export const receiveLocations = locations => ({
+export const receiveLocations = (locations, filter) => ({
   type: RECEIVE_LOCATIONS,
-  locations
+  locations,
+  filter
 });
 
 export const receiveLocationReviews = reviews => ({
@@ -13,9 +14,9 @@ export const receiveLocationReviews = reviews => ({
   reviews
 });
 
-export const fetchLocations = (filters) => dispatch => (
-  APIUtil.fetchLocations(filters)
-    .then(locations => dispatch(receiveLocations(locations)))
+export const fetchLocations = (filter) => dispatch => (
+  APIUtil.fetchLocations(filter)
+    .then(locations => dispatch(receiveLocations(locations, filter)))
 );
 
 export const fetchLocationReviews = (location) => dispatch => (

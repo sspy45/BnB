@@ -12,8 +12,8 @@ const LocationReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_LOCATIONS:
-      const locations = action.locations;
-      return merge({}, state, {locations});
+      const {locations, filter} = action;
+      return merge({}, state, {locations: {[filter]:locations}});
     case RECEIVE_LOCATION_REVIEWS:
       const reviews = action.reviews;
       // if(reviews){
