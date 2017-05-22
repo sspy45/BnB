@@ -17,10 +17,8 @@ import HomeContainer from './home/home_container';
 import UserContainer from './user/user_container';
 
 const App = () => (
-  <div>
-    <section>
-      <GreetingContainer />
-    </section>
+  <div className="app-container">
+    <GreetingContainer />
     <AuthRoute path="/login" component={ SessionFormContainer } />
     <AuthRoute path="/signup" component={ SessionFormContainer } />
     <Switch>
