@@ -28,6 +28,6 @@ export const averageRating = (reviews) => {
   } else if (ratings.length === 1) {
     return ratings;
   } else {
-    return "";
+    return "0";
   }
 };

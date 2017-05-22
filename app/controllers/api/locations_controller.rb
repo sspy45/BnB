@@ -6,6 +6,11 @@ class Api::LocationsController < ApplicationController
       id = pets.map(&:id)
       @locations = Location.where('id IN (?)', id)
       render "api/locations/index"
+    elsif ["dog", "cat", "snake", "chincilla", "godzilla"].include?(params[:type])
+      @locations = PetType.where('species = (?)', params[:type])[0].locations
+      render "api/locations/index"
+    elsif params[:type] == "cat"
+      @locations = PetType.where('species = (?)', params[:type])[0].locations
     else
       @locations = Location.all
       # in_bounds(params[:bounds])

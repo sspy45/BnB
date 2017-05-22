@@ -2,7 +2,7 @@ export const fetchLocations = (data) => {
   return $.ajax({
     method: "GET",
     url: "api/locations",
-    data
+    data: {type: data}
   });
 };
 

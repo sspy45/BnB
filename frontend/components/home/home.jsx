@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Carousel from './carousel';
+import Footer from '../footer';
 import LocationsContainer from '../locations/locations_container';
 
 export default class Home extends React.Component {
@@ -13,7 +14,10 @@ export default class Home extends React.Component {
     return(
       <section className="home-container">
         <Carousel />
-        <LocationsContainer filter={"dogs"}/>
+        <LocationsContainer filter={"dog"}/>
+        <LocationsContainer filter={"cat"}/>
+        <LocationsContainer filter={"godzilla"}/>
+        <Footer />
       </section>
     );
   }

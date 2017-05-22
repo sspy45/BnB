@@ -1,5 +1,6 @@
 import React from 'react';
 import { filterReviews, averageRating } from '../../reducers/selectors';
+import Stars from '../../widget/stars';
 
 class LocationIndexItem extends React.Component{
   constructor(props){
@@ -21,8 +22,7 @@ class LocationIndexItem extends React.Component{
       <section className="location-tile">
         <img src="http://www.iconsfind.com/wp-content/uploads/2015/11/20151125_5655088ba5cdf.png"></img>
         <p>{location.id}: {location.title}</p>
-        <p>Reviews: {reviews.length}</p>
-        <p>Rating: {rating}</p>
+        <p>Rating({rating}) {reviews.length} reviews</p>
       </section>
     );
   }

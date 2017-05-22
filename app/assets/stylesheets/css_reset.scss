@@ -53,6 +53,8 @@ table {
 * {
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
+	min-height: 0;
+  min-width: 0;
 }
 
 header {
@@ -131,9 +133,7 @@ h4 {
 	height: 100px;
 }
 .home-container{
-	height: 600px;
-	background-size: 100%;
-	background-image: image-url('home-splash.jpg')
+
 }
 
 .user-icon{
@@ -259,7 +259,8 @@ h4 {
 	flex-direction: column;
 	height: 400px;
 	width: 100%;
-	background: palevioletred;
+	background-size: 100%;
+	background-image: image-url('home-splash.jpg');
 	opacity: 0.7;
 }
 
@@ -270,12 +271,39 @@ h4 {
 
 .location-tile {
 	height: 100%;
-	width: 250px;
+	width: 200px;
 	border: 1px solid;
 	padding: 10px 20px 30px 20px;
 	background: white;
 	margin: 10px;
+	font-size: 16px;
 	img {
 		width: inherit;
 	}
+}
+
+.stars {
+	display: flex;
+
+	span {
+	  cursor: pointer;
+	  font-size: 20px;
+	  padding: 0 10px;
+	  color: red;
+	  transition: all 150ms;
+	  display: inline-block;
+	}
+	span.hover {
+	  color: #ff0;
+	  opacity: 1;
+	  transform: rotateX(0deg);
+	  text-shadow: 0 0 30px #ffc;
+	}
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 40px;
 }
