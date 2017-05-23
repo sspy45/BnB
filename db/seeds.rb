@@ -1,3 +1,10 @@
+Location.create!([
+  {title: "My Casa", description: "Chateau de Tony", street_address1: "473 Stow Ave", street_address2: "Apt 2", city: "Oakland", state: "CA", zip: 94606, lat: 37.803799, lng: -122.250617, owner_id: 1, archived: false},
+  {title: "App-Academy", description: "Where dreams are made", street_address1: "160 Spear St", street_address2: "Floor 14", city: "San Fransico", state: "CA", zip: 94105, lat: 37.791305, lng: -122.3959239, owner_id: 1, archived: false},
+  {title: "Mana's place", description: "Mana's place", street_address1: "473 Stow Ave", street_address2: "Apt 2", city: "Oakland", state: "CA", zip: 94606, lat: 37.803799, lng: -122.250617, owner_id: 3, archived: false},
+  {title: "New Gold Medal", description: "Resturant that also pet sits", street_address1: "389 8th St", street_address2: "", city: "Oakland", state: "CA", zip: 94607, lat: 37.7993183, lng: -122.2744451, owner_id: 2, archived: false},
+  {title: "Lake Merrit", description: "Feel free to just leave your pet at the park for a few days", street_address1: "1418 Lakeside Dr", street_address2: "", city: "Oakland", state: "CA", zip: 94612, lat: 37.8014345, lng: -122.2643697, owner_id: 2, archived: false}
+  ])
 Booking.create!([
   {location_id: 1, check_in: "2009-09-01 17:00:00", check_out: "2009-09-01 17:00:00", pet_id: 1},
   {location_id: 1, check_in: "2009-09-01 17:00:00", check_out: "2009-09-01 17:00:00", pet_id: 4}
@@ -21,13 +28,6 @@ Hosting.create!([
   {location_id: 5, pet_type_id: 1},
   {location_id: 5, pet_type_id: 3},
   {location_id: 5, pet_type_id: 5}
-])
-Location.create!([
-  {title: "My Casa", description: "Chateau de Tony", street_address1: "473 Stow Ave", street_address2: "Apt 2", city: "Oakland", state: "CA", zip: 94606, lat: 37.803799, lng: -122.250617, owner_id: 1, archived: false},
-  {title: "App-Academy", description: "Where dreams are made", street_address1: "160 Spear St", street_address2: "Floor 14", city: "San Fransico", state: "CA", zip: 94105, lat: 37.791305, lng: -122.3959239, owner_id: 1, archived: false},
-  {title: "Mana's place", description: "Mana's place", street_address1: "473 Stow Ave", street_address2: "Apt 2", city: "Oakland", state: "CA", zip: 94606, lat: 37.803799, lng: -122.250617, owner_id: 3, archived: false},
-  {title: "New Gold Medal", description: "Resturant that also pet sits", street_address1: "389 8th St", street_address2: "", city: "Oakland", state: "CA", zip: 94607, lat: 37.7993183, lng: -122.2744451, owner_id: 2, archived: false},
-  {title: "Lake Merrit", description: "Feel free to just leave your pet at the park for a few days", street_address1: "1418 Lakeside Dr", street_address2: "", city: "Oakland", state: "CA", zip: 94612, lat: 37.8014345, lng: -122.2643697, owner_id: 2, archived: false}
 ])
 Pet.create!([
   {owner_id: 1, type_id: 1, name: "Loki", desc: "Brother or Thor my other dog"},
