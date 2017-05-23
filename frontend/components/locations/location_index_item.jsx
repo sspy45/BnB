@@ -28,10 +28,7 @@ class LocationIndexItem extends React.Component{
         className="location-tile"
         onClick={this.handleClick(local.id)}
       >
-
           <PictureViewer pictures={local.pictures} options={pictureOptions}/>
-
-
           <p>{local.title}</p>
           <p>Rating: {local.rating}</p>
           <p>Reviews: {local.reviews}</p>
