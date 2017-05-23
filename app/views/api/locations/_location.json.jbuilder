@@ -11,6 +11,7 @@ json.state location.state
 json.zip location.zip
 json.archived location.archived
 json.reviews location.reviews.length
+json.pictures location.pictures
 json.rating do
   location.reviews.length > 0 ?
   location.reviews.map(&:rating).sum / location.reviews.length :

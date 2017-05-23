@@ -10,11 +10,18 @@ export default class LocationDetails extends React.Component {
   componentWillMount(){
     const id = this.props.match.params.id;
     this.props.fetchSingleLocation(parseInt(id))
-      .then(location => this.props.fetchLocationReviews(location));
+      .then(location => {
+        this.props.fetchLocationReviews(location);
+      });
   }
 
   render(){
+
     let locationDetails;
+    let map;
+    let review;
+    let { reviews } = this.props;
+
     if(this.props.local){
       const {
         title,
@@ -41,10 +48,13 @@ export default class LocationDetails extends React.Component {
           <p>{street_address1} {street_address2}</p>
           <br/>
           <p>{city}, {state} {zip}</p>
-          <LocationMap locations={locations} focus={focus}/>
+
           <br/>
         </section>
       );
+
+      map = <LocationMap locations={locations} focus={focus}/>;
+
     } else {
       locationDetails = (
         <section>
@@ -53,16 +63,16 @@ export default class LocationDetails extends React.Component {
       );
     }
 
-    let review;
-    let { reviews } = this.props;
     if(Object.keys(reviews).length !== 0 && reviews.constructor === Object){
       reviews = asArray(reviews);
+      review = <ReviewsList reviews={reviews} />;
     }
 
     return(
       <section>
         {locationDetails}
-        {reviews.length > 0 ? <ReviewsList reviews={reviews} /> : "" }
+        {review}
+        {map}
       </section>
     );
   }
