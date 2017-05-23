@@ -22,15 +22,12 @@ class LocationIndex extends React.Component{
           <h1>locations for {filter}s</h1>
           <secton className="inner-categories">
 
-
           {locations.map(local => (
             <LocationIndexItem
               key={local.id}
               local={local}
             />
           ))}
-
-
 
           </secton>
         </section>

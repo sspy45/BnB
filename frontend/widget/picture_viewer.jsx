@@ -9,28 +9,36 @@ class PictureViewer extends React.Component {
   render(){
     const {pictures, options} = this.props;
 
-    const settings = {
+    const settings =  options || {
       dots: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true
     };
-    return (
-      <section className='location-carousel'>
+
+    if(pictures.length > 0){
+      return (
+      <section>
         <Slider {...settings}>
           {pictures.map(picture => (
             <img
               key={picture.id}
-              alt={picture.name || ""}
-              src={picture.url || ""}/>
+              alt={picture.name || "Location"}
+              src={picture.url}/>
           ))}
-
         </Slider>
       </section>
-
-
-    );
+      );
+    } else {
+      return (
+        <section>
+          <img
+            alt={"Location"}
+            src={"http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495563515/home_onquwb.png"}/>
+        </section>
+      );
+    }
   }
 }
 
