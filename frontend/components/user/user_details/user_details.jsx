@@ -21,7 +21,7 @@ export default class UserDetails extends React.Component {
     this.renderSuccess = this.renderSuccess.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.profilePicture = this.profilePicture.bind(this);
-    this.setState = this.setState.bind(this);
+    this.postImage = this.postImage.bind(this);
   }
 
   update(property) {
@@ -49,13 +49,19 @@ export default class UserDetails extends React.Component {
       method: 'POST',
       url: `api/pictures`,
       data: {picture: img},
-      success: (picture) => {
-        this.setState({
-          currentUser: {
-            url: picture.url
-          }
-        });
-      }
+      // success: function(picture){
+      //   this.setState({
+      //     currentUser: {
+      //       url: picture.url
+      //     }
+      //   });
+      // }
+    }).then( res => {
+      this.setState({
+        currentUser: {
+          url: res.url
+        }
+      });
     });
   }
 

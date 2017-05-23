@@ -103,9 +103,15 @@ h4 {
 	font-size: 18px;
 }
 
-#map-container{
+.map-container{
 	width: 500px;
 	height: 500px;
+}
+.location-detail-map {
+	width: 200px;
+	height: 200px;
+  border: 3px solid #5f9ea0;
+
 }
 
 .errors{
@@ -217,7 +223,7 @@ h4 {
 	display: flex;
 	padding: 25px;
 	flex-direction: column;
-	
+
 	img {
 		width: 80%;
 		height: auto;
@@ -373,4 +379,10 @@ h4 {
 	::before{
 
 	}
+}
+
+.location-carousel {
+	width: 700px;
+	min-height: 0;
+  min-width: 0;
 }

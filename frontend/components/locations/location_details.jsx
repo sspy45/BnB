@@ -2,6 +2,7 @@ import React from 'react';
 import LocationMap from './location_map';
 import { asArray } from '../../reducers/selectors';
 import ReviewsList from '../reviews/reviews_list';
+import PictureViewer from '../../widget/picture_viewer';
 export default class LocationDetails extends React.Component {
   constructor(){
     super();
@@ -21,7 +22,10 @@ export default class LocationDetails extends React.Component {
     let map;
     let review;
     let { reviews } = this.props;
-
+    let pictureContainer;
+    let pictureOptions={
+      className: "location-carousel"
+    };
     if(this.props.local){
       const {
         title,
@@ -32,12 +36,13 @@ export default class LocationDetails extends React.Component {
         zip,
         lat,
         lng,
-        description
+        description,
+        pictures
       } = this.props.local;
 
       const id = this.props.match.params.id;
       let locations = asArray({id: this.props.local});
-      let focus = {center: { lat, lng }, zoom: 13 };
+      let focus = {center: { lat, lng }, zoom: 13, draggable: false, zoomControl: false, scrollwheel: false};
 
       locationDetails = (
         <section className="location-details">
@@ -53,7 +58,17 @@ export default class LocationDetails extends React.Component {
         </section>
       );
 
-      map = <LocationMap locations={locations} focus={focus}/>;
+
+      map = locations.length > 0 ?
+        <LocationMap
+          locations={locations}
+          focus={focus}
+          className={'location-detail-map'} /> : "";
+
+      pictureContainer = pictures.length > 0 ?
+        <PictureViewer
+          pictures={pictures}
+          options={pictureOptions} /> : "";
 
     } else {
       locationDetails = (
@@ -70,6 +85,7 @@ export default class LocationDetails extends React.Component {
 
     return(
       <section>
+        {pictureContainer}
         {locationDetails}
         {review}
         {map}

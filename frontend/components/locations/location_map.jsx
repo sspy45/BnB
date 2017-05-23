@@ -26,8 +26,9 @@ class LocationMap extends React.Component{
   }
 
   render(){
+    let klass = this.props.className || 'map-container';
     return(
-      <div id='map-container' ref={ map => this.mapNode = map }></div>
+      <div className={klass} ref={ map => this.mapNode = map }></div>
     );
   }
 

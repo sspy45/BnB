@@ -14,7 +14,6 @@ class LocationIndex extends React.Component{
 
   render(){
     let {filter, locations} = this.props;
-    // console.log(locations);
     locations[filter] = locations[filter] || {};
     if(Object.keys(locations[filter]).length !== 0 && locations.constructor === Object){
       locations = asArray(locations[filter]);
