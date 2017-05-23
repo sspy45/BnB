@@ -47,6 +47,8 @@ class Location < ApplicationRecord
     foreign_key: :location_id,
     class_name: :Review
 
+  has_many :pictures, as: :imageable
+
   def self.in_bounds(bounds)
     self.where("lat < ?", bounds[:northEast][:lat])
         .where("lat > ?", bounds[:southWest][:lat])

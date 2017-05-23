@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationIndexItemContainer from './location_index_item_container';
+import LocationIndexItem from './location_index_item';
 import { asArray } from '../../reducers/selectors';
 
 class LocationIndex extends React.Component{
@@ -26,7 +26,7 @@ class LocationIndex extends React.Component{
 
 
           {locations.map(local => (
-            <LocationIndexItemContainer
+            <LocationIndexItem
               key={local.id}
               local={local}
             />

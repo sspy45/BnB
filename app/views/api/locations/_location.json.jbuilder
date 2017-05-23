@@ -10,3 +10,5 @@ json.city location.city
 json.state location.state
 json.zip location.zip
 json.archived location.archived
+json.reviews location.reviews.length
+json.rating location.reviews.map(&:rating).sum / location.reviews.length

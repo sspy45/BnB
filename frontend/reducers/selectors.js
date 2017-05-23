@@ -16,14 +16,3 @@ export const filterReviews  = (prop, id) => {
   }
   return filtered;
 };
-
-export const averageRating = (reviews) => {
-  let ratings = reviews.map(review => review.rating);
-  if (ratings.length > 1){
-    return (ratings.reduce((acc,curr) => acc + curr)/ratings.length);
-  } else if (ratings.length === 1) {
-    return ratings;
-  } else {
-    return "0";
-  }
-};

@@ -8,7 +8,7 @@ class Api::LocationsController < ApplicationController
       @locations = Location.where('id IN (?)', bookings)
       render "api/locations/index"
     elsif ["dog", "cat", "snake", "chincilla", "godzilla"].include?(params[:type])
-      @locations = PetType.where('species = (?)', params[:type])[0].locations
+      @locations = PetType.where('species = (?)', params[:type])[0].locations.joins(:reviews)
       render "api/locations/index"
     elsif params[:type] == "cat"
       @locations = PetType.where('species = (?)', params[:type])[0].locations

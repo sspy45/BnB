@@ -33,4 +33,6 @@ class Pet < ApplicationRecord
     through: :bookings
 
   has_many :reviews
+
+  has_many :pictures, as: :imageable
 end
