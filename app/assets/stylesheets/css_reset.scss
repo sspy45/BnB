@@ -111,7 +111,7 @@ h4 {
 	width: 200px;
 	height: 200px;
   border: 3px solid #5f9ea0;
-
+  margin-right: 20px;
 }
 
 .errors{
@@ -312,7 +312,7 @@ h4 {
 	margin: auto;
 	width: 100%;
 	background-size: cover;
-	height: 400px;
+	height: 500px;
 
 	h1 {
 		margin: 50px;
@@ -336,24 +336,11 @@ h4 {
 	&:hover {
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
-}
 
-.stars {
-	display: flex;
-
-	span {
-	  cursor: pointer;
-	  font-size: 20px;
-	  padding: 0 10px;
-	  color: red;
-	  transition: all 150ms;
-	  display: inline-block;
-	}
-	span.hover {
-	  color: #ff0;
-	  opacity: 1;
-	  transform: rotateX(0deg);
-	  text-shadow: 0 0 30px #ffc;
+	img {
+		width: 100%;
+	  height: 200px;
+		object-fit: contain;
 	}
 }
 
@@ -361,7 +348,8 @@ h4 {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	margin: 40px;
+	border-top: gray 1px solid;
+	padding: 40px;
 	width: 100%;
 	flex-wrap: wrap;
 }
@@ -379,6 +367,31 @@ h4 {
 	}
 }
 
-.carousel-image {
+.tile-details {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-carousel {
 	width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 450px;
+	img {
+		height: 400px;
+    object-fit: cover;
+	}
+}
+
+.tile-location-carousel{
+
+}
+
+.location-details {
+	display: flex;
+	width: 90%;
+	justify-content: flex-start;
+	align-items: flex-end;
+
 }

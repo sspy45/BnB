@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Carousel from './carousel';
-import Footer from '../footer';
 import LocationsContainer from '../locations/locations_container';
 
 export default class Home extends React.Component {
@@ -18,8 +17,7 @@ export default class Home extends React.Component {
           <LocationsContainer filter={"dog"}/>
           <LocationsContainer filter={"cat"}/>
           <LocationsContainer filter={"godzilla"}/>
-  
-        <Footer />
+
       </section>
     );
   }

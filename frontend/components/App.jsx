@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
-
+import Footer from './footer';
 import {
   Route,
   Redirect,
@@ -29,7 +29,7 @@ const App = () => (
       <Route path="/" component={ HomeContainer } />
     </Switch>
 
-
+    <Footer />
   </div>
 );
 

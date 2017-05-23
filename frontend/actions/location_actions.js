@@ -5,6 +5,7 @@ export const RECEIVE_ALL_LOCATIONS = 'RECEIVE_ALL_LOCATIONS';
 export const RECEIVE_BOOKING_LOCATIONS = 'RECEIVE_BOOKING_LOCATIONS';
 export const RECEIVE_LOCATION_REVIEWS = 'RECEIVE_LOCATION_REVIEWS';
 export const RECEIVE_SINGLE_LOCATION = 'RECEIVE_SINGLE_LOCATION';
+export const CLEAR_LOCATION = 'CLEAR_LOCATION';
 
 export const receiveLocations = (locations, filter) => ({
   type: RECEIVE_LOCATIONS,
@@ -15,6 +16,10 @@ export const receiveLocations = (locations, filter) => ({
 export const receiveAllLocations = (locations) => ({
   type: RECEIVE_ALL_LOCATIONS,
   locations
+});
+
+export const clearLocation = () => ({
+  type: CLEAR_LOCATION
 });
 
 export const receiveBookingLocations = (locations, filter) => ({

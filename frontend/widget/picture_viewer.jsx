@@ -7,7 +7,7 @@ class PictureViewer extends React.Component {
   }
 
   render(){
-    const {pictures, options} = this.props;
+    const {pictures, options, klass} = this.props;
 
     const settings =  options || {
       dots: true,
@@ -19,24 +19,22 @@ class PictureViewer extends React.Component {
 
     if(pictures.length > 0){
       return (
-      <section>
-        <Slider {...settings}>
-          {pictures.map(picture => (
-            <img
-              key={picture.id}
-              alt={picture.name || "Location"}
-              src={picture.url}/>
-          ))}
-        </Slider>
+        <section className={klass}>
+          <Slider {...settings}>
+            {pictures.map(picture => (
+              <img
+                key={picture.id}
+                alt={picture.name || "Location"}
+                src={picture.url}/>
+            ))}
+          </Slider>
       </section>
       );
     } else {
       return (
-        <section>
-          <img
-            alt={"Location"}
-            src={"http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495563515/home_onquwb.png"}/>
-        </section>
+        <img
+          alt={"Location"}
+          src={"http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495563515/home_onquwb.png"}/>
       );
     }
   }

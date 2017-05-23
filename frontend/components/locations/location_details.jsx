@@ -24,7 +24,11 @@ export default class LocationDetails extends React.Component {
     let { reviews } = this.props;
     let pictureContainer;
     let pictureOptions={
-      className: "location-carousel"
+      dots: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 2,
+      arrows: true
     };
     if(this.props.local){
       const {
@@ -45,7 +49,7 @@ export default class LocationDetails extends React.Component {
       let focus = {center: { lat, lng }, zoom: 13, draggable: false, zoomControl: false, scrollwheel: false};
 
       locationDetails = (
-        <section className="location-details">
+        <section>
           <h2>{title}</h2>
           <br/>
           <p>{description}</p>
@@ -84,11 +88,19 @@ export default class LocationDetails extends React.Component {
     }
 
     return(
-      <section>
-        {pictureContainer}
-        {locationDetails}
+      <section className="home-container">
+        <section className="location-carousel">
+          {pictureContainer}
+        </section>
+        <section className="location-details">
+          {map}
+          <section>
+          {locationDetails}
+          </section>
+        </section>
+
         {review}
-        {map}
+
       </section>
     );
   }
