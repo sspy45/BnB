@@ -44,6 +44,7 @@ class User < ApplicationRecord
   has_one :location,
     through: :bookings
 
+  has_many :pictures, as: :imageable
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

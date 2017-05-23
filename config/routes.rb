@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :reviews, only: [:index]
     end
     resource :session
+    resources :pictures
     resources :pet_types, only: [:index]
   end
   root "static_pages#root"

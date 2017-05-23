@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import UploadButton from '../../../widget/upload_button';
 
 export default class UserDetails extends React.Component {
   constructor(props){
@@ -35,6 +36,16 @@ export default class UserDetails extends React.Component {
 		this.props.editUser(user);
     this.setState({successToggle: true});
   }
+
+  postImage(url) {
+    const img = {url: url};
+    return $.ajax({
+      method: 'POST',
+      url: `api/pictures`,
+      data: {image: img}
+    });
+  }
+
 
   renderErrors() {
     return(
@@ -115,6 +126,7 @@ export default class UserDetails extends React.Component {
           onClick={this.handleSubmit}
           value="Update Profile"
         />
+      <UploadButton postImage={this.postImage} />
       </section>
     );
   }

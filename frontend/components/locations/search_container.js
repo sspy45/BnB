@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchLocations } from '../../actions/location_actions';
+import { fetchAllLocations } from '../../actions/location_actions';
 import Search from './search';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({session, locations}) => {
   return {
-    locations: state.locations,
-    currentUser: state.session.currentUser
+    currentUser: session.currentUser,
+    locations: locations.locations || {}
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchLocations: () => dispatch(fetchLocations())
+  fetchAllLocations: () => dispatch(fetchAllLocations())
 });
 
 export default connect(

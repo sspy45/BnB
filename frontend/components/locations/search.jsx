@@ -9,18 +9,17 @@ class Search extends React.Component{
   }
 
   componentWillMount(){
-    this.props.fetchLocations();
+    this.props.fetchAllLocations();
   }
 
   render(){
     let { fetchLocations, locations } = this.props;
-    console.log(locations);
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
       locations = asArray(this.props.locations);
+      debugger
       return(
         <div>
           <LocationMap locations={locations}/>
-          <LocationIndex locations={locations}/>
         </div>
       );
     } else {

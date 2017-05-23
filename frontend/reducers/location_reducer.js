@@ -1,5 +1,6 @@
 import {
   RECEIVE_LOCATIONS,
+  RECEIVE_ALL_LOCATIONS,
   RECEIVE_LOCATION_REVIEWS,
   RECEIVE_SINGLE_LOCATION,
   RECEIVE_BOOKING_LOCATIONS
@@ -18,6 +19,9 @@ const LocationReducer = (state = _defaultState, action) => {
     case RECEIVE_LOCATIONS:
       let {locations, filter} = action;
       return merge({}, state, {locations:{[filter]:locations}});
+    case RECEIVE_ALL_LOCATIONS:
+      locations = action.locations;
+      return merge({}, state, {locations});
     case RECEIVE_BOOKING_LOCATIONS:
       return merge({}, state, {[action.filter]: action.locations});
     case RECEIVE_LOCATION_REVIEWS:

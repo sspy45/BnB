@@ -11,8 +11,9 @@ export default class MarkerManager {
 
   updateMarkers(locations) {
     const locationsObj ={};
-    if(locations.title !== ""){
+    if(locations.length > 0){
       locations.forEach((location) => {locationsObj[location.id] = location;});
+      debugger
       locations
         .filter(location => !this.markers[location.id])
         .forEach(newLocation => this.createMarkerFromLocation(newLocation));
@@ -21,6 +22,7 @@ export default class MarkerManager {
   }
 
   createMarkerFromLocation(location){
+    debugger
     const position = new google.maps.LatLng(location.lat, location.lng);
     let marker = new google.maps.Marker({
       position,
