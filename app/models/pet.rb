@@ -17,7 +17,8 @@ class Pet < ApplicationRecord
   belongs_to :owner,
     primary_key: :id,
     foreign_key: :owner_id,
-    class_name: :User
+    class_name: :User,
+    optional: true
 
   belongs_to :pet_type,
     primary_key: :id,
