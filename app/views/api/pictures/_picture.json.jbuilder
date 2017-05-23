@@ -1,1 +1,2 @@
-json.extract! image, :id, :url
+json.name picture.name
+json.url picture.url

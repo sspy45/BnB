@@ -20,6 +20,8 @@ export default class UserDetails extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.renderSuccess = this.renderSuccess.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.profilePicture = this.profilePicture.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   update(property) {
@@ -37,12 +39,23 @@ export default class UserDetails extends React.Component {
     this.setState({successToggle: true});
   }
 
-  postImage(url) {
-    const img = {url: url};
+  postImage(url, id) {
+    const img = {
+      url: url,
+      imageable_type: 'User',
+      imageable_id: `${id}`
+    };
     return $.ajax({
       method: 'POST',
       url: `api/pictures`,
-      data: {image: img}
+      data: {picture: img},
+      success: (picture) => {
+        this.setState({
+          currentUser: {
+            url: picture.url
+          }
+        });
+      }
     });
   }
 
@@ -67,66 +80,85 @@ export default class UserDetails extends React.Component {
     );
   }
 
+  profilePicture(user){
+    if (user.url !== null){
+      return(
+        <img src={user.url} />
+      );
+    } else {
+      return (
+        <img alt="No Image" />
+      );
+    }
+  }
+
   render(){
     const { currentUser, errors } = this.props;
-
+    let profileImage = this.profilePicture(currentUser);
 
     return(
-      <section className='user-profile-container'>
-        <h2>My Profile</h2>
-        <br />
+      <section className="inner-categories">
+        <section className='user-profile-container'>
+          <h2>My Profile</h2>
+          <br />
 
-        <label>Profile page for user: {currentUser.username}</label>
-        <br/>
+          <label>Profile page for user: {currentUser.username}</label>
+          <br/>
 
-        <label>First Name</label>
-        <br />
-        <input
-          type="text"
-          onChange={this.update("first_name")}
-          value={this.state.first_name}
-          placeholder="First Name"
-        />
-        <br />
+          <label>First Name</label>
+          <br />
+          <input
+            type="text"
+            onChange={this.update("first_name")}
+            value={this.state.first_name}
+            placeholder="First Name"
+          />
+          <br />
 
-        <label>Last Name</label>
-        <br />
-        <input
-          type="text"
-          onChange={this.update("last_name")}
-          value={this.state.last_name}
-          placeholder="Last Name"
-        />
-        <br />
+          <label>Last Name</label>
+          <br />
+          <input
+            type="text"
+            onChange={this.update("last_name")}
+            value={this.state.last_name}
+            placeholder="Last Name"
+          />
+          <br />
 
-        <label>Email</label>
-        <br />
-        <input
-          type="text"
-          onChange={this.update("email")}
-          value={this.state.email}
-          placeholder="Email"
-        />
-        <br />
+          <label>Email</label>
+          <br />
+          <input
+            type="text"
+            onChange={this.update("email")}
+            value={this.state.email}
+            placeholder="Email"
+          />
+          <br />
 
-        <label>Phone number</label>
-        <br />
-        <input
-          type="text"
-          onChange={this.update("phone")}
-          value={this.state.phone}
-          placeholder="Phone number"
-        />
-        <br />
-        {this.renderErrors()}
-        {this.renderSuccess()}
-        <br />
-        <input
-          type="submit"
-          onClick={this.handleSubmit}
-          value="Update Profile"
-        />
-      <UploadButton postImage={this.postImage} />
+          <label>Phone number</label>
+          <br />
+          <input
+            type="text"
+            onChange={this.update("phone")}
+            value={this.state.phone}
+            placeholder="Phone number"
+          />
+          <br />
+          {this.renderErrors()}
+          {this.renderSuccess()}
+          <br />
+          <input
+            type="submit"
+            onClick={this.handleSubmit}
+            value="Update Profile"
+          />
+        </section>
+        <section className="user-profile-container">
+          {profileImage}
+          <UploadButton
+            postImage={this.postImage}
+            id={currentUser.id} />
+        </section>
       </section>
     );
   }

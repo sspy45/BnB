@@ -16,7 +16,6 @@ class Search extends React.Component{
     let { fetchLocations, locations } = this.props;
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
       locations = asArray(this.props.locations);
-      debugger
       return(
         <div>
           <LocationMap locations={locations}/>

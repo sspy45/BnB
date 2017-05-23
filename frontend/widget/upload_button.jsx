@@ -1,20 +1,18 @@
 import React from 'react';
 
 export default class UploadButton extends React.Component {
-  constructor(){
-    super();
-
+  constructor(props){
+    super(props);
     this.upload = this.upload.bind(this);
-    this.postImage = this.postImage.bind(this);
   }
 
-  upload(){
+  upload(props){
     event.preventDefault();
     cloudinary.openUploadWidget(
       window.cloudinary_options,
       (error, results) => {
           if (!error) {
-            this.postImage(results[0].url);
+            this.props.postImage(results[0].url, this.props.id);
           }
         }
     );

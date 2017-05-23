@@ -12,3 +12,5 @@ json.locationLat booking.location.lat
 json.locationlng booking.location.lng
 json.checkIn booking.check_in
 json.checkOut booking.check_out
+json.petName booking.pet.name
+json.petPictures booking.pet.pictures
