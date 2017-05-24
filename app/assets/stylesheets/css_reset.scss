@@ -111,7 +111,7 @@ h4 {
 	width: 200px;
 	height: 200px;
   border: 3px solid #5f9ea0;
-  margin-right: 20px;
+  margin: 20px;
 }
 
 .errors{
@@ -161,7 +161,7 @@ h4 {
 
 .home-container{
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
 	width: 100%
 }
@@ -177,6 +177,7 @@ h4 {
 .categories {
 
 	width: 100%;
+	margin-left: 20px;
 	min-width: 300px;
 	h1 {
 		padding: 10px;
@@ -361,10 +362,12 @@ h4 {
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
-
-	::before{
-
-	}
+}
+.review-inner{
+	display: flex;
+  justify-content: space-between;
+  width: 460px;
+  align-items: center;
 }
 
 .tile-details {
@@ -379,8 +382,16 @@ h4 {
   overflow: hidden;
   height: 450px;
 	img {
-		height: 400px;
-    object-fit: cover;
+		width: 100%;
+		object-fit: cover;
+	}
+	h1{
+		display: inline-block;
+		float: left;
+		position: absolute;
+		margin: 80px;
+		font-size: 40px;
+		color: gainsboro;
 	}
 }
 
@@ -390,8 +401,9 @@ h4 {
 
 .location-details {
 	display: flex;
-	width: 90%;
-	justify-content: flex-start;
-	align-items: flex-end;
-
+	align-items: flex-start;
+	flex-direction: column;
+	section {
+		margin: 20px;
+	}
 }

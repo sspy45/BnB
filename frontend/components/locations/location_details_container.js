@@ -12,8 +12,7 @@ const mapStateToProps = ({locations}) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSingleLocation: (id) => dispatch(fetchSingleLocation(id)),
-  fetchLocationReviews: (location) => dispatch(fetchLocationReviews(location)),
-  clearLocation: () => dispatch(clearLocation())
+  fetchLocationReviews: (location) => dispatch(fetchLocationReviews(location))
 });
 
 export default connect(

@@ -49,14 +49,8 @@ export default class UserDetails extends React.Component {
       method: 'POST',
       url: `api/pictures`,
       data: {picture: img},
-      // success: function(picture){
-      //   this.setState({
-      //     currentUser: {
-      //       url: picture.url
-      //     }
-      //   });
-      // }
     }).then( res => {
+      debugger;
       this.setState({
         currentUser: {
           url: res.url
@@ -87,6 +81,7 @@ export default class UserDetails extends React.Component {
   }
 
   profilePicture(user){
+    debugger
     if (user.url !== null){
       return(
         <img src={user.url} />

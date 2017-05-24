@@ -72,7 +72,11 @@ export default class LocationDetails extends React.Component {
       pictureContainer = pictures.length > 0 ?
         <PictureViewer
           pictures={pictures}
-          options={pictureOptions} /> : "";
+          options={pictureOptions} /> :
+        <section>
+          <h1> Don't forget about me</h1>
+          <img src='http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495583958/default-splash_q9gejo.jpg' />
+        </section>;
 
     } else {
       locationDetails = (
@@ -94,13 +98,10 @@ export default class LocationDetails extends React.Component {
         </section>
         <section className="location-details">
           {map}
-          <section>
           {locationDetails}
-          </section>
         </section>
 
         {review}
-
       </section>
     );
   }
