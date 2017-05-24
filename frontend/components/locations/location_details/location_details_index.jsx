@@ -25,6 +25,7 @@ export default class LocationDetails extends React.Component {
     let reviewList;
     let { reviews } = this.props;
     let carousel;
+    let bookingContainer;
 
     if(this.props.local){
       const {
@@ -61,6 +62,7 @@ export default class LocationDetails extends React.Component {
           className={'location-detail-map'}
         /> : "";
 
+      bookingContainer = <BookingContainer map={map} />;
     } else {
       locationDetails = (
         <section>
@@ -80,7 +82,7 @@ export default class LocationDetails extends React.Component {
             {locationDetails}
           </section>
           <section className="location-details-form">
-            <BookingContainer map={map} />
+            {bookingContainer}
           </section>
         </section>
 

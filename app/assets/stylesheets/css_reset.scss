@@ -53,6 +53,7 @@ table {
 * {
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
+	color: #5d5d5d;
 	min-height: 0;
   min-width: 0;
 }
@@ -71,6 +72,7 @@ header {
 	}
 	h1 {
   	padding: 0px 10px;
+
 	}
 	img {
 		height: 50px;
@@ -397,6 +399,7 @@ h4 {
   height: 450px;
 	img {
 		width: 100%;
+	  min-height: 450px;
 		object-fit: cover;
 	}
 	h1{
@@ -410,7 +413,9 @@ h4 {
 }
 
 .tile-location-carousel{
-
+	img {
+	  object-fit: cover;
+	}
 }
 .location-container{
 	display: flex;
@@ -447,7 +452,7 @@ h4 {
 
 .location-details-form{
 	display: flex;
-	border: 1px gray solid;
+	border: 1px #d8d8d8 solid;
 	margin: 10px;
 }
 

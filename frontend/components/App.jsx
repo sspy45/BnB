@@ -18,7 +18,6 @@ import LocationDetailsContainer from './locations/location_details/location_deta
 class App extends React.Component{
 
   componentWillReceiveProps(nextProps){
-    console.log(this.props, nextProps);
     if(this.props.location.pathname !== nextProps.location.pathname){
       window.scrollTo(0,0);
     }

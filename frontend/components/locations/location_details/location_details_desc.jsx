@@ -36,7 +36,7 @@ const LocationDetailsDesc = ({details, review}) => {
           </section>
         </section>
         <section className='details-owner-icon'>
-          <img src={ownerUrl}/>
+          {ownerUrl ? <img src={ownerUrl}/> : ""}
 
         </section>
       </section>

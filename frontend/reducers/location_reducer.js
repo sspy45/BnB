@@ -40,8 +40,8 @@ const LocationReducer = (state = _defaultState, action) => {
       newState = merge({}, state, {bookings: action.booking});
       return newState;
     case RECEIVE_LOCATION_BOOKINGS:
-
-      newState = merge({}, state, {bookings: action.bookings});
+      newState = merge({}, state);
+      newState.bookings = action.bookings;
       return newState;
     default:
       return state;

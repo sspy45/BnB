@@ -9,18 +9,41 @@ export default class BookingForm extends React.Component {
     this.state={
       startDate: null,
       endDate: null,
-
+      locationId: props.local.id,
+      petId: ""
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSwitch = this.handleSwitch.bind(this);
   }
 
 
-
+  componentWillReceiveProps(nextProps){
+    if(this.props.pets.length < 1
+      && nextProps.pets.length > 0){
+      this.setState({
+        petId: nextProps.pets[0].id
+      });
+    }
+  }
   componentWillMount(){
     this.props.fetchPets(this.props.currentUser.id);
   }
 
+  handleSubmit(){
+    event.preventDefault();
+    debugger
+  }
+
+  handleSwitch(e){
+    let petId = e.currentTarget.value;
+    this.setState({
+      petId
+    });
+  }
+
   render(){
-    const {pets, map} = this.props;
+    const {pets, map, bookings} = this.props;
     let petList;
     if(pets.length > 0){
       petList = (
@@ -28,9 +51,12 @@ export default class BookingForm extends React.Component {
           <label>Select a pet: </label><br/>
           <br/>
           <select
-            value={pets[0].id}>
+            onChange={this.handleSwitch}
+            value={this.state.petId}>
             {pets.map(pet =>
-              <option key={pet.id} value={pet.id}>
+              <option
+                key={pet.id}
+                value={pet.id}>
                 {pet.name}
               </option>
             )}
@@ -45,15 +71,16 @@ export default class BookingForm extends React.Component {
         </h4>
       </section>);
     }
+
+    const defaultProps = {
+      isOutsideRange: day => !isInclusivelyAfterDay(day, moment()),
+    };
     return (
       <section className='location-booking-form'>
         {map}
         <h2>
           Book this place
         </h2>
-
-
-
 
         <DateRangePicker
           startDate={this.state.startDate}
@@ -64,7 +91,10 @@ export default class BookingForm extends React.Component {
         />
         {petList}
         <section>
-          <input type="submit" value='submit'/>
+          <input
+            onClick={this.handleSubmit}
+            type="submit"
+            value='Request'/>
         </section>
       </section>
     );

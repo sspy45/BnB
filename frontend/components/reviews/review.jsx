@@ -2,7 +2,6 @@ import React from 'react';
 import Rating from 'react-rating';
 
 const Review = ({review}) => {
-  console.log(review);
   return (
     <section className="review">
         <section className="review-inner">
