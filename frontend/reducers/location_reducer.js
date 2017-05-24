@@ -29,7 +29,9 @@ const LocationReducer = (state = _defaultState, action) => {
       return merge({}, state, {[action.filter]: action.locations});
     case RECEIVE_LOCATION_REVIEWS:
       const reviews = action.reviews;
-      return merge({}, state, {reviews});
+      newState = merge({}, state);
+      newState.reviews = action.reviews;
+      return newState;
     case RECEIVE_SINGLE_LOCATION:
       newState = merge({}, state);
       newState.local = action.location;

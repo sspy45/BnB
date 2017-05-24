@@ -20,7 +20,7 @@ export default class BookingForm extends React.Component {
   }
 
   render(){
-    const {pets} = this.props;
+    const {pets, map} = this.props;
     let petList;
     if(pets.length > 0){
       petList = (
@@ -47,8 +47,9 @@ export default class BookingForm extends React.Component {
     }
     return (
       <section className='location-booking-form'>
+        {map}
         <h2>
-          Make a Booking
+          Book this place
         </h2>
 
 

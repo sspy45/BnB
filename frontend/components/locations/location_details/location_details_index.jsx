@@ -1,11 +1,9 @@
 import React from 'react';
 import LocationMap from '../location_map';
-import { asArray } from '../../../reducers/selectors';
-import ReviewsList from '../../reviews/reviews_list';
 import Carousel from './carousel';
 import LocationDetailsDesc from './location_details_desc';
 import BookingContainer from './booking_container';
-
+import { asArray } from '../../../reducers/selectors';
 export default class LocationDetails extends React.Component {
   constructor(){
     super();
@@ -24,7 +22,7 @@ export default class LocationDetails extends React.Component {
 
     let locationDetails;
     let map;
-    let review;
+    let reviewList;
     let { reviews } = this.props;
     let carousel;
 
@@ -45,9 +43,8 @@ export default class LocationDetails extends React.Component {
 
       let locations = asArray({id: this.props.local});
 
-
       carousel = <Carousel pictures={pictures} />;
-      locationDetails = <LocationDetailsDesc details={this.props.local} />;
+      locationDetails = <LocationDetailsDesc details={this.props.local} review={reviews} />;
 
       let mapSettings = {
         center: { lat, lng },
@@ -72,10 +69,6 @@ export default class LocationDetails extends React.Component {
       );
     }
 
-    if(Object.keys(reviews).length !== 0 && reviews.constructor === Object){
-      reviews = asArray(reviews);
-      review = <ReviewsList reviews={reviews} />;
-    }
 
     return(
       <section className="location-container">
@@ -87,11 +80,10 @@ export default class LocationDetails extends React.Component {
             {locationDetails}
           </section>
           <section className="location-details-form">
-            <BookingContainer />
+            <BookingContainer map={map} />
           </section>
         </section>
-        {map}
-        {review}
+
       </section>
     );
   }

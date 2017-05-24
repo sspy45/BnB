@@ -1,14 +1,25 @@
 import React from 'react';
+import Rating from 'react-rating';
 
 const Review = ({review}) => {
+  console.log(review);
   return (
     <section className="review">
         <section className="review-inner">
-          <i className="fa fa-quote-left" aria-hidden="true"></i>
-            { review.body }
-          <i className="fa fa-quote-right" aria-hidden="true"></i>
+          <p>
+
+            "{ review.body }"
+            - {review.userName ? review.userNmae : 'some person'}
+          </p>
         </section>
-      <h4>rating: {review.rating}</h4>
+        <section>
+        <Rating
+        empty="fa fa-smile-o fa-2"
+        full="fa fa-smile-o fa-2"
+        initialRate={parseInt(review.rating)}
+        readonly
+        />
+      </section>
     </section>
   );
 };
