@@ -1,7 +1,7 @@
 import React from 'react';
 import PictureViewer from '../../../widget/picture_viewer';
 
-const Carousel = (pictures) => {
+const Carousel = ({pictures}) => {
 
   let pictureOptions={
     dots: true,
@@ -10,7 +10,6 @@ const Carousel = (pictures) => {
     slidesToScroll: 2,
     arrows: true
   };
-
   if(pictures.length > 0){
     return(
       <PictureViewer

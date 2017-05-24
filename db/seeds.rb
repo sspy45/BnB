@@ -69,5 +69,6 @@ hostings18 = Hosting.create!(location_id: location5.id, pet_type_id: pet_type5.i
 hostings19 = Hosting.create!(location_id: location9.id, pet_type_id: pet_type1.id)
 
 
-pic1 = Picture.create!(name: "Tony's house", url: "http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495558234/nice-house_da7ecb.jpg", imageable_id: user1.id, imageable_type: "Location" )
-pic1 = Picture.create!(name: "Tony's house", url: "http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495558233/download_bcxfd7.jpg", imageable_id: user1.id, imageable_type: "Location" )
+pic1 = Picture.create!(name: "Tony's house", url: "http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495558234/nice-house_da7ecb.jpg", imageable_id: location1.id, imageable_type: "Location" )
+pic2 = Picture.create!(name: "Tony's kitchen", url: "http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495606668/kitchen_jwijnf.jpg", imageable_id: location1.id, imageable_type: "Location" )
+pic3 = Picture.create!(name: "App-Academy", url: "http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495608112/170504214709-app-academy-1024x576_y9onas.jpg", imageable_id: location2.id, imageable_type: "Location" )

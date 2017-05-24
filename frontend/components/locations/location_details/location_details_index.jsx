@@ -16,6 +16,7 @@ export default class LocationDetails extends React.Component {
     this.props.fetchSingleLocation(parseInt(id))
       .then(location => {
         this.props.fetchLocationReviews(location);
+        this.props.fetchLocationBookings(location);
       });
   }
 

@@ -4,15 +4,15 @@ import {
   RECEIVE_LOCATION_REVIEWS,
   RECEIVE_SINGLE_LOCATION,
   RECEIVE_BOOKING_LOCATIONS,
-  RECEIVE_BOOKING
+  RECEIVE_BOOKING,
+  RECEIVE_LOCATION_BOOKINGS
  }from '../actions/location_actions';
 
 import merge from 'lodash/merge';
 
 const _defaultState = {
   locations: {},
-  bookings: {},
-  newBookings: {}
+  bookings: {}
 };
 
 const LocationReducer = (state = _defaultState, action) => {
@@ -35,7 +35,11 @@ const LocationReducer = (state = _defaultState, action) => {
       newState.local = action.location;
       return newState;
     case RECEIVE_BOOKING:
-      newState = merge({}, state, {newBookings: action.booking});
+      newState = merge({}, state, {bookings: action.booking});
+      return newState;
+    case RECEIVE_LOCATION_BOOKINGS:
+
+      newState = merge({}, state, {bookings: action.bookings});
       return newState;
     default:
       return state;

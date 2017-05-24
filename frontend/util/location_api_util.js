@@ -31,3 +31,11 @@ export const fetchSingleLocation = (id)=> (
     url: `api/locations/${id}`
   })
 );
+
+export const fetchLocationBookings = ({location}) => {
+  return $.ajax({
+    method: "GET",
+    url: `api/locations/${location.id}/bookings`,
+    data: 'location'
+  });
+};

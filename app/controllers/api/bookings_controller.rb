@@ -1,7 +1,11 @@
 class Api::BookingsController < ApplicationController
   def index
-    user = User.find(params[:user_id])
-    @bookings = user.bookings.includes(:location)
+    if params[:type] == 'user'
+      user = User.find(params[:user_id])
+      @bookings = user.bookings.includes(:location)
+    else params[:type] == 'location'
+      @bookings = Booking.where('location_id = (?)', params[:location_id])
+    end
   end
 
   def new
@@ -11,6 +15,7 @@ class Api::BookingsController < ApplicationController
   end
 
   def show
+
   end
 
   def destroy
