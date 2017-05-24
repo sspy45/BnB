@@ -53,10 +53,13 @@ class Greeting extends React.Component {
     if (this.props.currentUser){
       return (
         <header>
+          <section>
           <Link to="/">
-            <img src= 'http://icons.iconarchive.com/icons/flat-icons.com/flat/512/Beer-icon.png'/>
+            <h1>PetBnB</h1>
           </Link>
-          <marquee>Happy Hour? Happy Hour? Happy Hour?</marquee>
+
+          </section>
+
           <div className='header-session'>
             <h3>Welcome {this.props.currentUser.username}</h3>
 

@@ -65,6 +65,7 @@ header {
   justify-content: space-between;
 
 
+
 	marquee {
 		font-size: 30px;
 	}
@@ -75,6 +76,9 @@ header {
 		height: 50px;
 		width: 50px;
 		margin-left: 20px;
+	}
+	a{
+		text-decoration: none;
 	}
 
 	.header-session{
@@ -409,7 +413,6 @@ h4 {
 		border: red 1px solid;
 		flex-grow:1;
 		flex-grow: 1;
-		align-items: center;
 		padding: 5px
 
 	}
@@ -444,4 +447,17 @@ h4 {
 .details-row-1 {
 	display:flex;
 	flex: 1
+}
+
+.tile-overlay {
+	border: 1px solid red;
+	height: 256px;
+	position: absolute;
+	width: 232px;
+	margin: 20px;
+}
+
+.slick-next {
+  right: 0px;
+  border: 1px solid red;
 }

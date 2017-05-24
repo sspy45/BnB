@@ -27,7 +27,6 @@ class LocationIndexItem extends React.Component{
     return(
       <section
         className="location-tile"
-        onClick={this.handleClick(local.id)}
       >
           <PictureViewer
             pictures={local.pictures}
@@ -43,6 +42,11 @@ class LocationIndexItem extends React.Component{
             />
             <p>Reviews: {local.reviews}</p>
           </section>
+          <div
+            className="tile-overlay"
+            onClick={this.handleClick(local.id)}>
+
+          </div>
       </section>
     );
   }
