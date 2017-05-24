@@ -55,7 +55,7 @@ class Greeting extends React.Component {
         <header>
           <section>
           <Link to="/">
-            <h1>PetBnB</h1>
+            <h1>AirBarknBite</h1>
           </Link>
 
           </section>
@@ -72,7 +72,7 @@ class Greeting extends React.Component {
       } else {
         return(
           <header>
-            <h1>Happy Hour?</h1>
+            <h1>AirBarknBite</h1>
             <div className='header-session'>
               <button
                 className='nav-button'

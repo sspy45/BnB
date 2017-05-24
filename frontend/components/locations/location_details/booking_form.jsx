@@ -1,6 +1,7 @@
 import React from 'react';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
-
+import { Link } from 'react-router-dom';
+import 'react-dates/lib/css/_datepicker.css';
 export default class BookingForm extends React.Component {
   constructor(props){
     super(props);
@@ -23,21 +24,35 @@ export default class BookingForm extends React.Component {
     let petList;
     if(pets.length > 0){
       petList = (
-        <select
-          value={pets[0].id}>
-          {pets.map(pet =>
-            <option value={pet.id}>
-              {pet.name}
-            </option>
-          )}
-        </select>
+        <div>
+          <label>Select a pet: </label><br/>
+          <br/>
+          <select
+            value={pets[0].id}>
+            {pets.map(pet =>
+              <option key={pet.id} value={pet.id}>
+                {pet.name}
+              </option>
+            )}
+          </select>
+        </div>
       );
+    } else {
+      petList = (
+      <section>
+        <h4>
+          Register a <Link to="/user/pets">pet</Link> before booking
+        </h4>
+      </section>);
     }
     return (
-      <section>
+      <section className='location-booking-form'>
         <h2>
           Make a Booking
         </h2>
+
+
+
 
         <DateRangePicker
           startDate={this.state.startDate}
@@ -46,10 +61,10 @@ export default class BookingForm extends React.Component {
           focusedInput={this.state.focusedInput}
           onFocusChange={focusedInput => this.setState({ focusedInput })}
         />
-        <p>CALENDAR</p>
-        <p>CALENDAR</p>
         {petList}
-        <input type="submit" value='submit'/>
+        <section>
+          <input type="submit" value='submit'/>
+        </section>
       </section>
     );
   }

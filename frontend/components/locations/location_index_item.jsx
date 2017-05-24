@@ -1,7 +1,6 @@
 import React from 'react';
 import { filterReviews } from '../../reducers/selectors';
 import { browserHistory, withRouter } from 'react-router';
-import Stars from '../../widget/stars';
 import PictureViewer from '../../widget/picture_viewer';
 import Rating from 'react-rating';
 
@@ -33,14 +32,14 @@ class LocationIndexItem extends React.Component{
             options={pictureOptions}
             klass={'tile-location-carousel'}/>
           <section className="tile-details">
-            <p>{local.title}</p>
+            <h3>{local.title}</h3>
             <Rating
               empty="fa fa-heart-o"
               full="fa fa-heart"
               initialRate={parseInt(local.rating)}
               readonly
             />
-            <p>Reviews: {local.reviews}</p>
+          <h4>Reviews: {local.reviews}</h4>
           </section>
           <div
             className="tile-overlay"

@@ -379,6 +379,12 @@ h4 {
 	display: flex;
   flex-direction: column;
   align-items: center;
+	p {
+		font-size: 20px
+	}
+	span{
+		padding: 1px;
+	}
 }
 
 .location-carousel {
@@ -410,10 +416,8 @@ h4 {
 	width: 100%;
 
 	section {
-		border: red 1px solid;
-		flex-grow:1;
-		flex-grow: 1;
-		padding: 5px
+		// border: red 1px solid;
+	  color: #4f4f4f
 
 	}
 }
@@ -422,18 +426,29 @@ h4 {
 	align-items: flex-start;
 	flex-direction: row;
 	width: 100%;
+  justify-content: center;
+	h1 {
+		margin-bottom: 5px;
+	}
+
+	p {
+		padding: 10px 0px;
+	}
+
 }
 
 .location-details-static{
 	display: flex;
-	width: 600px;
   margin: 10px;
+	section {
+		padding: 5px;
+	}
 }
 
 .location-details-form{
 	display: flex;
-	width: 200px;
-  margin: 10px;
+	border: 1px gray solid;
+	margin: 10px;
 }
 
 .details-col {
@@ -441,8 +456,15 @@ h4 {
 }
 
 .details-row {
-	display:flex;
-	flex-direction: row;
+	display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: black;
+  width: 100%;
+	align-items: center;
+	span {
+		padding: 1px;
+	}
 }
 .details-row-1 {
 	display:flex;
@@ -465,4 +487,65 @@ h4 {
   left: 0px;
   opacity: 0.5;
   z-index: 1;
+}
+
+.DateRangePicker__picker--direction-left {
+	left: -392px;
+	top: 73px;
+}
+
+.location-booking-form{
+	display: flex;
+	flex-direction: column;
+  margin: 15px;
+
+	h2 {
+		margin-bottom: 20px;
+	}
+	select {
+		width: 200px;
+	}
+
+	.DateRangePickerInput {
+		margin-bottom: 20px;
+	}
+	label {
+		margin-bottom: 5px;
+	}
+	section{
+		display: flex;
+  	justify-content: center;
+	  padding: 45px;
+	}
+	input {
+		width: 100px;
+		border: 3px solid lightblue;
+		border-radius: 5px;
+		background-color: white;
+		outline: none;
+
+
+		&:hover{
+			background-color: lightblue;
+  		color: white;
+		}
+	}
+}
+
+.details-owner-icon {
+	display: flex;
+	img{
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+	}
+}
+
+.fa-heart {
+  color: red;
+
+}
+
+.fa-heart-0 {
+	color: red;
 }

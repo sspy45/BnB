@@ -4,10 +4,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import Footer from './footer';
 import {
   Route,
-  Redirect,
   Switch,
-  Link,
-  HashRouter
+  withRouter
 } from 'react-router-dom';
 
 import GreetingContainer from './greeting_container';
@@ -17,20 +15,31 @@ import HomeContainer from './home/home_container';
 import UserContainer from './user/user_container';
 import LocationDetailsContainer from './locations/location_details/location_details_container';
 
-const App = () => (
-  <div className="app-container">
-    <GreetingContainer />
-    <AuthRoute path="/login" component={ SessionFormContainer } />
-    <AuthRoute path="/signup" component={ SessionFormContainer } />
-    <Switch>
-      <ProtectedRoute path="/user" component={ UserContainer } />
-      <Route exact path="/search" component={ SearchContainer } />
-      <Route path="/location/:id" component={ LocationDetailsContainer} />
-      <Route path="/" component={ HomeContainer } />
-    </Switch>
+class App extends React.Component{
 
-    <Footer />
-  </div>
-);
+  componentWillReceiveProps(nextProps){
+    console.log(this.props, nextProps);
+    if(this.props.location.pathname !== nextProps.location.pathname){
+      window.scrollTo(0,0);
+    }
+  }
+  render(){
+    return(
+      <div className="app-container">
+        <GreetingContainer />
+        <AuthRoute path="/login" component={ SessionFormContainer } />
+        <AuthRoute path="/signup" component={ SessionFormContainer } />
+        <Switch>
+          <ProtectedRoute path="/user" component={ UserContainer } />
+          <Route exact path="/search" component={ SearchContainer } />
+          <Route path="/location/:id" component={ LocationDetailsContainer} />
+          <Route path="/" component={ HomeContainer } />
+        </Switch>
 
-export default App;
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export default withRouter(App);
