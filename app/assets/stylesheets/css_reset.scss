@@ -450,7 +450,6 @@ h4 {
 }
 
 .tile-overlay {
-	border: 1px solid red;
 	height: 256px;
 	position: absolute;
 	width: 232px;
@@ -459,5 +458,11 @@ h4 {
 
 .slick-next {
   right: 0px;
-  border: 1px solid red;
+  opacity: 0.5;
+}
+
+.slick-prev {
+  left: 0px;
+  opacity: 0.5;
+  z-index: 1;
 }
