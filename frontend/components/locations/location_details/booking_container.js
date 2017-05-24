@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BookingFrom from './booking_form';
-import { requestBooking } from '../../../../actions/booking_actions.js';
+import { createBooking } from '../../../actions/location_actions.js';
 
 const mapStateToProps = ({session}) => {
   const errors = session.errors || [];
@@ -14,7 +14,7 @@ const mapStateToProps = ({session}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestBooking: pet => dispatch(requestBooking(pet))
+    createBooking: (booking) => dispatch(createBooking(booking))
   };
 };
 

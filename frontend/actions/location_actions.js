@@ -6,6 +6,7 @@ export const RECEIVE_BOOKING_LOCATIONS = 'RECEIVE_BOOKING_LOCATIONS';
 export const RECEIVE_LOCATION_REVIEWS = 'RECEIVE_LOCATION_REVIEWS';
 export const RECEIVE_SINGLE_LOCATION = 'RECEIVE_SINGLE_LOCATION';
 export const CLEAR_LOCATION = 'CLEAR_LOCATION';
+export const RECEIVE_BOOKING = 'RECEIVE_BOOKING';
 
 export const receiveLocations = (locations, filter) => ({
   type: RECEIVE_LOCATIONS,
@@ -17,6 +18,11 @@ export const receiveAllLocations = (locations) => ({
   type: RECEIVE_ALL_LOCATIONS,
   locations
 });
+
+export const receiveBooking = (booking) => ({
+  type: RECEIVE_BOOKING,
+  booking
+})
 
 export const clearLocation = () => ({
   type: CLEAR_LOCATION
@@ -41,6 +47,11 @@ export const receiveSingleLocation = location => ({
 export const fetchLocations = (filter) => dispatch => (
   APIUtil.fetchLocations(filter)
     .then(locations => dispatch(receiveLocations(locations, filter)))
+);
+
+export const createBooking = (booking) => dispatch => (
+  APIUtil.createBooking(booking)
+    .then(_booking => dispatch(receiveBooking(_booking)))
 );
 
 export const fetchAllLocations = () => dispatch => (

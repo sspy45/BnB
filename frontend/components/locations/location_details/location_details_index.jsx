@@ -85,7 +85,7 @@ export default class LocationDetails extends React.Component {
           <section className="location-details-static">
             {locationDetails}
           </section>
-          <section class="location-details-form">
+          <section className="location-details-form">
             <BookingContainer />
           </section>
         </section>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     resources :locations, only: [:index, :show] do
       resources :reviews, only: [:index]
+      resources :bookings, only: [:index, :create]
     end
     resource :session
     resources :pictures
