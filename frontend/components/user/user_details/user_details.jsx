@@ -13,6 +13,7 @@ export default class UserDetails extends React.Component {
       last_name: currentUser.last_name || "",
       email: currentUser.email || "",
       phone: currentUser.phone || "",
+      url: currentUser.url || "",
       successToggle: false
     });
 
@@ -50,11 +51,8 @@ export default class UserDetails extends React.Component {
       url: `api/pictures`,
       data: {picture: img},
     }).then( res => {
-      debugger;
       this.setState({
-        currentUser: {
           url: res.url
-        }
       });
     });
   }
@@ -80,11 +78,11 @@ export default class UserDetails extends React.Component {
     );
   }
 
-  profilePicture(user){
-    debugger
-    if (user.url !== null){
+  profilePicture(url){
+
+    if (url !== null){
       return(
-        <img src={user.url} />
+        <img src={url} />
       );
     } else {
       return (
@@ -95,8 +93,7 @@ export default class UserDetails extends React.Component {
 
   render(){
     const { currentUser, errors } = this.props;
-    let profileImage = this.profilePicture(currentUser);
-
+    let profileImage = this.profilePicture(this.state.url);
     return(
       <section className="inner-categories">
         <section className='user-profile-container'>

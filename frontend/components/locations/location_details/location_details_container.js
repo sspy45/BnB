@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LocationDetails from './location_details';
-import { fetchSingleLocation, clearLocation } from '../../actions/location_actions';
-import { fetchLocationReviews } from '../../actions/review_actions';
+import LocationDetailsIndex from './location_details_index';
+import { fetchSingleLocation, clearLocation } from '../../../actions/location_actions';
+import { fetchLocationReviews } from '../../../actions/review_actions';
 
 const mapStateToProps = ({locations}) => {
   return {
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LocationDetails);
+)(LocationDetailsIndex);

@@ -166,6 +166,8 @@ h4 {
 	width: 100%
 }
 
+
+
 .user-icon{
 	height: 60px;
 	width: 60px;
@@ -308,8 +310,7 @@ h4 {
 .home-splash {
 	display: flex;
 	background-position: 50% 50%;
-	background-image: url(http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495575319/home-splash_ftsiji.jpg);
-	opacity: 0.7;
+	background-image: url(http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495593788/home-splash_huyqw0.jpg);
 	margin: auto;
 	width: 100%;
 	background-size: cover;
@@ -398,12 +399,49 @@ h4 {
 .tile-location-carousel{
 
 }
-
-.location-details {
+.location-container{
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
+	width: 100%;
+
 	section {
-		margin: 20px;
+		border: red 1px solid;
+		flex-grow:1;
+		flex-grow: 1;
+		align-items: center;
+		padding: 5px
+
 	}
+}
+.location-details {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	width: 100%;
+}
+
+.location-details-static{
+	display: flex;
+	width: 600px;
+  margin: 10px;
+}
+
+.location-details-form{
+	display: flex;
+	width: 200px;
+  margin: 10px;
+}
+
+.details-col {
+
+}
+
+.details-row {
+	display:flex;
+	flex-direction: row;
+}
+.details-row-1 {
+	display:flex;
+	flex: 1
 }

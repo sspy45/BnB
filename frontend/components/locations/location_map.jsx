@@ -12,7 +12,7 @@ class LocationMap extends React.Component{
 
   componentDidMount() {
 
-    const mapOptions = this.props.focus || {
+    const mapOptions = this.props.mapSettings || {
       center: { lat: 37.7758, lng: -122.435 },
       zoom: 13
     };

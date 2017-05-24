@@ -15,7 +15,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import SearchContainer from './locations/search_container';
 import HomeContainer from './home/home_container';
 import UserContainer from './user/user_container';
-import LocationDetailsContainer from './locations/location_details_container';
+import LocationDetailsContainer from './locations/location_details/location_details_container';
 
 const App = () => (
   <div className="app-container">
