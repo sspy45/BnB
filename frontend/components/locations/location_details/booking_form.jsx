@@ -26,6 +26,10 @@ export default class BookingForm extends React.Component {
         pet_id: nextProps.pets[0].id
       });
     }
+
+    if(this.props.currentUser){
+      this.props.fetchPets(this.props.currentUser.id);
+    }
   }
   componentWillMount(){
     if(this.props.currentUser){
