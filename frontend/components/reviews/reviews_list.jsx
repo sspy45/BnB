@@ -9,8 +9,8 @@ export default class ReviewList extends React.Component {
       body: "",
       rating: 2.5,
       review_type: "location",
-      user_id: props.currentUser.id,
-      location_id: props.locationId
+      location_id: props.locationId,
+      status: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -18,8 +18,21 @@ export default class ReviewList extends React.Component {
 
   handleSubmit(){
     event.preventDefault();
-    const review = Object.assign({}, this.state);
-    this.props.createReview(review);
+    if(this.props.currentUser){
+      const review = Object.assign({}, this.state);
+      review.user_id = this.props.currentUser.id;
+      this.props.createReview(review);
+      this.setState({
+        body: "",
+        rating: 2.5,
+        status: ""
+      });
+    } else {
+      this.setState({
+        status: "You must log in to leave reviews"
+      });
+    }
+
   }
 
   update(property) {
@@ -34,8 +47,12 @@ export default class ReviewList extends React.Component {
     return(
       <section>
         <section className="review-container">
+          <label>
+            {this.state.status}
+          </label>
           <textarea
             onChange={this.update("body")}
+            value={this.state.body}
             placeholder="Leave a nice review">
           </textarea>
           <section>
