@@ -8,6 +8,7 @@ export const RECEIVE_LOCATION_BOOKINGS = 'RECEIVE_LOCATION_BOOKINGS';
 export const RECEIVE_SINGLE_LOCATION = 'RECEIVE_SINGLE_LOCATION';
 export const CLEAR_LOCATION = 'CLEAR_LOCATION';
 export const RECEIVE_BOOKING = 'RECEIVE_BOOKING';
+export const RECEIVE_LOCATION_REVIEW = "RECEIVE_LOCATION_REVIEW";
 
 export const receiveLocations = (locations, filter) => ({
   type: RECEIVE_LOCATIONS,
@@ -50,6 +51,11 @@ export const receiveSingleLocation = location => ({
   location
 });
 
+export const receiveLocationReview = review => ({
+  type: RECEIVE_LOCATION_REVIEW,
+  review
+});
+
 export const fetchLocations = (filter) => dispatch => (
   APIUtil.fetchLocations(filter)
     .then(locations => dispatch(receiveLocations(locations, filter)))
@@ -83,4 +89,9 @@ export const fetchLocationBookings = (location) => dispatch => (
 export const fetchSingleLocation = (id) => dispatch => (
   APIUtil.fetchSingleLocation(id)
     .then(local => dispatch(receiveSingleLocation(local)))
+);
+
+export const createReview = (review) => dispatch => (
+  APIUtil.createReview(review)
+    .then(_review => dispatch(receiveLocationReview(_review)))
 );

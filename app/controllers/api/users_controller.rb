@@ -10,10 +10,11 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    debugger
     if @user.valid?
       @user.save
       login!(@user)
-      render "api/shared/user"
+      render "api/users/show"
     else
       @errors = @user.errors.full_messages
       render json: [@errors], status: 401

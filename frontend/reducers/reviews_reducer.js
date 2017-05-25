@@ -1,6 +1,7 @@
 import {
   RECEIVE_LOCATION_REVIEWS,
-  RECEIVE_ERRORS
+  RECEIVE_ERRORS,
+
   // RECEIVE_LOCATION_REVIEWS,
   // RECEIVE_SINGLE_LOCATION
 }from '../actions/review_actions';

@@ -225,7 +225,6 @@ h4 {
 .profile-container-main{
 	display: flex;
   width: 80%;
-  background: lavender;
 }
 
 .user-profile-container {
@@ -242,6 +241,7 @@ h4 {
 .pets-container {
 	display: flex;
 	flex-direction: column;
+  margin: 20px;
 }
 
 .pets-container-item {
@@ -255,9 +255,25 @@ h4 {
   align-items: center;
 }
 
+.pets-inner-container {
+	display: flex;
+	flex-direction: column;
+  width: 50%;
+
+	*{
+		margin: 10px;
+	}
+
+}
+
 .pets-row-container {
 	display: flex;
 	align-items: flex-start;
+}
+.pets-add-row {
+	display: flex;
+	justify-content: space-between;
+	width: 400px;
 }
 
 .pets-col-container {
@@ -268,7 +284,7 @@ h4 {
 .active-edit {
 	font-size: 15px;
 	text-align: center;
-	background: red;
+	background: gray;
 	margin: 5px;
 	border: 2px solid #5F9EA0;
 	color: white;
@@ -301,16 +317,20 @@ h4 {
 	border-radius: 5px;
 	height: 30px;
 	cursor: pointer;
+  border-color: #e0502d;
 }
 
 .edit-section {
-	background: silver;
+	background: #b7d4ff;
 	display: flex;
 	flex-direction: column;
 	padding: 5px;
 	margin: 10px 10px 10px 0;
 	align-items: center;
 	border-radius: 4px;
+	*{
+		margin: 3px;
+	}
 }
 
 .home-splash {
@@ -369,14 +389,19 @@ h4 {
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
+	span{
+		margin: 1px;
+	  font-size: 14px;
+	}
 }
 .review-inner{
 	display: flex;
-  justify-content: space-between;
-  width: 460px;
+  width: 100%;
+	flex-direction: column;
   align-items: center;
-	.fa-heart-o {
-		color: black;
+	p{
+		text-align: center;
+		font-style: italic;
 	}
 }
 
@@ -445,8 +470,10 @@ h4 {
 .location-details-static{
 	display: flex;
   margin: 10px;
+  max-width: 550px;
 	section {
-		padding: 5px;
+		padding-bottom: 5px;
+	  padding-top: 5px;
 	}
 }
 
@@ -532,7 +559,8 @@ h4 {
 
 
 		&:hover{
-			background-color: lightblue;
+		  background-color: #0284cf;
+			border: 3px solid #0284cf;
   		color: white;
 		}
 	}
@@ -548,10 +576,48 @@ h4 {
 }
 
 .fa-heart {
-  color: red;
+  color: #ffa0b0;
 
 }
 
-.fa-heart-0 {
-	color: red;
+.fa-heart-o {
+	color: #ffa0b0;
+}
+
+.review-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	input {
+		width: 150px;
+	}
+
+	textarea {
+		height: 100px;
+	}
+	section {
+		display: flex;
+		justify-content: space-around;
+	}
+
+}
+
+.hidden{
+	display: none;
+}
+
+.edit-button {
+	width: 100px;
+}
+
+.user-profile-picture-cont {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+  align-items: center;
+
+	img {
+		height: 200px;
+		width: 200px;
+	}
 }

@@ -28,7 +28,10 @@ export default class BookingForm extends React.Component {
     }
   }
   componentWillMount(){
-    this.props.fetchPets(this.props.currentUser.id);
+    if(this.props.currenUser){
+      this.props.fetchPets(this.props.currentUser.id);
+    }
+
   }
 
   handleSubmit(){
@@ -39,7 +42,6 @@ export default class BookingForm extends React.Component {
       location_id: this.state.location_id,
       pet_id: this.state.pet_id
     };
-    debugger;
     this.props.createBooking(booking);
   }
 
@@ -101,13 +103,19 @@ export default class BookingForm extends React.Component {
           onFocusChange={focusedInput => this.setState({ focusedInput })}
         />
         {petList}
-        <section>
-          <input
-            onClick={this.handleSubmit}
-            type="submit"
-            value='Request'/>
-        </section>
+        {this.props.currentUser ?
+            <section>
+              <input
+                onClick={this.handleSubmit}
+                type="submit"
+                value='Request'/>
+            </section> :
+
+            <section>
+              <h4>Please log in make Bookings</h4>
+            </section>}
       </section>
+
     );
   }
 }

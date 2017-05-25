@@ -46,7 +46,7 @@ export default class PetAddForm extends React.Component {
     }
     return (
       <section className="edit-section">
-        <section className="pets-row-container">
+        <section className="pets-add-row">
           <section className="pets-col-container">
             <label>Name</label>
             <input

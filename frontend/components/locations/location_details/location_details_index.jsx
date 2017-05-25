@@ -45,7 +45,13 @@ export default class LocationDetails extends React.Component {
       let locations = asArray({id: this.props.local});
 
       carousel = <Carousel pictures={pictures} />;
-      locationDetails = <LocationDetailsDesc details={this.props.local} review={reviews} />;
+      locationDetails =
+      <LocationDetailsDesc
+        details={this.props.local}
+        review={reviews}
+        locationId={id}
+        currentUser={this.props.currentUser}
+        createReview={this.props.createReview} />;
 
       let mapSettings = {
         center: { lat, lng },

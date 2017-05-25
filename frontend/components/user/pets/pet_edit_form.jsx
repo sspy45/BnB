@@ -44,41 +44,35 @@ export default class PetEditForm extends React.Component {
       });
     }
     return (
-      <section className="pets-container" >
-        <section>
-          <label>Name</label>
+      <section className="pets-inner-container" >
           <input
             type="text"
             onChange={this.update('name')}
             value={this.state.name}
             placeholder="Name"
-         />
+          />
           <select
             value={this.state.type_id}
             onChange={this.update('type_id')}
           >
-
             {this.props.petTypes.map( type => (
               <PetTypeIndexItem
                 key={type.id}
                 type={type}
               />
             ))}
-
           </select>
-        </section>
-        <section>
-          <label>Description</label>
           <input
             type="text"
             onChange={this.update('desc')}
             value={this.state.desc}
             placeholder="Desc" />
           <input
+            className='edit-button'
             type="submit"
             onClick={this.handleSubmit}
             value="Edit Pet" />
-        </section>
+          <label>Description</label>
       </section>
     );
   }

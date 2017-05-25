@@ -151,7 +151,7 @@ export default class UserDetails extends React.Component {
             value="Update Profile"
           />
         </section>
-        <section className="user-profile-container">
+        <section className="user-profile-picture-cont">
           {profileImage}
           <UploadButton
             postImage={this.postImage}

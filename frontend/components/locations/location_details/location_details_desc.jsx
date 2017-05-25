@@ -3,8 +3,8 @@ import Rating from 'react-rating';
 import { asArray } from '../../../reducers/selectors';
 import ReviewsList from '../../reviews/reviews_list';
 
-const LocationDetailsDesc = ({details, review}) => {
-
+const LocationDetailsDesc = ({details, review, createReview, currentUser, locationId}) => {
+  console.log(createReview);
   const {
     title, description,
     street_address1,
@@ -16,7 +16,13 @@ const LocationDetailsDesc = ({details, review}) => {
   let reviewList;
   if(Object.keys(review).length !== 0 && review.constructor === Object){
     review = asArray(review);
-    reviewList = <ReviewsList reviews={review} />;
+    reviewList =
+    <ReviewsList
+      locationId ={locationId}
+      reviews={review}
+      createReview={createReview}
+      currentUser={currentUser}
+    />;
   }
     return(
     <section>

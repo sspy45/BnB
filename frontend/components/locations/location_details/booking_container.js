@@ -6,7 +6,6 @@ import { fetchPets } from '../../../actions/user_actions.js';
 import { asArray } from '../../../reducers/selectors.js';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   const local = state.locations.local || {};
   // console.log(local);
   const errors = state.session.errors || [];

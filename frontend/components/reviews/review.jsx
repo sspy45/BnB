@@ -6,15 +6,14 @@ const Review = ({review}) => {
     <section className="review">
         <section className="review-inner">
           <p>
-
             "{ review.body }"
-            - {review.userName ? review.userNmae : 'some person'}
+            - {review.userName ? review.userName : 'some person'}
           </p>
         </section>
         <section>
         <Rating
-        empty="fa fa-smile-o fa-2"
-        full="fa fa-smile-o fa-2"
+        empty="fa fa-heart-o"
+        full="fa fa-heart"
         initialRate={parseInt(review.rating)}
         readonly
         />

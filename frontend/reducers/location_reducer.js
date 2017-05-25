@@ -5,7 +5,8 @@ import {
   RECEIVE_SINGLE_LOCATION,
   RECEIVE_BOOKING_LOCATIONS,
   RECEIVE_BOOKING,
-  RECEIVE_LOCATION_BOOKINGS
+  RECEIVE_LOCATION_BOOKINGS,
+  RECEIVE_LOCATION_REVIEW
  }from '../actions/location_actions';
 
 import merge from 'lodash/merge';
@@ -18,6 +19,7 @@ const _defaultState = {
 const LocationReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   let newState;
+  let reviews;
   switch(action.type){
     case RECEIVE_LOCATIONS:
       let {locations, filter} = action;
@@ -28,10 +30,13 @@ const LocationReducer = (state = _defaultState, action) => {
     case RECEIVE_BOOKING_LOCATIONS:
       return merge({}, state, {[action.filter]: action.locations});
     case RECEIVE_LOCATION_REVIEWS:
-      const reviews = action.reviews;
+      reviews = action.reviews;
       newState = merge({}, state);
       newState.reviews = action.reviews;
       return newState;
+    case RECEIVE_LOCATION_REVIEW:
+      reviews = {[action.review.id]:action.review};
+      return merge({}, state, {reviews});
     case RECEIVE_SINGLE_LOCATION:
       newState = merge({}, state);
       newState.local = action.location;

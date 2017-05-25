@@ -5,39 +5,26 @@ import { Link, withRouter } from 'react-router-dom';
 export default class NavMenu extends React.Component {
   constructor(props){
     super(props);
-
-    this.state = {
-      modalIsOpen: false,
-      whichModal: ""
+    this.state ={
+      toggleMenu: false
     };
 
     this.handleLogOut = this.handleLogOut.bind(this);
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleLogOut = this.handleLogOut.bind(this);
-  }
-  componentWillMount(){
-    Modal.setAppElement('body');
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   handleLogOut() {
     this.props.logout();
     this.props.closeModal();
+    this.setState({
+      toggleMenu: false
+    });
   }
 
-  openModal(whichModal) {
-    return () =>{
-      this.setState({ modalIsOpen: true, whichModal: whichModal });
-    };
-  }
-
-  afterOpenModal() {
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false, whichModal: ""});
+  toggleMenu() {
+    this.setState({
+      toggleMenu: !this.state.toggleMenu
+    });
   }
 
   render(){
@@ -45,42 +32,33 @@ export default class NavMenu extends React.Component {
     return (
       <section>
         <img
-          onClick={this.openModal('userMenu')}
-          className='user-icon' />
+          id="gear-dropdown-btn"
+          className='user-icon'
+          onClick={this.toggleMenu}/>
+        <ul className={this.state.toggleMenu ? "gear-dropdown" : "gear-dropdown hidden"}>
+          <li>
+            <Link
+              to="/user"
+              onClick={this.closeModal}
+              >Profile
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/search"
+              onClick={this.closeModal}
+              >Search
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/"
+              onClick={this.handleLogOut}
+              >Logout
+            </Link>
+          </li>
+        </ul>
 
-        <Modal
-          className='menu'
-          overlayClassName='menu-overlay'
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          contentLabel={this.state.whichModal}
-        >
-          <ul>
-            <li>
-              <Link
-                to="/user"
-                onClick={this.closeModal}
-                >Profile
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/search"
-                onClick={this.closeModal}
-                >Search
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                onClick={this.handleLogOut}
-                >Logout
-              </Link>
-            </li>
-
-          </ul>
-        </Modal>
       </section>
     );
   }
