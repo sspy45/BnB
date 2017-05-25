@@ -56,8 +56,8 @@ pet4 = Pet.create!(owner_id: user1.id, type_id: pet_type5.id, name: "GODZILLA!",
 pet5 = Pet.create!(owner_id: user3.id, type_id: pet_type2.id, name: "Lily", desc: "Mixed colored cat that loves to purr")
 pet6 = Pet.create!(owner_id: user4.id, type_id: pet_type1.id, name: "Jack the Dog", desc: "He's like my best friend")
 
-booking1 = Booking.create!(pet_id: pet1.id, location_id: location1.id, check_in: DateTime.new(2009,9,1,17), check_out: DateTime.new(2009,9,1,17))
-booking2 = Booking.create!(pet_id: pet4.id, location_id: location1.id, check_in: DateTime.new(2009,9,1,17), check_out: DateTime.new(2009,9,1,17))
+booking1 = Booking.create!(pet_id: pet1.id, location_id: location1.id, check_in: Date.new(2009,9,1), check_out: Date.new(2009,9,2))
+booking2 = Booking.create!(pet_id: pet4.id, location_id: location1.id, check_in: Date.new(2009,9,3), check_out: Date.new(2009,9,4))
 
 review1 = Review.create!(user_id: user1.id, review_type: "pet", body: "Loki was a pleasure to take care of and we had a great time watching breaking bad", rating: 5, pet_id: pet1.id)
 review2 = Review.create!(user_id: user1.id, review_type: "location", body: "I think my place is not bad. I'd live there!", rating: 5, location_id: location1.id)

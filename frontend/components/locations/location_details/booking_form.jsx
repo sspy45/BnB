@@ -17,7 +17,7 @@ export default class BookingForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSwitch = this.handleSwitch.bind(this);
-    // this.isDayBlocked = this.isDayBlocked.bind(this);
+    this.isDayBlocked = this.isDayBlocked.bind(this);
 
   }
 
@@ -30,11 +30,8 @@ export default class BookingForm extends React.Component {
         pet_id: nextProps.pets[0].id
       });
     }
-    //
-    // if(this.props.currentUser){
-    //   this.props.fetchPets(this.props.currentUser.id);
-    // }
   }
+
   componentWillMount(){
     if(this.props.currentUser){
       this.props.fetchPets(this.props.currentUser.id);
@@ -42,8 +39,8 @@ export default class BookingForm extends React.Component {
 
   }
   isDayBlocked(el){
-    const now = moment();
-    return el.format("LL") === now.format("LL");
+    const {bookings} = this.props;
+    return el.format("LL") in bookings;
   }
   handleSubmit(){
     event.preventDefault();

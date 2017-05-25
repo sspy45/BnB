@@ -5,7 +5,14 @@ class Api::BookingsController < ApplicationController
       @bookings = user.bookings.includes(:location)
       render 'api/bookings/index'
     else params[:type] == 'location'
-      @bookings = Booking.where('location_id = (?)', params[:location_id])
+      @bookings = Booking.where(location_id: params[:location_id])
+      @reserved_days = {};
+      @bookings.each do |booking|
+        all_days = (booking.check_in..booking.check_out).to_a
+        all_days.each do |day|
+          @reserved_days[day] = booking
+        end
+      end
       render 'api/bookings/dates'
     end
   end

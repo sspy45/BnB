@@ -8,7 +8,7 @@ import {
   RECEIVE_LOCATION_BOOKINGS,
   RECEIVE_LOCATION_REVIEW
  }from '../actions/location_actions';
-
+import moment from 'moment';
 import merge from 'lodash/merge';
 
 const _defaultState = {
@@ -47,7 +47,13 @@ const LocationReducer = (state = _defaultState, action) => {
       return newState;
     case RECEIVE_LOCATION_BOOKINGS:
       newState = merge({}, state);
-      newState.bookings = action.bookings;
+      let bookings = {};
+
+      Object.keys(action.bookings).map(b => {
+        bookings[moment(b).format('LL')] = true;
+      });
+
+      newState.bookings = bookings;
       return newState;
     default:
       return state;

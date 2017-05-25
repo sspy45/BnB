@@ -83,7 +83,7 @@ export const fetchLocationReviews = (location) => dispatch => (
 
 export const fetchLocationBookings = (location) => dispatch => (
   APIUtil.fetchLocationBookings(location)
-    .then(bookings => dispatch(receiveLocationBookings(bookings)))
+    .then(({bookings}) => dispatch(receiveLocationBookings(bookings)))
 );
 
 export const fetchSingleLocation = (id) => dispatch => (

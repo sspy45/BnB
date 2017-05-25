@@ -13,6 +13,7 @@
 
 class Booking < ApplicationRecord
   validates :pet_id, :location_id, :check_in, :check_out, presence: true
+  validate :proper_date
 
   belongs_to :pet,
     primary_key: :id,
@@ -28,4 +29,9 @@ class Booking < ApplicationRecord
     through: :pet
 
   alias_attribute :customer, :owner
+
+  def proper_date
+    
+  end
+
 end
