@@ -4,7 +4,6 @@ import { asArray } from '../../../reducers/selectors';
 import ReviewsList from '../../reviews/reviews_list';
 
 const LocationDetailsDesc = ({details, review, createReview, currentUser, locationId}) => {
-  console.log(createReview);
   const {
     title, description,
     street_address1,

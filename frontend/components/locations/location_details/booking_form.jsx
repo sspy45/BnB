@@ -28,7 +28,7 @@ export default class BookingForm extends React.Component {
     }
   }
   componentWillMount(){
-    if(this.props.currenUser){
+    if(this.props.currentUser){
       this.props.fetchPets(this.props.currentUser.id);
     }
 
@@ -87,6 +87,7 @@ export default class BookingForm extends React.Component {
       </section>);
     }
 
+    if(this.props.currentUser){
 
     return (
       <section className='location-booking-form'>
@@ -95,27 +96,43 @@ export default class BookingForm extends React.Component {
           Book this place
         </h2>
 
-        <DateRangePicker
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-          focusedInput={this.state.focusedInput}
-          onFocusChange={focusedInput => this.setState({ focusedInput })}
-        />
-        {petList}
-        {this.props.currentUser ?
-            <section>
-              <input
-                onClick={this.handleSubmit}
-                type="submit"
-                value='Request'/>
-            </section> :
+          <DateRangePicker
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={focusedInput => this.setState({ focusedInput })}
+          />
+          {petList}
 
-            <section>
-              <h4>Please log in make Bookings</h4>
-            </section>}
-      </section>
+          <section>
+            <input
+              onClick={this.handleSubmit}
+              type="submit"
+              value='Request'/>
+          </section>
+        </section>
 
-    );
+      );
+    } else {
+      return (<section className='location-booking-form'>
+        {map}
+        <h2>
+          Book this place
+        </h2>
+
+          <DateRangePicker
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={focusedInput => this.setState({ focusedInput })}
+          />
+
+        <section>
+          <h4>Please log in make Bookings</h4>
+        </section>
+      </section>);
+    }
   }
 }
