@@ -37,7 +37,8 @@ const LocationReducer = (state = _defaultState, action) => {
       newState.local = action.location;
       return newState;
     case RECEIVE_BOOKING:
-      newState = merge({}, state, {bookings: action.booking});
+      let booking = action.booking;
+      newState = merge({}, state, {bookings: {[booking.id]: action.booking}}  );
       return newState;
     case RECEIVE_LOCATION_BOOKINGS:
       newState = merge({}, state);

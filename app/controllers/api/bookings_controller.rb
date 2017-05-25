@@ -12,6 +12,13 @@ class Api::BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    if @booking.save
+      render 'api/bookings/show'
+    else
+      @errors = @booking.errors.full_messages
+      render json: [@errors], status: 401
+    end
   end
 
   def show

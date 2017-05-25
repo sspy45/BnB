@@ -6,6 +6,13 @@ export const fetchLocations = (data) => {
   });
 };
 
+export const createBooking = (booking) => {
+  return $.ajax({
+    method: "POST",
+    url: "api/bookings",
+    data: {booking}
+  });
+};
 export const fetchBookingLocations = (id) => {
   return $.ajax({
     method: "GET",

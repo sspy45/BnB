@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resource :session
     resources :pictures
+    resources :bookings, only: [:create]
     resources :pet_types, only: [:index]
   end
   root "static_pages#root"

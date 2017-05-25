@@ -9,12 +9,13 @@ export default class BookingForm extends React.Component {
     this.state={
       startDate: null,
       endDate: null,
-      locationId: props.local.id,
-      petId: ""
+      location_id: props.local.id,
+      pet_id: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSwitch = this.handleSwitch.bind(this);
+    this.isOutsideRange = this.isOutsideRange.bind(this);
   }
 
 
@@ -22,7 +23,7 @@ export default class BookingForm extends React.Component {
     if(this.props.pets.length < 1
       && nextProps.pets.length > 0){
       this.setState({
-        petId: nextProps.pets[0].id
+        pet_id: nextProps.pets[0].id
       });
     }
   }
@@ -32,13 +33,25 @@ export default class BookingForm extends React.Component {
 
   handleSubmit(){
     event.preventDefault();
-    debugger
+    let booking = {
+      check_in: this.state.startDate._d,
+      check_out: this.state.endDate._d,
+      location_id: this.state.location_id,
+      pet_id: this.state.pet_id
+    };
+    debugger;
+    this.props.createBooking(booking);
+  }
+
+  isOutsideRange(){
+    let d = new Date();
+    return d.setDate(1);
   }
 
   handleSwitch(e){
-    let petId = e.currentTarget.value;
+    let pet_id = e.currentTarget.value;
     this.setState({
-      petId
+      pet_id
     });
   }
 
@@ -52,7 +65,7 @@ export default class BookingForm extends React.Component {
           <br/>
           <select
             onChange={this.handleSwitch}
-            value={this.state.petId}>
+            value={this.state.pet_id}>
             {pets.map(pet =>
               <option
                 key={pet.id}
@@ -72,9 +85,7 @@ export default class BookingForm extends React.Component {
       </section>);
     }
 
-    const defaultProps = {
-      isOutsideRange: day => !isInclusivelyAfterDay(day, moment()),
-    };
+
     return (
       <section className='location-booking-form'>
         {map}
