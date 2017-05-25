@@ -55,7 +55,7 @@ class Greeting extends React.Component {
         <header>
           <section>
           <Link to="/">
-            <h1>Air Bark n' Bite</h1>
+            <h1>Air Bark n Bite</h1>
           </Link>
 
           </section>
@@ -72,7 +72,7 @@ class Greeting extends React.Component {
       } else {
         return(
           <header>
-            <h1>Air Bark n' Bite</h1>
+            <h1>Air Bark n Bite</h1>
             <div className='header-session'>
               <button
                 className='nav-button'
@@ -94,7 +94,9 @@ class Greeting extends React.Component {
                 onClick={this.closeModal}>x
               </button>
 
-              <SessionFormContainer formType={this.state.whichModal}/>
+              <SessionFormContainer
+                formType={this.state.whichModal}
+                closeModal={this.closeModal}/>
             </Modal>
           </header>
 

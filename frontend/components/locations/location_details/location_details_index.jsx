@@ -4,9 +4,11 @@ import Carousel from './carousel';
 import LocationDetailsDesc from './location_details_desc';
 import BookingContainer from './booking_container';
 import { asArray } from '../../../reducers/selectors';
+
 export default class LocationDetails extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
   }
 
   componentWillMount(){
@@ -26,8 +28,7 @@ export default class LocationDetails extends React.Component {
     let { reviews } = this.props;
     let carousel;
     let bookingContainer;
-
-    if(this.props.local){
+    if(Object.keys(this.props.local).length > 0){
       const {
         id,
         title,
@@ -42,7 +43,7 @@ export default class LocationDetails extends React.Component {
         pictures
       } = this.props.local;
 
-      let locations = asArray({id: this.props.local});
+      let locations = asArray({[id]: this.props.local});
 
       carousel = <Carousel pictures={pictures} />;
       locationDetails =
@@ -56,11 +57,10 @@ export default class LocationDetails extends React.Component {
       let mapSettings = {
         center: { lat, lng },
         zoom: 13,
-        draggable: false,
-        zoomControl: false,
-        scrollwheel: false
+        // draggable: false,
+        // zoomControl: false,
+        // scrollwheel: false
       };
-
       map = locations.length > 0 ?
         <LocationMap
           locations={locations}

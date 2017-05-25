@@ -28,16 +28,22 @@ class SessionForm extends React.Component {
 			username: 'demo',
 			password: 'password'
 		};
-		this.props.login({user});
+		this.props.login({user}).then(
+			() => this.props.closeModal()
+		);
 	}
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
 		if(this.state.formType === "login"){
-			this.props.login({user});
+			this.props.login({user}).then(
+				() => this.props.closeModal()
+			);
 		} else if (this.state.formType === "signup"){
-			this.props.signup({user});
+			this.props.signup({user}).then(
+				() => this.props.closeModal()
+			);
 		}
 		this.setState({
 			username: this.state.username,

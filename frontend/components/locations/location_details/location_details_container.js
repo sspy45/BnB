@@ -8,7 +8,7 @@ import { fetchLocationReviews } from '../../../actions/review_actions';
 const mapStateToProps = ({locations, session}) => {
   return {
     currentUser: session.currentUser,
-    local: locations.local,
+    local: locations.local || {},
     reviews: locations.reviews || {}
   };};
 

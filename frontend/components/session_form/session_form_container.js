@@ -11,12 +11,11 @@ const mapStateToProps = ({session}) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, {formType}) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     signup: user => dispatch(signup(user)),
     login: user => dispatch(login(user)),
-    clearErrors: () => dispatch(receiveErrors([])),
-    formType
+    clearErrors: () => dispatch(receiveErrors([]))
   };
 };
 

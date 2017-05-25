@@ -3,8 +3,10 @@ class Api::BookingsController < ApplicationController
     if params[:type] == 'user'
       user = User.find(params[:user_id])
       @bookings = user.bookings.includes(:location)
+      render 'api/bookings/index'
     else params[:type] == 'location'
       @bookings = Booking.where('location_id = (?)', params[:location_id])
+      render 'api/bookings/dates'
     end
   end
 

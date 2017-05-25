@@ -43,7 +43,7 @@ export const fetchLocationBookings = ({location}) => {
   return $.ajax({
     method: "GET",
     url: `api/locations/${location.id}/bookings`,
-    data: 'location'
+    data: {type:'location'}
   });
 };
 

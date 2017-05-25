@@ -15,7 +15,6 @@ export default class NavMenu extends React.Component {
 
   handleLogOut() {
     this.props.logout();
-    this.props.closeModal();
     this.setState({
       toggleMenu: false
     });

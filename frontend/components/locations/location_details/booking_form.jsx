@@ -2,6 +2,8 @@ import React from 'react';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import { Link } from 'react-router-dom';
 import 'react-dates/lib/css/_datepicker.css';
+import moment from 'moment';
+
 export default class BookingForm extends React.Component {
   constructor(props){
     super(props);
@@ -15,8 +17,10 @@ export default class BookingForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSwitch = this.handleSwitch.bind(this);
-    this.isOutsideRange = this.isOutsideRange.bind(this);
+    // this.isDayBlocked = this.isDayBlocked.bind(this);
+
   }
+
 
 
   componentWillReceiveProps(nextProps){
@@ -26,10 +30,10 @@ export default class BookingForm extends React.Component {
         pet_id: nextProps.pets[0].id
       });
     }
-
-    if(this.props.currentUser){
-      this.props.fetchPets(this.props.currentUser.id);
-    }
+    //
+    // if(this.props.currentUser){
+    //   this.props.fetchPets(this.props.currentUser.id);
+    // }
   }
   componentWillMount(){
     if(this.props.currentUser){
@@ -37,7 +41,10 @@ export default class BookingForm extends React.Component {
     }
 
   }
-
+  isDayBlocked(el){
+    const now = moment();
+    return el.format("LL") === now.format("LL");
+  }
   handleSubmit(){
     event.preventDefault();
     let booking = {
@@ -49,10 +56,6 @@ export default class BookingForm extends React.Component {
     this.props.createBooking(booking);
   }
 
-  isOutsideRange(){
-    let d = new Date();
-    return d.setDate(1);
-  }
 
   handleSwitch(e){
     let pet_id = e.currentTarget.value;
@@ -106,6 +109,7 @@ export default class BookingForm extends React.Component {
             onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
             focusedInput={this.state.focusedInput}
             onFocusChange={focusedInput => this.setState({ focusedInput })}
+            isDayBlocked={(el) => this.isDayBlocked(el)}
           />
           {petList}
 
