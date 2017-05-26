@@ -549,22 +549,9 @@ h4 {
 	section{
 		display: flex;
   	justify-content: center;
-	  padding: 45px;
+	  padding: 22px;
 	}
-	input {
-		width: 100px;
-	  border: 3px solid #0284cf;
-		border-radius: 5px;
-		background-color: white;
-		outline: none;
 
-
-		&:hover{
-		  background-color: #0284cf;
-			border: 3px solid #0284cf;
-  		color: white;
-		}
-	}
 }
 
 .details-owner-icon {
@@ -665,4 +652,33 @@ h4 {
 	width: 400px	;
 	height: 600px;
 	margin: 10px;
+}
+
+.disabled-booking-button {
+	width: 100px;
+  border: 3px solid silver;
+	border-radius: 5px;
+	background-color: silver;
+	outline: none;
+	margin-top: 15px;
+
+}
+
+.booking-button {
+
+	width: 100px;
+  border: 3px solid #0284cf;
+	border-radius: 5px;
+	background-color: white;
+	outline: none;
+	margin-top: 15px;
+	cursor: pointer;
+
+
+	&:hover{
+	  background-color: #0284cf;
+		border: 3px solid #0284cf;
+		color: white;
+	}
+
 }

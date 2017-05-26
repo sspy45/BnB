@@ -72,7 +72,9 @@ class Greeting extends React.Component {
       } else {
         return(
           <header>
-            <h1>Air Bark n Bite</h1>
+            <Link to="/">
+              <h1>Air Bark n Bite</h1>
+            </Link>
             <div className='header-session'>
               <button
                 className='nav-button'

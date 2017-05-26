@@ -21,7 +21,7 @@
 class Location < ApplicationRecord
 
   include PgSearch
-  multisearchable :against => [:title, :description, :zip]
+  multisearchable :against => [:title, :description, :zip, :lat, :lng]
   validates :title, :description, :lat, :lng, :owner_id, presence: true
 
   belongs_to :owner,

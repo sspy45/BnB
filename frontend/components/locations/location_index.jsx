@@ -21,7 +21,6 @@ class LocationIndex extends React.Component{
       slidesToScroll: 1,
       arrows: true
     };
-    console.log(locations);
     locations[filter] = locations[filter] || {};
     if(Object.keys(locations[filter]).length !== 0 && locations.constructor === Object){
       locations = asArray(locations[filter]);

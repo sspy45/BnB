@@ -98,7 +98,19 @@ export default class BookingForm extends React.Component {
         </h4>
       </section>);
     }
-
+    let submitButton;
+    if(this.state.startDate && this.state.endDate){
+      submitButton = <input
+        onClick={this.handleSubmit}
+        type="submit"
+        className="booking-button"
+        value='Request'/>;
+    } else {
+      submitButton = <input
+        type="submit"
+        className="disabled-booking-button"
+        value='Request'/>;
+    }
     if(this.props.currentUser){
     return (
       <section className='location-booking-form'>
@@ -126,10 +138,7 @@ export default class BookingForm extends React.Component {
           {!this.state.submitted ?
             <section className='location-booking-form'>
               {petList}
-              <input
-                onClick={this.handleSubmit}
-                type="submit"
-                value='Request'/>
+              {submitButton}
             </section>
             :
             <section>
