@@ -5,7 +5,6 @@ import Slider from 'react-slick';
 class LocationIndex extends React.Component{
   constructor(props){
     super(props);
-
   }
 
   componentWillMount(){
@@ -26,24 +25,21 @@ class LocationIndex extends React.Component{
     if(Object.keys(locations[filter]).length !== 0 && locations.constructor === Object){
       locations = asArray(locations[filter]);
       return(
-        <section className="categories">
-          <h1>locations for {filter}s</h1>
-          <secton className="inner-categories">
 
-              {locations.map(local => (
-                <LocationIndexItem
-                  key={local.id}
-                  local={local}
-                />
-              ))}
-
-          </secton>
-        </section>
+        <secton className="inner-categories">
+            {locations.map(local => (
+              <LocationIndexItem
+                key={local.id}
+                local={local}
+              />
+            ))}
+        </secton>
       );
     } else {
       return (
         <section className="categories">
-          <div className='loader'>Loading...</div>
+          <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          <span className="sr-only">Loading...</span>
         </section>
       );
     }

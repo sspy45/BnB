@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LocationDetailsIndex from './location_details_index';
 import { fetchSingleLocation, fetchLocationBookings} from '../../../actions/location_actions';
-import { createReview} from '../../../actions/location_actions';
+import { createReview } from '../../../actions/location_actions';
+import { updateFilter } from '../../../actions/filter_actions';
 import { fetchLocationReviews } from '../../../actions/review_actions';
 
 const mapStateToProps = ({locations, session}) => {
@@ -16,7 +17,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSingleLocation: (id) => dispatch(fetchSingleLocation(id)),
   fetchLocationReviews: (location) => dispatch(fetchLocationReviews(location)),
   createReview: (review) => dispatch(createReview(review)),
-  fetchLocationBookings: (location) => dispatch(fetchLocationBookings(location))
+  fetchLocationBookings: (location) => dispatch(fetchLocationBookings(location)),
+  updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 
 export default connect(

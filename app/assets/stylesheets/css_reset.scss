@@ -635,7 +635,7 @@ h4 {
   top: -20px;
 	width: 100%;
 	left: 25%;
-	a{
+	button{
 		background: red;
 		text-decoration: none;
 		padding: 8px;
@@ -643,6 +643,8 @@ h4 {
 		color: white;
 		border-top-right-radius: 8px;
 		border-bottom-right-radius: 8px;
+		border: none;
+		cursor: pointer;
 	}
 
 	input {
@@ -651,4 +653,16 @@ h4 {
 		border-top-left-radius: 8px;
 		border-bottom-left-radius: 8px;
 	}
+}
+
+.search-items {
+	display: flex;
+	width: 60%;
+  min-width: 640px;
+}
+
+.search-map-container {
+	width: 400px	;
+	height: 600px;
+	margin: 10px;
 }

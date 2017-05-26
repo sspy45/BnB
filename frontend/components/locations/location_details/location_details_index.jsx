@@ -25,7 +25,7 @@ export default class LocationDetails extends React.Component {
     let locationDetails;
     let map;
     let reviewList;
-    let { reviews } = this.props;
+    let { reviews, updateFilter } = this.props;
     let carousel;
     let bookingContainer;
     if(Object.keys(this.props.local).length > 0){
@@ -66,6 +66,9 @@ export default class LocationDetails extends React.Component {
           locations={locations}
           mapSettings={mapSettings}
           className={'location-detail-map'}
+          locationId={id}
+          singleLocation={true}
+          updateFilter={updateFilter}
         /> : "";
 
       bookingContainer = <BookingContainer map={map} />;

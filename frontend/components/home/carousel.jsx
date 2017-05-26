@@ -1,18 +1,31 @@
 import React from 'react';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-export default class Carousel extends React.Component {
+class Carousel extends React.Component {
 
   constructor(){
     super();
 
     this.state = {
-      startDate: null,
-      endDate: null,
+      query: ""
     };
+    this.handleSearch = this.handleSearch.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
+  updateSearch(e){
+    return () => this.setState({
+      query: e.currentTarget.value
+    });
+  }
+
+  handleSearch(){
+    event.preventDefault();
+    let query = this.state.query;
+    this.props.history.push('/search', {query});
+  }
 
   render(){
     return(
@@ -21,17 +34,19 @@ export default class Carousel extends React.Component {
         <section className="search-bar">
           <input
             value={this.state.search}
-            placeholder="Search for pet sitters">
+            placeholder="Search for pet sitters"
+            onChange={this.updateSearch}
+          />
+          <button
 
-          </input>
-          <Link
-            to="/search"
             onClick={this.handleSearch}>
             Search
-          </Link>
+          </button>
         </section>
       </section>
     );
   }
 
 }
+
+export default withRouter(Carousel);

@@ -1,12 +1,8 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import Footer from './footer';
-import {
-  Route,
-  Switch,
-  withRouter
-} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 
 import GreetingContainer from './greeting_container';
 import SessionFormContainer from './session_form/session_form_container';

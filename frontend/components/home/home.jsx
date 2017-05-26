@@ -13,10 +13,18 @@ export default class Home extends React.Component {
     return(
       <section className="home-container">
         <Carousel />
-
-          <LocationsContainer filter={"dog"}/>
-          <LocationsContainer filter={"cat"}/>
-          <LocationsContainer filter={"godzilla"}/>
+          <section className="categories">
+            <h2>Locations for Dogs</h2>
+            <LocationsContainer filter={"dog"}/>
+          </section>
+          <section>
+            <h2>Locations for Cats</h2>
+            <LocationsContainer filter={"cat"}/>
+          </section>
+          <section>
+            <h2>Locations for Godzilla</h2>
+            <LocationsContainer filter={"godzilla"}/>
+          </section>
 
       </section>
     );

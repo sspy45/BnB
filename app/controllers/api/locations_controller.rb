@@ -1,6 +1,8 @@
 class Api::LocationsController < ApplicationController
 
   def index
+    locations = bounds ? Location.in_bounds(bounds) : Location.all
+
     if params[:type] == "bookings"
       pets = Pet.where('owner_id = (?)', params[:id].to_i)
       id = pets.map(&:id)
@@ -45,5 +47,9 @@ class Api::LocationsController < ApplicationController
       :lng,
       :archived
     )
+  end
+
+  def bounds
+    params[:bounds]
   end
 end
