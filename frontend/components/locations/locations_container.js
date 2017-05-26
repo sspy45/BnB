@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchLocations } from '../../actions/location_actions';
+import { fetchAnimalLocations } from '../../actions/location_actions';
 import locationIndex from './location_index';
 
 const mapStateToProps = ({session, locations}) => {
-  
+
   return {
     currentUser: session.currentUser,
     locations: locations.locations
@@ -12,7 +12,7 @@ const mapStateToProps = ({session, locations}) => {
 };
 
 const mapDispatchToProps = (dispatch, {filter}) => ({
-  fetchLocations: () => dispatch(fetchLocations(filter)),
+  fetchAnimalLocations: (species) => dispatch(fetchAnimalLocations(species)),
   filter
 });
 

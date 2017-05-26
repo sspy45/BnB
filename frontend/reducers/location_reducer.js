@@ -8,6 +8,7 @@ import {
   RECEIVE_LOCATION_BOOKINGS,
   RECEIVE_LOCATION_REVIEW,
   RECEIVE_ERRORS,
+  RECEIVE_ANIMAL_LOCATIONS
  }from '../actions/location_actions';
 import moment from 'moment';
 import merge from 'lodash/merge';
@@ -33,6 +34,10 @@ const LocationReducer = (state = _defaultState, action) => {
     case RECEIVE_ALL_LOCATIONS:
       locations = action.locations;
       return merge({}, state, {locations});
+    case RECEIVE_ANIMAL_LOCATIONS:
+      let {species} = action.filter;
+      locations = action.locations;
+      return merge({}, state, {locations:{[species]:locations}});
     case RECEIVE_BOOKING_LOCATIONS:
       return merge({}, state, {[action.filter]: action.locations});
     case RECEIVE_LOCATION_REVIEWS:

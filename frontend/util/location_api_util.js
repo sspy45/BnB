@@ -1,8 +1,9 @@
 export const fetchLocations = (data) => {
+  console.log(data);
   return $.ajax({
     method: "GET",
     url: "api/locations",
-    data: {type: data}
+    data
   });
 };
 

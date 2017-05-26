@@ -8,7 +8,8 @@ class LocationIndex extends React.Component{
   }
 
   componentWillMount(){
-    this.props.fetchLocations(this.props.filter);
+    let species = this.props.filter;
+    this.props.fetchAnimalLocations({species});
   }
 
   render(){
@@ -20,7 +21,7 @@ class LocationIndex extends React.Component{
       slidesToScroll: 1,
       arrows: true
     };
-
+    console.log(locations);
     locations[filter] = locations[filter] || {};
     if(Object.keys(locations[filter]).length !== 0 && locations.constructor === Object){
       locations = asArray(locations[filter]);

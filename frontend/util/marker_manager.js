@@ -1,10 +1,10 @@
 /*global google*/
 
 export default class MarkerManager {
-  constructor(map) {
+  constructor(map, handleClick) {
     this.map = map;
     this.markers = {};
-
+    this.handleClick = handleClick;
     this.updateMarkers = this.updateMarkers.bind(this);
     this.createMarkerFromLocation = this.createMarkerFromLocation.bind(this);
     this.removeMarker = this.removeMarker.bind(this);
@@ -15,7 +15,7 @@ export default class MarkerManager {
     locations.forEach((location) => {locationsObj[location.id] = location;});
     locations
       .filter(location => !this.markers[location.id])
-      .forEach(newLocation => this.createMarkerFromLocation(newLocation));
+      .forEach(newLocation => this.createMarkerFromLocation(newLocation, this.handleClick));
 
     Object.keys(this.markers)
       .filter(locationId => !locationsObj[locationId])
@@ -29,6 +29,8 @@ export default class MarkerManager {
       map: this.map,
       locationId: location.id
     });
+    marker.addListener('click', () => this.handleClick(location));
+    this.markers[marker.locationId] = marker;
 
     marker.setMap(this.map);
     this.markers[marker.locationId] = marker;

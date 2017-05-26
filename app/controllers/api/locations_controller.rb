@@ -2,18 +2,17 @@ class Api::LocationsController < ApplicationController
 
   def index
     locations = bounds ? Location.in_bounds(bounds) : Location.all
-
-    if params[:type] == "bookings"
+    if params[:bookings]
       pets = Pet.where('owner_id = (?)', params[:id].to_i)
       id = pets.map(&:id)
       bookings = Booking.where('pet_id in (?)', id).map(&:location_id)
-      @locations = Location.where('id IN (?)', bookings)
+      @locations = locations.where('id IN (?)', bookings)
       render "api/locations/index"
-    elsif ["dog", "cat", "snake", "chincilla", "godzilla"].include?(params[:type])
-      @locations = PetType.where('species = (?)', params[:type])[0].locations
+    elsif ["dog", "cat", "snake", "chincilla", "godzilla"].include?(params[:species])
+      @locations = PetType.where('species = (?)', params[:species])[0].locations
       render "api/locations/index"
     else
-      @locations = Location.all
+      @locations = locations
       # in_bounds(params[:bounds])
     end
   end
@@ -45,7 +44,8 @@ class Api::LocationsController < ApplicationController
       :owner_id,
       :lat,
       :lng,
-      :archived
+      :archived,
+      :bounds
     )
   end
 
