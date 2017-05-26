@@ -11,17 +11,13 @@ const LocationDetailsDesc = ({details, review, createReview, currentUser, locati
     city, state, zip,
     rating, ownerUrl,
     reviews} = details;
-  let reviewList;
-  if(Object.keys(review).length !== 0 && review.constructor === Object){
-    review = asArray(review);
-    reviewList =
+  let reviewList = (
     <ReviewsList
       locationId ={locationId}
       reviews={review}
       createReview={createReview}
       currentUser={currentUser}
-    />;
-  }
+    />);
     return(
     <section>
       <section className="details-row">

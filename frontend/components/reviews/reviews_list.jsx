@@ -43,7 +43,14 @@ export default class ReviewList extends React.Component {
 
   render(){
     const {reviews} = this.props;
-
+    let rev;
+    if(Object.keys(reviews).length > 0){
+      rev = (
+        <section>
+          {reviews.map(review => <Review key={review.id} review={review}/>)}
+        </section>
+      );
+    }
     return(
       <section>
         <section className="review-container">
@@ -74,9 +81,8 @@ export default class ReviewList extends React.Component {
           </section>
 
         </section>
-        <section>
-          {reviews.map(review => <Review key={review.id} review={review}/>)}
-        </section>
+        {rev}
+
       </section>
     );
   }
