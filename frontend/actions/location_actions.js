@@ -12,6 +12,7 @@ export const CLEAR_LOCATION = 'CLEAR_LOCATION';
 export const RECEIVE_BOOKING = 'RECEIVE_BOOKING';
 export const RECEIVE_LOCATION_REVIEW = "RECEIVE_LOCATION_REVIEW";
 export const RECEIVE_ANIMAL_LOCATIONS = "RECEIVE_ANIMAL_LOCATIONS";
+export const RECEIVE_AND_REPLACE = "RECEIVE_AND_REPLACE";
 
 export const receiveLocations = (locations, filter) => ({
   type: RECEIVE_LOCATIONS,
@@ -21,6 +22,11 @@ export const receiveLocations = (locations, filter) => ({
 
 export const receiveAllLocations = (locations) => ({
   type: RECEIVE_ALL_LOCATIONS,
+  locations
+});
+
+export const receiveAndReplace = (locations) => ({
+  type: RECEIVE_AND_REPLACE,
   locations
 });
 
@@ -95,6 +101,11 @@ export const fetchAnimalLocations = (filter) => dispatch => (
   APIUtil.fetchLocations(filter)
     .then(locations => dispatch(receiveAnimalLocations(filter, locations)))
 );
+
+export const fetchAndReplace = (filter) => dispatch => (
+  APIUtil.fetchLocations(filter)
+    .then(locations => dispatch(receiveAndReplace(locations)))
+)
 
 export const fetchBookingLocations = (id) => dispatch => (
   APIUtil.fetchBookingLocations(id)

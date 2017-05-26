@@ -1,4 +1,4 @@
-import { fetchAllLocations } from './location_actions';
+import { fetchAndReplace } from './location_actions';
 
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 
@@ -10,5 +10,5 @@ export const changeFilter = (filter, value) => ({
 
 export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
-  return fetchAllLocations(getState().filters)(dispatch);
+  return fetchAndReplace(getState().filters)(dispatch);
 };

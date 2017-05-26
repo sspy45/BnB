@@ -58,4 +58,13 @@ class Location < ApplicationRecord
         .where("lng > ?", bounds[:southWest][:lng])
         .where("lng < ?", bounds[:northEast][:lng])
   end
+
+  def self.search(search)
+
+    s = "%#{search.downcase}%"
+
+    self.where("lower(title) LIKE ?", s)
+
+
+  end
 end

@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationMap from './location_map';
-import LocationIndex from './location_index';
-import LocationsSearchContainer from './locations_search_container';
+import LocationIndexItem from './location_index_item';
+import LocationsContainer from './locations_container';
 import { asArray } from '../../reducers/selectors';
 
 class Search extends React.Component{
@@ -10,13 +10,16 @@ class Search extends React.Component{
     this.handleChange = this.handleChange.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.state ={
-      locations: props.locations,
       search: ""
     };
   }
 
+  componentWillMount(){
+
+    this.props.fetchAndReplace();
+  }
   handleChange(filter, updateFilter){
-    return (e) => updateFilter(filter, e.currentTarget.value);
+    return (e) => updateFilter('search', filter);
   }
 
   updateSearch(e){
@@ -26,10 +29,9 @@ class Search extends React.Component{
   }
 
   render(){
-    let { updateFilter } = this.props;
-    let { locations } = this.state;
+    let { updateFilter, locations } = this.props;
     let map;
-
+    let tiles;
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
       locations = asArray(this.props.locations);
       map = (
@@ -41,6 +43,14 @@ class Search extends React.Component{
             singleLocation={false}
           />
         </div>
+      );
+      tiles = (
+        <section className="search-tiles">
+          {locations.map(location =>
+            <LocationIndexItem
+              key={location.id}
+              local={location} />)}
+        </section>
       );
     } else {
       map = (
@@ -66,7 +76,7 @@ class Search extends React.Component{
         </section>
         <section className="search-items">
           <section>
-            <LocationsSearchContainer filter={this.state.search}/>
+            {tiles}
           </section>
           <section>
             {map}
@@ -78,5 +88,5 @@ class Search extends React.Component{
   }
 
 }
-
+            // <LocationsContainer filter={this.state.search}/>
 export default Search;

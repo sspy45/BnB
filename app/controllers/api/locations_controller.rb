@@ -11,6 +11,10 @@ class Api::LocationsController < ApplicationController
     elsif ["dog", "cat", "snake", "chincilla", "godzilla"].include?(params[:species])
       @locations = PetType.where('species = (?)', params[:species])[0].locations
       render "api/locations/index"
+    elsif params[:search]
+      debugger
+      @locations = Location.search(params[:search])
+      render "api/locations/index"
     else
       @locations = locations
       # in_bounds(params[:bounds])

@@ -348,6 +348,9 @@ h4 {
 
 	h1 {
 		margin: 50px;
+		text-shadow: white;
+		-webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
 	}
 }
 
@@ -684,4 +687,10 @@ h4 {
 		color: white;
 	}
 
+}
+
+.search-tiles {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap
 }
