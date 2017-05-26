@@ -59,6 +59,7 @@ export default class UserDetails extends React.Component {
 
 
   renderErrors() {
+    if(Object.keys(this.props.errors).length > 0){
     return(
       <ul className='errors'>
         {this.props.errors.map((error, i) => (
@@ -67,7 +68,8 @@ export default class UserDetails extends React.Component {
           </li>
         ))}
       </ul>
-    );
+      );
+    }
   }
 
   renderSuccess() {
