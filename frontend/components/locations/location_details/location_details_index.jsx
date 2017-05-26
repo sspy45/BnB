@@ -57,9 +57,9 @@ export default class LocationDetails extends React.Component {
       let mapSettings = {
         center: { lat, lng },
         zoom: 13,
-        // draggable: false,
-        // zoomControl: false,
-        // scrollwheel: false
+        draggable: false,
+        zoomControl: false,
+        scrollwheel: false
       };
       map = locations.length > 0 ?
         <LocationMap

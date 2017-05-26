@@ -8,7 +8,6 @@ class PictureViewer extends React.Component {
 
   render(){
     const {pictures, options, klass} = this.props;
-
     const settings =  options || {
       dots: true,
       speed: 500,
@@ -16,8 +15,7 @@ class PictureViewer extends React.Component {
       slidesToScroll: 1,
       arrows: true
     };
-
-    if(pictures.length > 0){
+    if(pictures){
       return (
         <section className={klass}>
           <Slider {...settings}>
@@ -34,7 +32,7 @@ class PictureViewer extends React.Component {
       return (
         <img
           alt={"Location"}
-          src={"http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495563515/home_onquwb.png"}/>
+          src={"https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495563515/home_onquwb.png"}/>
       );
     }
   }

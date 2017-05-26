@@ -650,8 +650,7 @@ h4 {
 
 .search-items {
 	display: flex;
-	width: 60%;
-  min-width: 640px;
+  width: 100%;
 }
 
 .search-map-container {
@@ -691,6 +690,7 @@ h4 {
 
 .search-tiles {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 601px;
 }

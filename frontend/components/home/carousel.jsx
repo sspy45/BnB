@@ -16,7 +16,7 @@ class Carousel extends React.Component {
   }
 
   updateSearch(e){
-    return () => this.setState({
+    this.setState({
       query: e.currentTarget.value
     });
   }
@@ -24,7 +24,7 @@ class Carousel extends React.Component {
   handleSearch(){
     event.preventDefault();
     let query = this.state.query;
-    this.props.history.push('/search', {query});
+    this.props.history.push(`/search/${query}`);
   }
 
   render(){

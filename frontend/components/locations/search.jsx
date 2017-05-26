@@ -32,11 +32,21 @@ class Search extends React.Component{
     let { updateFilter, locations } = this.props;
     let map;
     let tiles;
+
+    let mapSettings = {
+      center: { lat: 37.773972, lng: -122.431297 },
+      zoom: 13,
+      draggable: false,
+      zoomControl: false,
+      scrollwheel: false
+    };
+
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
       locations = asArray(this.props.locations);
       map = (
         <div>
           <LocationMap
+            mapSettings={mapSettings}
             locations={locations}
             className="search-map-container"
             updateFilter={updateFilter}
@@ -88,5 +98,5 @@ class Search extends React.Component{
   }
 
 }
-            // <LocationsContainer filter={this.state.search}/>
+
 export default Search;
