@@ -339,7 +339,7 @@ h4 {
 .home-splash {
 	display: flex;
 	background-position: 50% 50%;
-	background-image: url(http://res.cloudinary.com/dkw3fxfzr/image/upload/v1495593788/home-splash_huyqw0.jpg);
+	background-image: url(https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495593788/home-splash_huyqw0.jpg);
 	margin: auto;
 	width: 100%;
 	background-size: cover;
@@ -347,10 +347,8 @@ h4 {
 	height: 500px;
 
 	h1 {
-		margin: 50px;
-		text-shadow: white;
-		-webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: black;
+		color: black;
+	  margin-top: 42px;
 	}
 }
 
@@ -625,7 +623,7 @@ h4 {
 .search-bar {
 	position: relative;
   margin: auto;
-  top: -20px;
+  top: 30px;
 	width: 100%;
 	left: 25%;
 	button{

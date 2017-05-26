@@ -27,6 +27,7 @@ class App extends React.Component{
         <Switch>
           <ProtectedRoute path="/user" component={ UserContainer } />
           <Route path="/search/:query" component={ SearchContainer } />
+          <Route path="/search" component={ SearchContainer } />
           <Route path="/location/:id" component={ LocationDetailsContainer} />
           <Route path="/" component={ HomeContainer } />
         </Switch>

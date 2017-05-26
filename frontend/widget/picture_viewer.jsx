@@ -15,27 +15,32 @@ class PictureViewer extends React.Component {
       slidesToScroll: 1,
       arrows: true
     };
-    if(pictures){
+    if(pictures && pictures.length > 0){
       return (
-        <section className={klass}>
-          <Slider {...settings}>
-            {pictures.map(picture => (
-              <img
-                key={picture.id}
-                alt={picture.name || "Location"}
-                src={picture.url}/>
-            ))}
-          </Slider>
-      </section>
+        <div className={klass}>
+          <img
+            alt={pictures[0].name || "Location"}
+            src={pictures[0].url}
+          />
+        </div>
       );
     } else {
       return (
-        <img
-          alt={"Location"}
-          src={"https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495563515/home_onquwb.png"}/>
+        <div>
+          <img alt="Location" src={"https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495563515/home_onquwb.png"} />
+        </div>
       );
     }
   }
 }
 
+// TODO FIX SLIDER LATER
+// <Slider {...settings}>
+//   {pictures.map(picture => (
+//     <img
+//       key={picture.id}
+//       alt={picture.name || "Location"}
+//       src={picture.url}/>
+//   ))}
+// </Slider>
 export default PictureViewer;

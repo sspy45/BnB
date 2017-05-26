@@ -30,7 +30,7 @@ class Carousel extends React.Component {
   render(){
     return(
       <section className="home-splash">
-        <h1>Find them a home when you aren't home</h1>
+
         <section className="search-bar">
           <input
             value={this.state.search}
@@ -38,10 +38,10 @@ class Carousel extends React.Component {
             onChange={this.updateSearch}
           />
           <button
-
             onClick={this.handleSearch}>
             Search
           </button>
+          <h1>Find them a home when you aren't</h1>
         </section>
       </section>
     );

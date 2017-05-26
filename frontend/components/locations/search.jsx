@@ -15,8 +15,7 @@ class Search extends React.Component{
   }
 
   componentWillMount(){
-
-    this.props.fetchAndReplace();
+    this.props.fetchLocations();
   }
   handleChange(filter, updateFilter){
     return (e) => updateFilter('search', filter);
@@ -43,6 +42,7 @@ class Search extends React.Component{
 
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
       locations = asArray(this.props.locations);
+      console.log(locations);
       map = (
         <div>
           <LocationMap

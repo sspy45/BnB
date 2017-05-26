@@ -179,5 +179,4 @@ pic16 = Picture.create!(name: "chinchillas", imageable_id: location13.id, imagea
 pic17 = Picture.create!(name: "godzilla", imageable_id: location14.id, imageable_type: "Location", url: "https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495722095/GODZILLA_The_Game_-_Reveal_Trailer_-_Godzilla_B_W_1_qqndhg.png")
 pic18 = Picture.create!(name: "snek", imageable_id: location16.id, imageable_type: "Location", url: "https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495803124/tumblr_nzu9xiCcFe1qg4ms7o3_1280_dj3pfj.jpg")
 pic19 = Picture.create!(name: "dog house", imageable_id: location15.id, imageable_type: "Location", url: "https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495803281/1b01bdf39bd759f5b960708190c6c768_mvs39u.jpg")
-pic20 = Picture.create!(name: "", imageable_id: location11.id, imageable_type: "Location", url: "https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495803418/08-053-01front_p7zt6i.jpg")
-# pic21 = Picture.create!(name: "", imageable_id: location .id, imageable_type: "Location", url: "")
+pic20 = Picture.create!(name: "Nothing here", imageable_id: location11.id, imageable_type: "Location", url: "https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495803418/08-053-01front_p7zt6i.jpg")
