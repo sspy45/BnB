@@ -17,11 +17,11 @@ export default class Home extends React.Component {
             <h2>Locations for Dogs</h2>
             <LocationsContainer filter={"dog"}/>
           </section>
-          <section>
+          <section className="categories">
             <h2>Locations for Cats</h2>
             <LocationsContainer filter={"cat"}/>
           </section>
-          <section>
+          <section className="categories">
             <h2>Locations for Godzilla</h2>
             <LocationsContainer filter={"godzilla"}/>
           </section>

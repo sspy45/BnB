@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationMap from './location_map';
 import LocationIndex from './location_index';
-import LocationsContainer from './locations_container';
+import LocationsSearchContainer from './locations_search_container';
 import { asArray } from '../../reducers/selectors';
 
 class Search extends React.Component{
@@ -10,6 +10,7 @@ class Search extends React.Component{
     this.handleChange = this.handleChange.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.state ={
+      locations: props.locations,
       search: ""
     };
   }
@@ -25,7 +26,8 @@ class Search extends React.Component{
   }
 
   render(){
-    let { updateFilter, locations } = this.props;
+    let { updateFilter } = this.props;
+    let { locations } = this.state;
     let map;
 
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
@@ -64,7 +66,7 @@ class Search extends React.Component{
         </section>
         <section className="search-items">
           <section>
-            <LocationsContainer filter={this.state.search}/>
+            <LocationsSearchContainer filter={this.state.search}/>
           </section>
           <section>
             {map}
