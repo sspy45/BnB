@@ -42,7 +42,9 @@ class LocationIndex extends React.Component{
       );
     } else {
       return (
-        <div>Empty</div>
+        <section className="categories">
+          <div className='loader'>Loading...</div>
+        </section>
       );
     }
   }

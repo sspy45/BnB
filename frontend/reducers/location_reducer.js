@@ -6,7 +6,8 @@ import {
   RECEIVE_BOOKING_LOCATIONS,
   RECEIVE_BOOKING,
   RECEIVE_LOCATION_BOOKINGS,
-  RECEIVE_LOCATION_REVIEW
+  RECEIVE_LOCATION_REVIEW,
+  RECEIVE_ERRORS,
  }from '../actions/location_actions';
 import moment from 'moment';
 import merge from 'lodash/merge';
@@ -21,6 +22,11 @@ const LocationReducer = (state = _defaultState, action) => {
   let newState;
   let reviews;
   switch(action.type){
+    case RECEIVE_ERRORS:
+      let errors = action.errors.responseJSON;
+      newState = merge({}, state);
+      newState.errors = errors;
+      return newState;
     case RECEIVE_LOCATIONS:
       let {locations, filter} = action;
       return merge({}, state, {locations:{[filter]:locations}});

@@ -8,11 +8,12 @@ export default class BookingForm extends React.Component {
   constructor(props){
     super(props);
     let currentDate = new Date();
-    this.state={
+    this.state = {
       startDate: null,
       endDate: null,
       location_id: props.local.id,
-      pet_id: ""
+      pet_id: "",
+      submitted: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,6 +34,7 @@ export default class BookingForm extends React.Component {
   }
 
   componentWillMount(){
+    this.props.clearErrors();
     if(this.props.currentUser){
       this.props.fetchPets(this.props.currentUser.id);
     }
@@ -48,9 +50,15 @@ export default class BookingForm extends React.Component {
       check_in: this.state.startDate._d,
       check_out: this.state.endDate._d,
       location_id: this.state.location_id,
-      pet_id: this.state.pet_id
+      pet_id: this.state.pet_id,
+      submitted: true
     };
     this.props.createBooking(booking);
+    this.setState({
+      startDate: null,
+      endDate: null,
+      submitted: true
+    });
   }
 
 
@@ -62,7 +70,7 @@ export default class BookingForm extends React.Component {
   }
 
   render(){
-    const {pets, map, bookings} = this.props;
+    const {pets, map, bookings, errors} = this.props;
     let petList;
     if(pets.length > 0){
       petList = (
@@ -92,14 +100,21 @@ export default class BookingForm extends React.Component {
     }
 
     if(this.props.currentUser){
-
     return (
       <section className='location-booking-form'>
         {map}
         <h2>
           Book this place
         </h2>
-
+          <ul>
+            {errors.map(error =>
+              <li
+                key={error}
+                className="errors"
+                >{error}
+              </li>
+            )}
+          </ul>
           <DateRangePicker
             startDate={this.state.startDate}
             endDate={this.state.endDate}
@@ -108,14 +123,20 @@ export default class BookingForm extends React.Component {
             onFocusChange={focusedInput => this.setState({ focusedInput })}
             isDayBlocked={(el) => this.isDayBlocked(el)}
           />
-          {petList}
-
-          <section>
-            <input
-              onClick={this.handleSubmit}
-              type="submit"
-              value='Request'/>
-          </section>
+          {!this.state.submitted ?
+            <section className='location-booking-form'>
+              {petList}
+              <input
+                onClick={this.handleSubmit}
+                type="submit"
+                value='Request'/>
+            </section>
+            :
+            <section>
+              <p className="booking-submitted">
+                Thank you your request will be processed shortly!
+              </p>
+            </section>}
         </section>
 
       );

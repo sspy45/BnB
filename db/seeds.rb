@@ -27,7 +27,7 @@ user19 = User.create!(username: Faker::Name.name, password: "password" )
 user20 = User.create!(username: Faker::Name.name, password: "password" )
 
 location1 = Location.create!(title: "My Casa", description: "Chateau de Tony", street_address1: "473 Stow Ave", street_address2: "Apt 2", city: "Oakland", zip: "94606", state: "CA", lng: -122.250617, lat: 37.803799, owner_id: user1.id, archived: false)
-location2 = Location.create!(title: "App-Academy", description: "Where dreams are made", street_address1: "160 Spear St", street_address2: "Floor 14", city: "San Fransico", zip: "94105", state: "CA", lng: -122.3959239, lat: 37.8331627, owner_id: user1.id, archived: false)
+location2 = Location.create!(title: "App-Academy", description: "Where dreams are made", street_address1: "160 Spear St", street_address2: "Floor 14", city: "San Fransico", zip: "94105", state: "CA", lng: -122.3959239, lat: 37.791305, owner_id: user1.id, archived: false)
 location3 = Location.create!(title: "Mana's place", description: "Mana's place", street_address1: "123 Fake St", street_address2: "Apt 2", city: "Oakland", zip: "94606", state: "CA", lng: -122.2968172, lat: 37.8331627, owner_id: user3.id, archived: false)
 location4 = Location.create!(title: "New Gold Medal", description: "Resturant that also pet sits", street_address1: "389 8th St", street_address2: "", city: "Oakland", zip: "94607", state: "CA", lng: -122.2744451, lat: 37.7993183, owner_id: user2.id, archived: false)
 location5 = Location.create!(title: "Lake Merritt", description: "Feel free to just leave your pet at the park for a few days", street_address1: "1418 Lakeside Dr", street_address2: "", city: "Oakland", zip: "94612", state: "CA", lng: -122.2643697, lat: 37.8014345, owner_id: user2.id, archived: false)

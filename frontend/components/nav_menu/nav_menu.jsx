@@ -21,9 +21,17 @@ export default class NavMenu extends React.Component {
   }
 
   toggleMenu() {
+
+    if(!this.state.toggleMenu){
+      document.addEventListener("click", this.toggleMenu);
+    } else {
+      document.removeEventListener("click",this.toggleMenu);
+    }
     this.setState({
       toggleMenu: !this.state.toggleMenu
     });
+
+
   }
 
   render(){

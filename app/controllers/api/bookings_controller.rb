@@ -17,9 +17,6 @@ class Api::BookingsController < ApplicationController
     end
   end
 
-  def new
-  end
-
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
@@ -30,12 +27,6 @@ class Api::BookingsController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
-  def destroy
-  end
 
   def booking_params
     params.require(:booking).permit(

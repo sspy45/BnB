@@ -19,6 +19,9 @@
 #
 
 class Location < ApplicationRecord
+
+  include PgSearch
+  multisearchable :against => [:title, :description, :zip]
   validates :title, :description, :lat, :lng, :owner_id, presence: true
 
   belongs_to :owner,

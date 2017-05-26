@@ -1,6 +1,8 @@
 import * as APIUtil from '../util/location_api_util';
 
 export const RECEIVE_LOCATIONS = 'RECEIVE_LOCATIONS';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_ALL_LOCATIONS = 'RECEIVE_ALL_LOCATIONS';
 export const RECEIVE_BOOKING_LOCATIONS = 'RECEIVE_BOOKING_LOCATIONS';
 export const RECEIVE_LOCATION_REVIEWS = 'RECEIVE_LOCATION_REVIEWS';
@@ -56,6 +58,16 @@ export const receiveLocationReview = review => ({
   review
 });
 
+export const receiveErrors = errors => ({
+  type: RECEIVE_ERRORS,
+  errors
+});
+
+export const clearErrors = () => ({
+  type: RECEIVE_ERRORS,
+  errors: {}
+});
+
 export const fetchLocations = (filter) => dispatch => (
   APIUtil.fetchLocations(filter)
     .then(locations => dispatch(receiveLocations(locations, filter)))
@@ -63,7 +75,8 @@ export const fetchLocations = (filter) => dispatch => (
 
 export const createBooking = (booking) => dispatch => (
   APIUtil.createBooking(booking)
-    .then(_booking => dispatch(receiveBooking(_booking)))
+    .then(_booking => dispatch(receiveBooking(_booking)),
+          errors => dispatch(receiveErrors(errors)))
 );
 
 export const fetchAllLocations = () => dispatch => (

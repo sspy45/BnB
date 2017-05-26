@@ -9,7 +9,8 @@
 #
 
 class PetType < ApplicationRecord
-
+  include PgSearch
+  multisearchable :against => [:species]
   validates :species, presence: true
 
   has_many :pets,

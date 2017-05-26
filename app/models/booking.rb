@@ -13,7 +13,7 @@
 
 class Booking < ApplicationRecord
   validates :pet_id, :location_id, :check_in, :check_out, presence: true
-  validate :proper_date
+  validate :does_not_overlap
 
   belongs_to :pet,
     primary_key: :id,
@@ -30,8 +30,16 @@ class Booking < ApplicationRecord
 
   alias_attribute :customer, :owner
 
-  def proper_date
-    
+  def overlaps
+    Booking.where("check_in < (?) AND check_out > (?)", self.check_out, self.check_in)
+  end
+
+  def does_not_overlap
+
+    unless self.overlaps.empty?
+      errors[:base] <<
+        "Request conflicts with existing bookings"
+    end
   end
 
 end
