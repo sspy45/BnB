@@ -31,7 +31,8 @@ class Booking < ApplicationRecord
   alias_attribute :customer, :owner
 
   def overlaps
-    Booking.where("check_in < (?) AND check_out > (?)", self.check_out, self.check_in)
+    Booking.where("id = (?)", self.id)
+    .where("check_in < (?) AND check_out > (?)", self.check_out, self.check_in)
   end
 
   def does_not_overlap
