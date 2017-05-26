@@ -12,7 +12,6 @@ class Api::LocationsController < ApplicationController
       @locations = PetType.where('species = (?)', params[:species])[0].locations
       render "api/locations/index"
     elsif params[:search]
-      debugger
       @locations = Location.search(params[:search])
       render "api/locations/index"
     else

@@ -63,8 +63,7 @@ class Location < ApplicationRecord
 
     s = "%#{search.downcase}%"
 
-    self.where("lower(title) LIKE ?", s)
-
+    self.where("lower(title) LIKE ? OR lower(city) LIKE ? OR lower(state) LIKE ?", s, s, s)
 
   end
 end
