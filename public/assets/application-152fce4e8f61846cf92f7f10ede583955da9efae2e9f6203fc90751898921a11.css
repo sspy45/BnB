@@ -1,0 +1,1080 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+/* line 8, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 29, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 33, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 36, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 39, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 42, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 47, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 54, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #5d5d5d;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* line 62, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+header {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+/* line 70, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+header marquee {
+  font-size: 30px;
+}
+/* line 73, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+header h1 {
+  padding: 0px 10px;
+}
+/* line 77, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+header img {
+  height: 50px;
+  width: 50px;
+  margin-left: 20px;
+}
+/* line 82, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+header a {
+  text-decoration: none;
+}
+/* line 86, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+header .header-session {
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+  width: 400px;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+/* line 96, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+h1 {
+  font-size: 35px;
+}
+
+/* line 100, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+h2 {
+  font-size: 28px;
+}
+
+/* line 104, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+h3 {
+  font-size: 22px;
+}
+
+/* line 108, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+h4 {
+  font-size: 18px;
+}
+
+/* line 112, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.map-container {
+  width: 500px;
+  height: 500px;
+}
+
+/* line 116, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-detail-map {
+  width: 200px;
+  height: 200px;
+  border: 3px solid #0284cf;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+/* line 124, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.errors {
+  color: red;
+}
+
+/* line 128, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.success {
+  color: green;
+  transition: all 0.3s ease;
+}
+
+/* line 133, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.subtle-message {
+  color: gray;
+  font-style: italic;
+  margin: 10px;
+}
+
+/* line 139, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.nav-button {
+  text-align: center;
+  background: white;
+  padding: 3px;
+  margin: 5px;
+  border: 2px solid #5F9EA0;
+  color: #5F9EA0;
+  width: 80px;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* line 158, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.long-input {
+  width: 400px;
+  height: 100px;
+}
+
+/* line 162, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* line 169, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.home-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* line 178, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.user-icon {
+  height: 60px;
+  width: 60px;
+  background-size: cover;
+  background-image: url(/assets/corgi-892730c2b93d6b3de6cf7868def544fbb1358e0cb028aa1de6ab425a4f577df6.gif);
+  cursor: pointer;
+}
+
+/* line 186, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.categories {
+  width: 100%;
+  margin-left: 20px;
+  min-width: 300px;
+}
+/* line 191, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.categories h1 {
+  padding: 10px;
+}
+/* line 194, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.categories h2 {
+  margin: 13px;
+}
+
+/* line 199, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.inner-categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 205, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.hidden {
+  display: none;
+}
+
+/* line 209, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.profile-container {
+  display: flex;
+  padding: 5px;
+  margin: 15px;
+  width: 90%;
+}
+
+/* line 216, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.profile-container-nav {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+/* line 222, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.profile-container-nav a {
+  text-decoration: none;
+  font-size: 20px;
+  margin: 10px;
+}
+
+/* line 229, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.profile-container-main {
+  display: flex;
+  width: 80%;
+}
+
+/* line 234, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.user-profile-container {
+  display: flex;
+  padding: 25px;
+  flex-direction: column;
+}
+/* line 239, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.user-profile-container img {
+  width: 80%;
+  height: auto;
+}
+
+/* line 245, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.pets-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+/* line 251, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.pets-container-item {
+  display: flex;
+  width: 700px;
+  justify-content: space-between;
+  border: solid 1px #d4d4d4;
+  padding: 7px;
+  margin: 10px 10px 10px 0px;
+  border-radius: 4px;
+  align-items: center;
+}
+
+/* line 262, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.pets-inner-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+/* line 267, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.pets-inner-container * {
+  margin: 10px;
+}
+
+/* line 273, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.pets-row-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* line 277, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.pets-add-row {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+/* line 283, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.pets-col-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 288, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.active-edit {
+  font-size: 15px;
+  text-align: center;
+  background: gray;
+  margin: 5px;
+  border: 2px solid #5F9EA0;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* line 301, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.inactive-edit {
+  font-size: 15px;
+  text-align: center;
+  background: white;
+  margin: 5px;
+  border: 2px solid #5F9EA0;
+  color: #5F9EA0;
+  font-weight: 700;
+  border-radius: 5px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* line 314, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.delete-button {
+  font-size: 15px;
+  text-align: center;
+  background: #e0502d;
+  margin: 5px;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  height: 30px;
+  cursor: pointer;
+  border-color: #e0502d;
+}
+
+/* line 327, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.edit-section {
+  background: #b7d4ff;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 10px 10px 10px 0;
+  align-items: center;
+  border-radius: 4px;
+}
+/* line 335, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.edit-section * {
+  margin: 3px;
+}
+
+/* line 340, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.home-splash {
+  display: flex;
+  background-position: 50% 50%;
+  background-image: url(https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495593788/home-splash_huyqw0.jpg);
+  margin: auto;
+  width: 100%;
+  background-size: cover;
+  flex-direction: column;
+  height: 500px;
+}
+/* line 350, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.home-splash h1 {
+  color: black;
+  margin-top: 42px;
+}
+
+/* line 356, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-category {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 361, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-tile {
+  display: flex;
+  height: 300px;
+  width: 270px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  flex-direction: column;
+}
+/* line 370, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-tile:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* line 374, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-tile img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+/* line 381, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: gray 1px solid;
+  padding: 40px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* line 391, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review {
+  display: flex;
+  border: 1px red dashed;
+  padding: 8px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+/* line 398, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review span {
+  margin: 1px;
+  font-size: 14px;
+}
+
+/* line 403, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review-inner {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+/* line 408, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review-inner p {
+  text-align: center;
+  font-style: italic;
+}
+
+/* line 414, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.tile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* line 418, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.tile-details p {
+  font-size: 20px;
+}
+/* line 421, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.tile-details span {
+  padding: 1px;
+}
+
+/* line 426, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-carousel {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 450px;
+}
+/* line 431, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-carousel img {
+  width: 100%;
+  min-height: 450px;
+  object-fit: cover;
+}
+/* line 436, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-carousel h1 {
+  display: inline-block;
+  float: left;
+  position: absolute;
+  margin: 80px;
+  font-size: 40px;
+  color: gainsboro;
+}
+
+/* line 447, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.tile-location-carousel img {
+  object-fit: cover;
+}
+
+/* line 451, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+/* line 457, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-container section {
+  color: #4f4f4f;
+}
+
+/* line 463, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-details {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+/* line 470, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-details p {
+  padding: 10px 0px;
+}
+
+/* line 476, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-details-static {
+  display: flex;
+  margin: 10px;
+  max-width: 550px;
+}
+/* line 480, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-details-static section {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+/* line 486, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-details-form {
+  display: flex;
+  border: 1px #d8d8d8 solid;
+  margin: 10px;
+}
+
+/* line 496, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.details-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: black;
+  width: 100%;
+  align-items: center;
+}
+/* line 503, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.details-row span {
+  padding: 1px;
+}
+
+/* line 507, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.details-row-1 {
+  display: flex;
+  flex: 1;
+}
+
+/* line 512, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.tile-overlay {
+  height: 256px;
+  position: absolute;
+  width: 232px;
+  margin: 20px;
+}
+
+/* line 519, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.slick-next {
+  right: 0px;
+  opacity: 0.5;
+}
+
+/* line 524, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.slick-prev {
+  left: 0px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* line 530, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.DateRangePicker__picker--direction-left {
+  left: -392px;
+  top: 73px;
+}
+
+/* line 535, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-booking-form {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  align-items: center;
+}
+/* line 541, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-booking-form h2 {
+  margin-bottom: 20px;
+}
+/* line 544, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-booking-form select {
+  width: 200px;
+}
+/* line 548, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-booking-form .DateRangePickerInput {
+  margin-bottom: 20px;
+}
+/* line 551, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-booking-form label {
+  margin-bottom: 5px;
+}
+/* line 554, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.location-booking-form section {
+  display: flex;
+  justify-content: center;
+  padding: 22px;
+}
+
+/* line 562, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.details-owner-icon {
+  display: flex;
+}
+/* line 564, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.details-owner-icon img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+/* line 571, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.fa-heart {
+  color: #ffa0b0;
+}
+
+/* line 576, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.fa-heart-o {
+  color: #ffa0b0;
+}
+
+/* line 580, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* line 584, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review-container input {
+  width: 150px;
+}
+/* line 588, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review-container textarea {
+  height: 100px;
+}
+/* line 591, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.review-container section {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* line 598, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.hidden {
+  display: none;
+}
+
+/* line 602, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.edit-button {
+  width: 100px;
+}
+
+/* line 606, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.user-profile-picture-cont {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  align-items: center;
+}
+/* line 612, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.user-profile-picture-cont img {
+  height: 200px;
+  width: 200px;
+}
+
+/* line 618, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.booking-submitted {
+  display: flex;
+}
+
+/* line 624, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.search-bar {
+  position: relative;
+  margin: auto;
+  top: 30px;
+  width: 100%;
+  left: 25%;
+}
+/* line 630, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.search-bar button {
+  background: red;
+  text-decoration: none;
+  padding: 8px;
+  color: white;
+  color: white;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+/* line 642, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.search-bar input {
+  padding: 7px;
+  width: 37%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* line 650, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.search-items {
+  display: flex;
+  width: 100%;
+}
+
+/* line 655, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.search-map-container {
+  width: 400px;
+  height: 600px;
+  margin: 10px;
+}
+
+/* line 661, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.disabled-booking-button {
+  width: 100px;
+  border: 3px solid silver;
+  border-radius: 5px;
+  background-color: silver;
+  outline: none;
+  margin-top: 15px;
+}
+
+/* line 671, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.booking-button {
+  width: 100px;
+  border: 3px solid #0284cf;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;
+  margin-top: 15px;
+  cursor: pointer;
+}
+/* line 682, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.booking-button:hover {
+  background-color: #0284cf;
+  border: 3px solid #0284cf;
+  color: white;
+}
+
+/* line 690, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/css_reset.scss */
+.search-tiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 601px;
+}
+/* line 4, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* line 12, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+/* line 21, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form h2 {
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 20px 5px;
+}
+/* line 27, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form h3 {
+  -webkit-align-self: flex-start;
+  padding: 10px 10px 5px 5px;
+  font-size: 16px;
+}
+/* line 33, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form h4 {
+  font-size: 16px;
+}
+/* line 39, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form .session-form-input {
+  width: 300px;
+  height: 25px;
+  margin: 5px;
+  padding-left: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+/* line 49, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form .session-form-submit {
+  margin: 10px;
+  padding: 7px;
+  background-color: red;
+  border: 0px;
+  color: white;
+  width: 130px;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* line 61, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form .session-form-switch {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+/* line 69, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form .session-button {
+  text-decoration: none;
+  text-align: center;
+  margin: 20px;
+  padding: 5px;
+  border: 2px solid #5F9EA0;
+  color: #5F9EA0;
+  width: 80px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+/* line 80, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/api/sessions.scss */
+.session-form .session-button:hover {
+  color: gray;
+  background-image: url("https://media.giphy.com/media/4dLGxc3IKOFZ6/giphy.gif");
+  background-size: 100% 100%;
+}
+@keyframes pulse {
+  0% {
+    background-color: #001F3F;
+  }
+  33% {
+    background-color: #FF4136;
+  }
+  66% {
+    background-color: #7FFF00;
+  }
+  100% {
+    background-color: #001F3F;
+  }
+}
+/* line 1, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.gear-dropdown {
+  position: absolute;
+  top: 84px;
+  right: 28px;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 10px;
+  width: 225px;
+  z-index: 1;
+  color: darkgray;
+  text-align: left;
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
+  font-weight: initial;
+}
+
+/* line 17, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.gear-dropdown .editions {
+  border-bottom: 1px solid gray;
+}
+
+/* line 21, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.gear-dropdown .editions li,
+.gear-dropdown .help li {
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* line 29, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.gear-dropdown a {
+  display: block;
+  padding: 5px 5px;
+}
+
+/* line 34, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.editions a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* line 39, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.gear-dropdown .help li {
+  color: blue;
+}
+
+/* line 43, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.gear-dropdown .editions li:hover {
+  background-color: gray;
+}
+
+/* line 47, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.dropdown-subtitle {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bolder;
+  margin: 10px 5px;
+  display: block;
+}
+
+/* line 55, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/dropdown.scss */
+.editions li:first-of-type {
+  color: #000;
+  background-color: gray;
+}
+/* line 1, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/loader.scss */
+.loader {
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* line 21, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/loader.scss */
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #ffffff;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+/* line 31, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/loader.scss */
+.loader:after {
+  background: #0dc5c1;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* line 1, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.modal {
+  margin-top: 60px;
+  margin-left: 20%;
+  margin-right: 20%;
+  min-height: 300px;
+  min-width: 350px;
+  background-color: white;
+  opacity: 1;
+}
+
+/* line 10, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.modal-close-button {
+  float: right;
+  font-size: 20px;
+  padding: 0px 10px 10px 0px;
+  background: none;
+  color: gray;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* line 21, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* line 30, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.menu {
+  position: fixed;
+  width: 200px;
+  right: 20px;
+  margin-top: 95px;
+  font-size: 18px;
+  border: none;
+}
+/* line 38, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.menu li {
+  padding: 10px;
+  background: deepskyblue;
+}
+/* line 41, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.menu li:hover {
+  background: #ff6b6b;
+}
+/* line 45, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.menu a {
+  text-decoration: none;
+  font-weight: 700;
+  color: white;
+}
+
+/* line 52, /Users/manaota/Desktop/Bnb/app/assets/stylesheets/modal.scss */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+ */
+
+@import dropdown.scss
