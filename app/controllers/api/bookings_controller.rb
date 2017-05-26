@@ -20,7 +20,16 @@ class Api::BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      render 'api/bookings/show'
+      @bookings = Booking.where(location_id: @booking.location_id)
+      @reserved_days = {};
+      @bookings.each do |booking|
+        all_days = (booking.check_in..booking.check_out).to_a
+        all_days.each do |day|
+          @reserved_days[day] = booking
+        end
+      end
+      render 'api/bookings/dates'
+
     else
       @errors = @booking.errors.full_messages
       render json: [@errors], status: 401

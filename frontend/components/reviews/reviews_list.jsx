@@ -1,6 +1,7 @@
 import React from 'react';
 import Review from './review';
 import Rating from 'react-rating';
+import { asArray } from '../../reducers/selectors';
 
 export default class ReviewList extends React.Component {
   constructor(props){
@@ -45,9 +46,10 @@ export default class ReviewList extends React.Component {
     const {reviews} = this.props;
     let rev;
     if(Object.keys(reviews).length > 0){
+      let tempReviews = asArray(reviews);
       rev = (
         <section>
-          {reviews.map(review => <Review key={review.id} review={review}/>)}
+          {tempReviews.map(review => <Review key={review.id} review={review}/>)}
         </section>
       );
     }

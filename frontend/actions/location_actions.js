@@ -88,7 +88,7 @@ export const fetchLocations = (filter) => dispatch => (
 
 export const createBooking = (booking) => dispatch => (
   APIUtil.createBooking(booking)
-    .then(_booking => dispatch(receiveBooking(_booking)),
+    .then(({bookings}) => dispatch(receiveLocationBookings(bookings)),
           errors => dispatch(receiveErrors(errors)))
 );
 
@@ -105,7 +105,7 @@ export const fetchAnimalLocations = (filter) => dispatch => (
 export const fetchAndReplace = (filter) => dispatch => (
   APIUtil.fetchLocations(filter)
     .then(locations => dispatch(receiveAndReplace(locations)))
-)
+);
 
 export const fetchBookingLocations = (id) => dispatch => (
   APIUtil.fetchBookingLocations(id)

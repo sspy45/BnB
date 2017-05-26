@@ -38,7 +38,6 @@ export default class BookingForm extends React.Component {
     if(this.props.currentUser){
       this.props.fetchPets(this.props.currentUser.id);
     }
-
   }
   isDayBlocked(el){
     const {bookings} = this.props;
