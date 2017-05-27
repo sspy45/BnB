@@ -10,20 +10,29 @@ class Search extends React.Component{
     this.handleChange = this.handleChange.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.parseQuery = this.parseQuery.bind(this);
+    this.addEnterListner = this.addEnterListner.bind(this);
     this.state ={
       search: ""
     };
   }
 
   componentWillMount(){
-    let filter = "";
+    let filter;
     let { search } = this.props.location;
     if(search !== ""){
       filter = this.parseQuery(search);
-      this.props.updateFilter('search', filter);
     }
+    this.props.updateFilter('search', filter);
+    this.addEnterListner();
   }
 
+  addEnterListner(){
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode === 13) {
+        this.handleChange();
+      }
+    }, false);
+  }
   parseQuery(search){
     let query = search.substring(3);
     let vars = query.split('%20');
@@ -34,10 +43,10 @@ class Search extends React.Component{
     }
     return vars;
   }
-  handleChange(filter){
-    let search = filter.split(" ");
+  handleChange(){
+    let search = this.state.search.split(" ");
     console.log(search);
-    return (e) => this.props.updateFilter('search', search);
+    this.props.updateFilter('search', search);
   }
 
   updateSearch(e){
@@ -99,7 +108,7 @@ class Search extends React.Component{
             onChange={this.updateSearch}
           />
           <button
-            onClick={this.handleChange(this.state.search)}>
+            onClick={this.handleChange}>
             Search
           </button>
         </section>
