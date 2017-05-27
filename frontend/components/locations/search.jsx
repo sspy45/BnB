@@ -9,16 +9,35 @@ class Search extends React.Component{
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+    this.parseQuery = this.parseQuery.bind(this);
     this.state ={
       search: ""
     };
   }
 
   componentWillMount(){
-    this.props.fetchAndReplace();
+    let filter = "";
+    let { search } = this.props.location;
+    if(search !== ""){
+      filter = this.parseQuery(search);
+      this.props.updateFilter('search', filter);
+    }
   }
-  handleChange(filter, updateFilter){
-    return (e) => updateFilter('search', filter);
+
+  parseQuery(search){
+    let query = search.substring(3);
+    let vars = query.split('%20');
+    for (let i = 0; i < vars.length; i++) {
+      if(typeof vars[i] === "string"){
+        vars[i] = vars[i].toLowerCase();
+      }
+    }
+    return vars;
+  }
+  handleChange(filter){
+    let search = filter.split(" ");
+    console.log(search);
+    return (e) => this.props.updateFilter('search', search);
   }
 
   updateSearch(e){
@@ -80,7 +99,7 @@ class Search extends React.Component{
             onChange={this.updateSearch}
           />
           <button
-            onClick={this.handleChange(this.state.search, updateFilter)}>
+            onClick={this.handleChange(this.state.search)}>
             Search
           </button>
         </section>

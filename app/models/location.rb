@@ -60,10 +60,12 @@ class Location < ApplicationRecord
   end
 
   def self.search(search)
-
-    s = "%#{search.downcase}%"
-
-    self.where("lower(title) LIKE ? OR lower(city) LIKE ? OR lower(state) LIKE ?", s, s, s)
-
+    locations = self.none
+    search.each do |param|
+      param = "%#{param}%"
+      search_locations = self.where("lower(title) LIKE ? OR lower(city) LIKE ? OR lower(state) LIKE ?", param, param, param)
+      locations = locations.or(search_locations)
+    end
+    locations
   end
 end

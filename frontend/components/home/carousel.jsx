@@ -23,8 +23,10 @@ class Carousel extends React.Component {
 
   handleSearch(){
     event.preventDefault();
-    let query = this.state.query;
-    this.props.history.push(`/search/${query}`);
+    let query = this.state.query.split(" ").join("%20");
+
+
+    this.props.history.push(`/search?q=${query}`);
   }
 
   render(){
