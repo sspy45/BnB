@@ -4,13 +4,15 @@ import LocationIndexItem from './location_index_item';
 import LocationsContainer from './locations_container';
 import { asArray } from '../../reducers/selectors';
 
+
 class Search extends React.Component{
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.parseQuery = this.parseQuery.bind(this);
-    this.addEnterListner = this.addEnterListner.bind(this);
+    this.addEnterListener = this.addEnterListener.bind(this);
+    this.enter = this.enter.bind(this);
     this.state ={
       search: ""
     };
@@ -23,19 +25,25 @@ class Search extends React.Component{
       filter = this.parseQuery(search);
     }
     this.props.updateFilter('search', filter);
-    this.addEnterListner();
+    this.addEnterListener();
+  }
+  componentWillUnmount(){
+    window.removeEventListener('keydown', this.enter);
   }
 
-  addEnterListner(){
-    document.addEventListener('keyup', (e) => {
-      if (e.keyCode === 13) {
-        this.handleChange();
-      }
-    }, false);
+  addEnterListener(){
+
+    window.addEventListener('keydown', this.enter, false);
+  }
+
+  enter(e){
+    if (e.keyCode === 13) {
+      this.handleChange();
+    }
   }
   parseQuery(search){
     let query = search.substring(3);
-    let vars = query.split('%20');
+    let vars = query.split('+');
     for (let i = 0; i < vars.length; i++) {
       if(typeof vars[i] === "string"){
         vars[i] = vars[i].toLowerCase();
@@ -45,7 +53,12 @@ class Search extends React.Component{
   }
   handleChange(){
     let search = this.state.search.split(" ");
-    console.log(search);
+
+    let query = search.join("+");
+    history.pushState(
+      null,
+      null,
+      `/#/search?q=${query}`);
     this.props.updateFilter('search', search);
   }
 
@@ -60,16 +73,20 @@ class Search extends React.Component{
     let map;
     let tiles;
 
-    let mapSettings = {
-      center: { lat: 37.773972, lng: -122.431297 },
-      zoom: 13,
-      draggable: false,
-      zoomControl: false,
-      scrollwheel: false
-    };
 
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
       locations = asArray(this.props.locations);
+
+      let mapSettings = {
+        center: {
+          lat: locations[0].lat || 37.773972,
+          lng: locations[0].lng || -122.431297
+        },
+        zoom: 13,
+        draggable: true,
+        zoomControl: true,
+        scrollwheel: true
+      };
 
       map = (
         <div>
@@ -82,6 +99,7 @@ class Search extends React.Component{
           />
         </div>
       );
+      console.log(locations);
       tiles = (
         <section className="search-tiles">
           {locations.map(location =>
@@ -100,8 +118,8 @@ class Search extends React.Component{
     }
 
     return(
-      <section>
-        <section className="search-bar">
+      <section className="search-container">
+        <section className="search">
           <input
             value={this.state.search}
             placeholder="Search for pet sitters"
@@ -113,9 +131,7 @@ class Search extends React.Component{
           </button>
         </section>
         <section className="search-items">
-          <section>
-            {tiles}
-          </section>
+          {tiles}
           <section>
             {map}
           </section>

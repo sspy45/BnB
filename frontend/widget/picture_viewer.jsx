@@ -18,10 +18,14 @@ class PictureViewer extends React.Component {
     if(pictures && pictures.length > 0){
       return (
         <div className={klass}>
-          <img
-            alt={pictures[0].name || "Location"}
-            src={pictures[0].url}
-          />
+          <Slider {...settings}>
+            {pictures.map(picture => (
+              <img
+                key={picture.id}
+                alt={picture.name || "Location"}
+                src={picture.url}/>
+            ))}
+          </Slider>
         </div>
       );
     } else {
@@ -34,13 +38,5 @@ class PictureViewer extends React.Component {
   }
 }
 
-// TODO FIX SLIDER LATER
-// <Slider {...settings}>
-//   {pictures.map(picture => (
-//     <img
-//       key={picture.id}
-//       alt={picture.name || "Location"}
-//       src={picture.url}/>
-//   ))}
-// </Slider>
+
 export default PictureViewer;

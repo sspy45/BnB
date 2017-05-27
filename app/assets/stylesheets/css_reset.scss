@@ -59,12 +59,11 @@ table {
 }
 
 header {
-  display: flex;
-	padding: 20px;
+	display: flex;
+	padding: 10px;
 	width: 100%;
-  justify-content: space-between;
-
-
+	justify-content: space-between;
+	align-items: center;
 
 	marquee {
 		font-size: 30px;
@@ -647,8 +646,9 @@ h4 {
 }
 
 .search-items {
-	display: flex;
+	display: inline-flex;
   width: 100%;
+  margin: auto;
 }
 
 .search-map-container {
@@ -687,8 +687,36 @@ h4 {
 }
 
 .search-tiles {
-	display: flex;
+	display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 601px;
+	margin-left: 10px;
+}
+
+.search {
+	background-color: red;
+	width: 100%;
+	padding: 5px 5px 5px 20px;
+
+	button{
+		text-decoration: none;
+		padding: 8px;
+		color: white;
+		background-color: red;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		border: none;
+		cursor: pointer;
+	}
+
+	input {
+		width: 40%;
+		min-width: 200px;
+	  border-radius: 5px;
+	}
+}
+
+.search-container {
+	width: 100%;
 }

@@ -13,6 +13,12 @@ class Carousel extends React.Component {
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+
+    this.addEnterListener = this.addEnterListener.bind(this);
+    this.enter = this.enter.bind(this);
+  }
+  componentWillMount(){
+    this.addEnterListener();
   }
 
   updateSearch(e){
@@ -23,10 +29,25 @@ class Carousel extends React.Component {
 
   handleSearch(){
     event.preventDefault();
-    let query = this.state.query.split(" ").join("%20");
+    let query = this.state.query.split(" ").join("+");
 
 
     this.props.history.push(`/search?q=${query}`);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('keydown', this.enter);
+  }
+
+  addEnterListener(){
+
+    window.addEventListener('keydown', this.enter, false);
+  }
+
+  enter(e){
+    if (e.keyCode === 13) {
+      this.handleSearch();
+    }
   }
 
   render(){
