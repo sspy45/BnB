@@ -17,15 +17,15 @@ class LocationIndex extends React.Component{
     const settings = {
       dots: true,
       speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
+      slidesToShow: 4,
+      slidesToScroll: 5,
       arrows: true
     };
     locations[filter] = locations[filter] || {};
     if(Object.keys(locations[filter]).length !== 0 && locations.constructor === Object){
       locations = asArray(locations[filter]);
       return(
-        <Slider {...settings}>
+
         <secton className="inner-categories">
             {locations.map(local => (
               <LocationIndexItem
@@ -34,7 +34,7 @@ class LocationIndex extends React.Component{
               />
             ))}
         </secton>
-      </Slider>
+
       );
     } else {
       return (
