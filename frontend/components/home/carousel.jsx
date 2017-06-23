@@ -53,17 +53,18 @@ class Carousel extends React.Component {
   render(){
     return(
       <section className="home-splash">
-
         <section className="search-bar">
-          <input
-            value={this.state.search}
-            placeholder="Search for pet sitters"
-            onChange={this.updateSearch}
-          />
-          <button
-            onClick={this.handleSearch}>
-            Search
-          </button>
+          <div>
+            <input
+              value={this.state.search}
+              placeholder="Search for pet sitters"
+              onChange={this.updateSearch}
+            />
+            <button
+              onClick={this.handleSearch}>
+              Search
+            </button>
+          </div>
           <h1>Find them a home when you aren't</h1>
         </section>
       </section>

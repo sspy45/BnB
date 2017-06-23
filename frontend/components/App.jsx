@@ -31,8 +31,6 @@ class App extends React.Component{
           <Route path="/location/:id" component={ LocationDetailsContainer} />
           <Route path="/" component={ HomeContainer } />
         </Switch>
-
-        <Footer />
       </div>
     );
   }

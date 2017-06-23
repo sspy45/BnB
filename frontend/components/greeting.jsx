@@ -55,7 +55,7 @@ class Greeting extends React.Component {
         <header>
           <section>
           <Link to="/">
-            <h1>Air Bark n Bite</h1>
+            <h1 className="title"><i className="fa fa-paw" aria-hidden="true"></i> Air Bark n Bite</h1>
           </Link>
 
           </section>
@@ -73,7 +73,7 @@ class Greeting extends React.Component {
         return(
           <header>
             <Link to="/">
-              <h1>Air Bark n Bite</h1>
+              <h1 className="title">Air Bark n Bite</h1>
             </Link>
             <div className='header-session'>
               <button

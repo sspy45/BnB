@@ -80,7 +80,9 @@ header {
 	a{
 		text-decoration: none;
 	}
-
+	.title {
+		font-family: 'Kalam', cursive
+	}
 	.header-session{
 		display: flex;
 		flex-direction: row;
@@ -93,6 +95,7 @@ header {
 
 h1 {
 	font-size: 35px;
+	margin-left: 20px;
 }
 
 h2 {
@@ -101,10 +104,12 @@ h2 {
 
 h3 {
 	font-size: 22px;
+	margin: 5px;
 }
 
 h4 {
 	font-size: 18px;
+	margin: 5px;
 }
 
 .map-container{
@@ -338,16 +343,21 @@ h4 {
 .home-splash {
 	display: flex;
 	background-position: 50% 50%;
-	background-image: url(https://res.cloudinary.com/dkw3fxfzr/image/upload/v1495593788/home-splash_huyqw0.jpg);
+	background-image: url(http://res.cloudinary.com/dkw3fxfzr/image/upload/v1498106639/meredith-hunter-69168-min_ree99s.jpg);
 	margin: auto;
 	width: 100%;
 	background-size: cover;
 	flex-direction: column;
 	height: 500px;
+	align-items: center;
 
 	h1 {
-		color: black;
-	  margin-top: 42px;
+		color: white;
+		margin-top: 42px;
+		padding: 5px;
+		margin-left: 0px;
+		font-style: italic;
+		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	}
 }
 
@@ -439,6 +449,10 @@ h4 {
 		font-size: 40px;
 		color: gainsboro;
 	}
+
+	.slick-slider {
+		top: -127px;
+	}
 }
 
 .tile-location-carousel{
@@ -475,6 +489,11 @@ h4 {
 	display: flex;
   margin: 10px;
   max-width: 550px;
+
+	h1, h4{
+		margin-left: 0px
+	}
+	
 	section {
 		padding-bottom: 5px;
 	  padding-top: 5px;
@@ -621,10 +640,10 @@ h4 {
 
 .search-bar {
 	position: relative;
-  margin: auto;
-  top: 30px;
-	width: 100%;
-	left: 25%;
+	bottom: -60%;
+  display: flex;
+	flex-direction: column;
+	align-items: center;
 	button{
 		background: red;
 		text-decoration: none;
@@ -639,7 +658,7 @@ h4 {
 
 	input {
 		padding: 7px;
-	  width: 37%;
+    width: 270px;
 		border-top-left-radius: 8px;
 		border-bottom-left-radius: 8px;
 	}

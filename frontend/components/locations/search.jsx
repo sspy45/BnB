@@ -66,6 +66,7 @@ class Search extends React.Component{
     this.setState({
       search: e.currentTarget.value
     });
+    this.handleChange();
   }
 
   render(){
@@ -99,7 +100,6 @@ class Search extends React.Component{
           />
         </div>
       );
-      console.log(locations);
       tiles = (
         <section className="search-tiles">
           {locations.map(location =>
@@ -111,8 +111,7 @@ class Search extends React.Component{
     } else {
       map = (
         <div>
-          <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-          <span className="sr-only">Loading...</span>
+          <h2>No locations found for {this.state.search}</h2>
         </div>
       );
     }

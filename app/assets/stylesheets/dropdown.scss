@@ -12,6 +12,12 @@
 	text-align: left;
 	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
 	font-weight: initial;
+	li:hover {
+		background: gray;
+	}
+	a:hover{
+		color: white;
+	}
 }
 
 .gear-dropdown .editions  {
