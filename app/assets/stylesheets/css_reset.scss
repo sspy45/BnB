@@ -150,12 +150,10 @@ h4 {
 	font-weight: 700;
 	border-radius: 5px;
 	cursor: pointer;
-	// &:hover{
-	// 	color: gray;
-	// 	background-image: url('https://media.giphy.com/media/4dLGxc3IKOFZ6/giphy.gif');
-	// 	background-size: 100% 100%;
-	// 	// animation: pulse .3s infinite;
-	// }
+	&:hover{
+		color: white;
+		background: #5F9EA0;
+	}
 }
 
 .long-input {
@@ -187,7 +185,6 @@ h4 {
 }
 
 .categories {
-
 	width: 100%;
 	margin-left: 20px;
 	min-width: 300px;
@@ -202,6 +199,7 @@ h4 {
 .inner-categories {
 	display: flex;
 	flex-wrap: wrap;
+  justify-content: center;
 }
 
 
@@ -493,7 +491,7 @@ h4 {
 	h1, h4{
 		margin-left: 0px
 	}
-	
+
 	section {
 		padding-bottom: 5px;
 	  padding-top: 5px;
@@ -668,6 +666,7 @@ h4 {
 	display: inline-flex;
   width: 100%;
   margin: auto;
+  justify-content: center;
 }
 
 .search-map-container {

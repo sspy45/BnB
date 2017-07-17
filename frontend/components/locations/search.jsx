@@ -74,7 +74,6 @@ class Search extends React.Component{
     let map;
     let tiles;
 
-
     if(Object.keys(locations).length !== 0 && locations.constructor === Object){
       locations = asArray(this.props.locations);
 
@@ -104,7 +103,7 @@ class Search extends React.Component{
         <section className="search-tiles">
           {locations.map(location =>
             <LocationIndexItem
-              key={location.id}
+              key={location.id ? location.id : Math.random()}
               local={location} />)}
         </section>
       );
