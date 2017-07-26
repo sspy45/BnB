@@ -2,10 +2,10 @@
 
 Air Bark n Bite is a fullstack web application inspired by AirBnb.  Its tech stack features:
 
-  Ruby on Rails
-  PostgresSQL
-  React.js
-  Redux.js
+  - Ruby on Rails
+  - PostgresSQL
+  - React.js
+  - Redux.js
 
 Air Bark n Bite can be found [here](http://www.airbarkandbite.com/#/)
 
