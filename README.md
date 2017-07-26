@@ -60,6 +60,15 @@ isDayBlocked(date){
   const { bookings } = this.props;
   return date.format("LL") in bookings;
 }
+
+<DateRangePicker
+  startDate={this.state.startDate}
+  endDate={this.state.endDate}
+  onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+  focusedInput={this.state.focusedInput}
+  onFocusChange={focusedInput => this.setState({ focusedInput })}
+  isDayBlocked={(el) => this.isDayBlocked(el)}
+/>
 ```
 # Upcoming implementation
 Air Bark n Bite will continue to be centered for pets.  This means upcoming features will be added in describing the pet interactions. Photo uploads will be made available for pets.  Photos can be loaded by either the owners or the hosts provided consent has been obtained.  Comments will also be added for pets.  No one wants an angry godzilla storming up the place.
