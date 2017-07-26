@@ -46,13 +46,8 @@ class LocationMap extends React.Component {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west }
       };
-
       this.props.updateFilter('bounds', bounds);
     });
-    // google.maps.event.addListener(this.map, 'click', (event) => {
-    //   const coords = getCoordsObj(event.latLng);
-    //   this.handleClick(coords);
-    // });
   }
 
   handleMarkerClick(location) {
