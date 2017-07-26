@@ -3,8 +3,11 @@
 Air Bark n Bite is a fullstack web application inspired by AirBnb.  Its tech stack features:
 
   Ruby on Rails
+
   PostgresSQL
+
   React.js
+
   Redux.js
 
 Air Bark n Bite can be found [here](http://www.airbarkandbite.com/#/)
@@ -22,7 +25,7 @@ Users will be able to search local hosts through the Google Map Api.  Once the u
 ## Challenges
 
 Some of the challenges involved integrating Google Maps available locations based on the map focus and dimensions. Every time a new location was selected, other proxies would need to be updated.
-'''
+```
 componentDidUpdate() {
   if (this.props.singleLocation) {
     const targetLocationKey = Object.keys(this.props.locations)[0];
@@ -43,24 +46,24 @@ registerListeners() {
     this.props.updateFilter('bounds', bounds);
   });
 }
-'''
+```
 
 Another challenging implementation was handling responses from AirBnb's calendar library, particularly updating the availability of the hosting instantaneously and preventing anyone else from making the same booking.  
 
 In Ruby:
-'''
+```
 def overlaps
   Booking.where("id = (?)", self.id)
   .where("check_in < (?) AND check_out > (?)", self.check_out, self.check_in)
 end
-'''
+```
 In Javascript:
-'''
+```
 isDayBlocked(date){
   const { bookings } = this.props;
   return date.format("LL") in bookings;
 }
-'''
+```
 # Upcoming implementation
 Air Bark n Bite will continue to be centered for pets.  This means upcoming features will be added in describing the pet interactions. Photo uploads will be made available for pets.  Photos can be loaded by either the owners or the hosts provided consent has been obtained.  Comments will also be added for pets.  No one wants an angry godzilla storming up the place.
 
