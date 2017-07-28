@@ -9,6 +9,8 @@ Air Bark n Bite is a fullstack web application inspired by AirBnb.  Its tech sta
 
 Air Bark n Bite can be found [here](http://www.airbarkandbite.com/#/)
 
+![Gif of site](http://res.cloudinary.com/dkw3fxfzr/image/upload/v1501214457/gif1_y85nwz.gif)
+
 ## Features & Implementation
 
 The site was created to compliment AirBnb.  When you travel abroad for either a short or an extended stay **Air Bark n Bite** is here for you to book a place for your beloved pets.  
